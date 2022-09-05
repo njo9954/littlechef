@@ -5,9 +5,9 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>review</title>
+    <title>login</title>
     <link rel="stylesheet" href="css/reset_1.css">
-    <link rel="stylesheet" href="css/review.css">
+    <link rel="stylesheet" href="css/login.css">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script>
@@ -72,8 +72,23 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
         </header>
         <div id="container">
             <section id="section_0">
-                <h1>☆ 레시피 후기 ☆</h1>
+                <h1>로그인</h1>
             </section>
+            <scetion id="section_1">
+                <form name="loginform" method="post" action="login.php">
+                    <fieldset id="login">
+                        <legend>회원로그인</legend>
+                        <div class="user_login">
+                            <input type="text" name="nemoshop_id" placeholder="아이디" autofocus>
+                            <input type="password" name="nemoshop_pw" placeholder="비밀번호">
+                            <label for="save_id">아이디 저장</label>
+                            <input type="checkbox" name="save_id" id="save_id">
+                            <button type="submit" class="btn_login">로그인</button>
+                            <button type="button" class="btn_join"><a href="#">회원가입</a></button>
+                        </div>
+                    </fieldset>
+                </form>
+            </scetion>           
             <section id="section_3">
                 <div class="sc_box">
                     <ul class="banner">
