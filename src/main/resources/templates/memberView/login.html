@@ -64,7 +64,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                         <fieldset>
                             <legend>검색창</legend>
                             <input type="text" name="search_bar" placeholder="검색어를 입력하세요">
-                            <button type="button"><img th:src="@{img/search.svg}" alt="검색아이콘"></button>
+                            <button type="button"><svg th:src="@{img/search.svg}" alt="검색아이콘"></button>
                         </fieldset>
                     </form></li>
                 </ul>
@@ -84,7 +84,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                             <label for="save_id">아이디 저장</label>
                             <input type="checkbox" name="save_id" id="save_id">
                             <button type="submit" class="btn_login">로그인</button>
-                            <button type="button" class="btn_join"><a href="#">회원가입</a></button>
+                            <button type="button" class="btn_join"><a th:href="@{/memberView/join}">회원가입</a></button>
                         </div>
                     </fieldset>
                 </form>
