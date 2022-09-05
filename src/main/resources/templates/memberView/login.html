@@ -6,9 +6,9 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
-    <link rel="stylesheet" href="css/reset_1.css">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/css/reset_1.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="shortcut icon" th:href="@{/img/favicon.ico}" type="image/x-icon">
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -24,12 +24,12 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <div id="wrap">
         <header id="header">
             <div class="h_cont">
-                <h1><a href="#"><img src="img/littlecheflogo.png" width="20%"></a></h1>
+                <h1><a href="#"><img th:src="@{/img/littlecheflogo.png}" width="20%"></a></h1>
                 <ul class="h_menu">
                     <li>
                         <a href="#">
                             <div class="icon">
-                                <img src="img/topicon1.png" alt="t_icon1">
+                                <img th:src="@{/img/topicon1.png}" alt="t_icon1">
                             </div>
                             <p>로그인</p>
                         </a>
@@ -37,7 +37,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                     <li>
                         <a href="#">
                             <div class="icon">
-                                <img src="img/topicon2.png" alt="t_icon2">
+                                <img th:src="@{/img/topicon2.png}" alt="t_icon2">
                             </div>
                             <p>회원가입</p>
                         </a>
@@ -45,7 +45,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                     <li>
                         <a href="#">
                             <div class="icon">
-                                <img src="img/topicon3.png" alt="t_icon3">
+                                <img th:src="@{/img/topicon3.png}" alt="t_icon3">
                             </div>
                             <p>대량구매</p>
                         </a>
@@ -64,7 +64,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                         <fieldset>
                             <legend>검색창</legend>
                             <input type="text" name="search_bar" placeholder="검색어를 입력하세요">
-                            <button type="button"><img src="img/search.svg" alt="검색아이콘"></button>
+                            <button type="button"><img th:src="@{img/search.svg}" alt="검색아이콘"></button>
                         </fieldset>
                     </form></li>
                 </ul>
@@ -74,7 +74,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
             <section id="section_0">
                 <h1>로그인</h1>
             </section>
-            <scetion id="section_1">
+            <section id="section_1">
                 <form name="loginform" method="post" action="login.php">
                     <fieldset id="login">
                         <legend>회원로그인</legend>
@@ -92,9 +92,9 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
             <section id="section_3">
                 <div class="sc_box">
                     <ul class="banner">
-                        <li><a href="#"><img src="img/banner1.jpg" alt="ban1"></a></li>
-                        <li><a href="#"><img src="img/banner2.jpg" alt="ban2"></a></li>
-                        <li><a href="#"><img src="img/banner3.jpg" alt="ban3"></a></li>
+                        <li><a href="#"><img th:src="@{/img/banner1.jpg}" alt="ban1"></a></li>
+                        <li><a href="#"><img th:src="@{/img/banner2.jpg}" alt="ban2"></a></li>
+                        <li><a href="#"><img th:src="@{/img/banner3.jpg}" alt="ban3"></a></li>
                     </ul>
                 </div>           
             </section>
@@ -121,7 +121,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
             <div class="ft_cont">
                 <div class="ft_logo">
                     <a href="#" class="ft_logo">
-                        <img id="ft_img" src="img/littlechef_footer.png" width="15%" alt="f_logo">
+                        <img id="ft_img" th:src="@{/img/littlechef_footer.png}" width="15%" alt="f_logo">
                     </a>
                 </div>
                 <address>대표 : 남정욱 / E-mail: help@10000recipe.com / Phone: 02) 323-5049<br>
@@ -138,7 +138,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
         <aside id="aside">
             <ul class="as_logo">
                 <li>
-                    <a href="#"><img src="img/up3.png" alt="aside_logo"></a>
+                    <a href="#"><img th:src="@{/img/up3.png}" alt="aside_logo"></a>
                 </li>
             </ul>
         </aside>
