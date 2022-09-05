@@ -1,5 +1,5 @@
 package com.project.service;
 
-public class MemberService {
+public interface MemberService {
 
 }

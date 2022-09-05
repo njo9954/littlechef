@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.domain.Member;
-import com.project.service.MemberService;
+import com.project.service.MemberServiceImpl;
 
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
