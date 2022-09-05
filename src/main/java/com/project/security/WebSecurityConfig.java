@@ -38,8 +38,8 @@ public class WebSecurityConfig {
         .formLogin()						//일반적인 폼을 이용한 로그인 처리/실패 방법을 사용 // ~ 로그인 처리에 관한. 로그인 처리
         .loginPage("/member/loginForm")		//시큐리티에서 제공하는 기본 폼이 아닌 사용자가 만든 폼 사용 // 이 경로 요청이 들어오면 html 파일을 보여줌 // loginForm.html로 감
         .loginProcessingUrl("/member/login").permitAll()	//인증 처리를 하는 URL을 설정. 로그인 폼의 action으로 지정 // 요청처리 들어오면 폼 보여주는 부분(이름 정하면 알아서 만들어짐), // action 목적지
-        .usernameParameter("m_id")		//로그인폼의 아이디 입력란의 name // 서버 전달 파라미터를 보여줌. 파라미터의 이름이 정해짐
-        .passwordParameter("m_pw")		//로그인폼의 비밀번호 입력란의 name
+        .usernameParameter("memberid")		//로그인폼의 아이디 입력란의 name // 서버 전달 파라미터를 보여줌. 파라미터의 이름이 정해짐
+        .passwordParameter("memberpw")		//로그인폼의 비밀번호 입력란의 name
         .and()
         .logout() // 자동으로 만들어짐
         .logoutSuccessUrl("/").permitAll()	//로그아웃시에 이동할 경로 // 로그아웃하고 어디로 돌아올지 경로. 보통 메인화면
@@ -58,14 +58,14 @@ public class WebSecurityConfig {
         .dataSource(dataSource)
         // 인증 (로그인)
         .usersByUsernameQuery( //           읽어서      전달      로그인 시켜줘도 되는지. 쓰면 안되는 건지
-        		"select memberid username, m_pw password, enabled " +
-                "from site_member " +
-                "where m_id = ?") // DB연결 프로그래밍을 할 때 전달된 값 끼워넣어서 sql 실행하는 게 ? // mybatis에서의 #
+        		"select memberid username, memberpw password, enabled " +
+                "from spring5_member " +
+                "where memberid = ?") // DB연결 프로그래밍을 할 때 전달된 값 끼워넣어서 sql 실행하는 게 ? // mybatis에서의 #
         // 권한
         .authoritiesByUsernameQuery( // 로그인을 했느냐가 중요한 기능도 있고 관리자인지 일반회원인지 구분
-        		"select m_id username, rolename role_name " +
-                "from site_member " +
-                "where m_id = ?");
+        		"select memberid username, rolename role_name " +
+                "from spring5_member " +
+                "where memberid = ?");
     }
 
     // 단방향 비밀번호 암호화 // select하면 비밀번호가 다 보임
