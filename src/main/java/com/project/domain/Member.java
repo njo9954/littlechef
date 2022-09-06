@@ -25,11 +25,12 @@ public class Member implements UserDetails {
 	
 	 // 접근불가 __ 한번대입한 값 붙일 수 없음 자료형x // 값 저장하고 읽기만 하려고 static final
 	String m_id;			// 사용자 식별ID
-	int auth_id;		// 관리자 식별ID
 	String m_pw;		// 사용자 비밀번회
 	String m_name;		// 사용자 이름 
 	String m_gender;	// 사용사 성별
-	String m_address;	// 사용자 주소 		
+	String m_zipcode;	// 우편번호 
+	String m_address1;	// 사용자 주소 1		
+	String m_address2;  // 사용자 주소 2
 	String m_phone;		// 사용자 핸드폰번호
 	String m_email;		// 사용자 이메일 
 	String m_grade;		// 사용자 맴버등급

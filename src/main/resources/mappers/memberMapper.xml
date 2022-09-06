@@ -1,28 +1,46 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="com.project.dao.MemberDAO">
-
-<!-- 회원정보 저장 -->
- 
+<!-- 저장 -->
 <insert id="insertMember" parameterType="Member">
-    insert into site_member (
-		m_id,
-		m_pw,
-		m_name,
-		m_phone,
-		m_email,
-		m_address
-	) 
-    values (
-		#{m_id}
-		, #{m_pw}
-		, #{m_name}
-		, #{m_phone}
-		, #{m_email}
-		, #{m_address}
-	)
+	INSERT INTO site_member
+		(
+		m_id;				
+	,	 m_pw;		
+	,	 m_name;		
+	,	 m_zipcode;	
+	,	 m_address1;	
+	,	 m_address2;  
+ 	,	 m_phone;		
+	,	 m_email;		 
+ 	,	 m_grade;		
+	,	 m_allergy;	
+	,	 enabled;    
+	,	 rolename; 	
+	,	 m_birth; 			
+ 	,	 m_cupon; 	
+	,	 m_mileage; 
+		)
+		VALUES
+		(
+	#{m_id}
+	, #{m_pw}
+	, #{m_name}
+	, #{m_gender}
+	, #{m_zipcode}
+	, #{m_address1}
+	, #{m_address2}
+	, #{m_phone}
+	, #{m_email}
+	, #{m_grade}
+	, #{m_allergy}
+	, #{enabled}
+	, #{rolename}
+	, #{m_birth}
+	, #{m_cupon}
+	, #{m_mileage}
+		)
 </insert>
 
 </mapper>
