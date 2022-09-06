@@ -71,7 +71,49 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
             </nav>
         </header>
         <div id="container">
-                        <section id="section_3">
+            <section id="section_0">
+                <h1>마이페이지</h1>
+            </section>
+            <section id="section_1">
+                <table>
+                    <tr>
+                        <th>내 등급</th>
+                        <th>
+                            마일리지 및 쿠폰
+                        </th>
+                        <th>현재 주문 상태</th>
+                    </tr>
+                    <tr>
+                        <td>당신의 등급은 <span>0</span>등급입니다.</td>
+                        <td>
+                            <h1>마일리지</h1>
+                            <h1>보유쿠폰</h1>
+                        </td>
+                        <td>
+                            <h1>주문이력보기</h1>
+                            <h1>배송중 목록보기</h1>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <section id="section_2">
+                <h1>최근 주문목록</h1>
+                <table>
+                    <tr>
+                        <th>레시피 명</th>
+                        <td><a>갈릭 닭가슴살</a></td>
+                    </tr>
+                    <tr>
+                        <th>레시피 명</th>
+                        <td><a>페퍼 솔트 닭가슴살</a></td>
+                    </tr>
+                    <tr>
+                        <th>레시피 명</th>
+                        <td><a>민트 초코 닭가슴살</a></td>
+                    </tr>
+                </table>
+            </section>
+            <section id="section_3">
                 <div class="sc_box">
                     <ul class="banner">
                         <li><a href="#"><img th:src="@{/img/banner1.jpg}" alt="ban1"></a></li>
