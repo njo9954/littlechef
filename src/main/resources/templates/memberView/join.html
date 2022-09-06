@@ -132,49 +132,49 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <h1>리틀 셰프에 오신 것을 환영합니다!</h1>
             </section>
             <section id="section_1">
-                <form action="#" method="post">
+                <form id="join" th:action="@{/memberView/join}"  method="post">
                     <table>
                         <tr>
                             <th>아이디</th>
                             <td>
-                                <input type="text" placeholder="아이디를 입력하세요">
+                                <input type="text" name="m_id" id="m_id" placeholder="아이디를 입력하세요">
                                 <input type="button" value="중복확인">
                             </td>
                         </tr>
                         <tr>
                             <th>비밀번호</th>
                             <td>
-                                <input type="password" placeholder="비밀번호를 입력하세요">
+                                <input type="password" name="m_pw" id="m_pw"  placeholder="비밀번호를 입력하세요">
                             </td>
                         </tr>
                         <tr>
                             <th>비밀번호 확인</th>
                             <td>
-                                <input type="password" placeholder="상기 입력한 비밀번호를 입력하세요">
+                                <input type="password" id="m_pw2" placeholder="상기 입력한 비밀번호를 입력하세요">
                             </td>
                         </tr>
                         <tr>
                             <th>이름</th>
                             <td>
-                                <input type="text" placeholder="이름을 입력하세요">
+                                <input type="text" name="m_name" id="m_name"  placeholder="이름을 입력하세요">
                             </td>
                         </tr>
                         <tr>
                             <th>생년월일</th>
                             <td>
-                                <input type="date">
+                                <input type="date" name="m_birth" id="m_birth" >
                             </td>
                         </tr>
                         <tr>
                             <th>전화번호</th>
                             <td>
-                                <input type="tel" placeholder="전화번호를 입력하세요">
+                                <input type="tel" name="m_phone" id="m_phone"  placeholder="전화번호를 입력하세요">
                             </td>
                         </tr>
                         <tr>
                             <th>이메일</th>
                             <td>
-                                <input type="email" placeholder="이메일을 입력하세요">
+                                <input type="email" name="m_email" id="m_email"  placeholder="이메일을 입력하세요">
                             </td>
                         </tr>
                         <tr>
@@ -187,7 +187,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                         <tr>
                         	<th>도로명주소</th>
                         	<td>
-                        	<input type="text" id="roadAddress" placeholder="도로명주소">							
+                        	<input type="text" name="m_address" id="m_address" placeholder="도로명주소">							
                         	</td>
                         </tr>
                         

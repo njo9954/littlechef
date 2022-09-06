@@ -36,7 +36,7 @@ public class Member implements UserDetails {
 	String m_allergy ;	// 사용자 알러지 정보
 	boolean enabled;    // 계정상태 1: 사용가능 , 0: 사용불가능 
 	String rolename; 	// 'ROLE_USER', 'ROLE_ADMIN'중 하나  
-	int m_birth; 		// 사용자 생년월일	
+	String m_birth; 		// 사용자 생년월일	
 	int m_cupon; 		// 사용자 쿠폰 갯수
 	int m_mileage; 		// 사용자 마일리지 
 	
