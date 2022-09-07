@@ -127,7 +127,7 @@ input[type=text], input[type=password], input[type=tel], input[type=email] {
 
 input[type=text]:hover, input[type=password]:hover, 
 input[type=tel]:hover, input[type=email]:hover {
-    border: 1px solid#b37b0e;
+    border: 1px solid #b37b0e;
     cursor: pointer;
 }
 
@@ -159,7 +159,7 @@ textarea {
 }
 
 textarea:hover {
-    border: 1px solid#b37b0e;
+    border: 1px solid #b37b0e;
     cursor: pointer;
 }
 
