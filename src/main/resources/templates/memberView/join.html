@@ -47,7 +47,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('postcode').value = data.zonecode;
+                document.getElementById('m_zipcode').value = data.zonecode;
                 document.getElementById("m_address").value = roadAddr;
                 
                 // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
@@ -196,7 +196,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                         <tr>
                             <th>우편번호</th>
                             <td>
-                                <input type="text" id="postcode" placeholder="우편번호">
+                                <input type="text" name="m_zipcode" id="m_zipcode" placeholder="우편번호">
 								<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기">
                             </td>
                         </tr>
