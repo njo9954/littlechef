@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 
 import com.project.domain.Member;
 
-@Service
 public interface MemberService {
 	/**
 	 * 회원가입
