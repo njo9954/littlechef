@@ -12,9 +12,9 @@ create table site_member(  -- 멤버 테이플
 	m_email varchar2(100) not null,
 	m_grade char(1) default 'A' check (m_grade in('A','B','C')) not null,
 	m_allergy varchar2(50),
-	m_birth number not null,
-	m_cupon number not null,
-	m_mileage number not null,
+	m_birth date default sysdate,
+	m_cupon number,
+	m_mileage number,
 	enabled	NUMBER DEFAULT 1 CHECK(enabled IN(1, 0)),	--계정상태.숫자1자리. 1은 사용가능(기본값). 0은 사용불가능 아이디.(휴먼,차단일 경우
 	rolename VARCHAR2(20) DEFAULT 'ROLE_USER' CHECK(rolename IN('ROLE_USER', 'ROLE_ADMIN'))	--문자열20byte. 'ROLE_USER'(기본값), 'ROLE_ADMIN'중 하나.
 );
