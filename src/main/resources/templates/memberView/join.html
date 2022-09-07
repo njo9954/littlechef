@@ -48,7 +48,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
                 document.getElementById('m_zipcode').value = data.zonecode;
-                document.getElementById("m_address").value = roadAddr;
+                document.getElementById("m_address1").value = roadAddr;
                 
                 // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
                 if(roadAddr !== ''){
@@ -203,7 +203,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                         <tr>
                         	<th>도로명주소</th>
                         	<td>
-                        	<input type="text" name="m_address" id="m_address" placeholder="도로명주소">							
+                        	<input type="text" name="m_address1" id="m_address1" placeholder="도로명주소">							
                         	</td>
                         </tr>
                         
