@@ -35,7 +35,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                         </a>
                     </li>
                     <li sec:authorize="isAuthenticated()"> <!--  로그인 후  -->
-                        <a th:href="@{/}">
+                        <a th:href="@{/logout}">
                             <div class="icon">
                                 <img th:src="@{/img/logout.png}" alt="t_icon2" width="32px">
                             </div>
