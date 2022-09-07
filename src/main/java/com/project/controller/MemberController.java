@@ -38,7 +38,14 @@ public class MemberController {
 		return "/memberView/login";
 	}
 
-
-
+	@GetMapping("mypage")
+	public String mypage() {
+		return "/memberView/mypage";
+	}
+	
+	@GetMapping("cart")
+	public String cart() {
+		return "/memberView/cart";
+	}
 }
 	
