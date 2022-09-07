@@ -12,5 +12,7 @@ public interface MemberService {
 	 * @return 저장된 행 개수
 	 */
 	public int insertMember(Member member);
+
+	public boolean idcheck(String searchId);
 		
 }

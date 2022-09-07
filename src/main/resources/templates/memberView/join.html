@@ -19,6 +19,11 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 }, 777)
             })
         })
+      
+    function idFormOpen() {
+		window.open('idcheck', 'win', 'top=200,left=500,width=400,height=300');
+	}    
+        
     </script>
     <script>
     //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
@@ -154,7 +159,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                             <th>아이디</th>
                             <td>
                                 <input type="text" name="m_id" id="m_id" placeholder="아이디를 입력하세요">
-                                <input type="button" value="중복확인">
+                                <input type="button" value="중복확인" onclick="idFormOpen()">
                             </td>
                         </tr>
                         <tr>

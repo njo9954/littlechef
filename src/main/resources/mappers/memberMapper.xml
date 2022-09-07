@@ -34,4 +34,8 @@
 	)
 </insert>
 
+<select id="selectOne" parameterType="string" resultType="Member">
+	select * from site_member where m_id = #{m_id}
+</select>
+
 </mapper>

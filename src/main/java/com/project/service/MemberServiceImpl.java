@@ -24,6 +24,14 @@ public class MemberServiceImpl implements MemberService {
 		int result = memberDAO.insertMember(member);
 		return result;
 	}
+
+	@Override
+	public boolean idcheck(String searchId) {
+		boolean result = false;
+		Member member = memberDAO.selectOne(searchId);
+		result = member == null ? true : false;
+		return result;
+	}
 }
 	
 
