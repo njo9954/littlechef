@@ -27,7 +27,6 @@ public class Member implements UserDetails {
 	String m_id;			// 사용자 식별ID
 	String m_pw;		// 사용자 비밀번회
 	String m_name;		// 사용자 이름 
-	String m_gender;	// 사용사 성별
 	String m_zipcode;	// 우편번호 
 	String m_address1;	// 사용자 주소 1		
 	String m_address2;  // 사용자 주소 2

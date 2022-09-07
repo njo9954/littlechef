@@ -6,37 +6,28 @@
 <insert id="insertMember" parameterType="Member">
 	INSERT INTO site_member
 		(
-		m_id;				
-	,	 m_pw;		
-	,	 m_name;		
-	,	 m_zipcode;	
-	,	 m_address1;	
-	,	 m_address2;  
- 	,	 m_phone;		
-	,	 m_email;		 
- 	,	 m_grade;		
-	,	 m_allergy;	
-	,	 enabled;    
-	,	 rolename; 	
-	,	 m_birth; 			
- 	,	 m_cupon; 	
-	,	 m_mileage; 
+		m_id			
+	,	 m_pw		
+	,	 m_name		
+	,	 m_zipcode	
+	,	 m_address1
+	,	 m_address2  
+ 	,	 m_phone	
+	,	 m_email		 		 
+	,	 m_birth 			
+ 	,	 m_cupon 	
+	,	 m_mileage 
 		)
 		VALUES
 		(
 	#{m_id}
 	, #{m_pw}
 	, #{m_name}
-	, #{m_gender}
 	, #{m_zipcode}
 	, #{m_address1}
 	, #{m_address2}
 	, #{m_phone}
 	, #{m_email}
-	, #{m_grade}
-	, #{m_allergy}
-	, #{enabled}
-	, #{rolename}
 	, #{m_birth}
 	, #{m_cupon}
 	, #{m_mileage}

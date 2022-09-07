@@ -9,10 +9,14 @@ import com.project.domain.Member;
 
 @Service
 public class MemberServiceImpl implements MemberService {
-
+	
+	@Autowired 
+	private MemberDAO memberDAO;
+	
 	@Override
 	public int insertMember(Member member) {
-		return 0;
+		int result = memberDAO.insertMember(member);
+		return result;
 	}
 	
 }

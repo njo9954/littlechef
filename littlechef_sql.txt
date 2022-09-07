@@ -10,7 +10,7 @@ create table site_member(  -- 멤버 테이플
 	m_address2 varchar2(100) not null,
 	m_phone varchar2(40) not null,
 	m_email varchar2(100) not null,
-	m_grade char(1) default 'A' check (m_grade in('B','C')) not null,
+	m_grade char(1) default 'A' check (m_grade in('A','B','C')) not null,
 	m_allergy varchar2(50),
 	m_birth number not null,
 	m_cupon number not null,
@@ -116,6 +116,5 @@ create table site_event( -- 이벤트 테이블
 			drop table site_board;
 			drop table site_member;
 			drop table site_food;
-			drop table site_auth;
 
 commit;
