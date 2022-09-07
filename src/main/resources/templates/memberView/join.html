@@ -48,13 +48,13 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
                 document.getElementById('postcode').value = data.zonecode;
-                document.getElementById("roadAddress").value = roadAddr;
+                document.getElementById("m_address").value = roadAddr;
                 
                 // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
                 if(roadAddr !== ''){
-                    document.getElementById("extraAddress").value = extraRoadAddr;
+                    document.getElementById("m_address2").value = extraRoadAddr;
                 } else {
-                    document.getElementById("extraAddress").value = '';
+                    document.getElementById("m_address2").value = '';
                 }
 
                 var guideTextBox = document.getElementById("guide");
@@ -210,7 +210,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                         <tr>
                         	<th></th>
                         	<td>
-                        	<input type="text" id="detailAddress" placeholder="상세주소">
+                        	<input type="text" name ="m_address2" id="m_address2" placeholder="상세주소">
 							</td>                        	
                         </tr>                        
                         <tr>
