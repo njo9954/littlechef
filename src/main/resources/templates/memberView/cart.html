@@ -42,7 +42,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                             <p>logout</p>
                         </a>
                     </li>
-                    <li>
+                    <li sec:authorize="isAuthenticated()"> <!--  로그인 후  -->
                         <a th:href="@{/memberView/join}">
                             <div class="icon">
                                 <img th:src="@{/img/topicon2.png}" alt="t_icon3">
