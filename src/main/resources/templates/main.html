@@ -58,7 +58,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                             <p>mypage</p>
                         </a>
                     </li>
-                    <li sec:authorize="not isAuthenticated()">
+                    <li>
                         <a th:href="@{/memberView/cart}">
                             <div class="icon">
                                 <img th:src="@{/img/cart.png}" alt="t_icon5" width="32px">

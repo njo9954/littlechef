@@ -26,7 +26,8 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
             <div class="h_cont">
                 <h1><a th:href="@{/}"><img th:src="@{/img/littlecheflogo.png}" width="20%"></a></h1>
                <ul class="h_menu">
-                    <li sec:authorize="not isAuthenticated()"> <!--  로그인 전  -->
+                    
+                    <li>
                         <a th:href="@{/memberView/login}">
                             <div class="icon">
                                 <img th:src="@{/img/topicon1.png}" alt="t_icon1">
@@ -34,15 +35,9 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                             <p>login</p>
                         </a>
                     </li>
+                  
+       
                     <li>
-                        <a th:href="@{/}">
-                            <div class="icon">
-                                <img th:src="@{/img/logout.png}" alt="t_icon2" width="32px">
-                            </div>
-                            <p>logout</p>
-                        </a>
-                    </li>
-                    <li sec:authorize="isAuthenticated()"> <!--  로그인 후  -->
                         <a th:href="@{/memberView/join}">
                             <div class="icon">
                                 <img th:src="@{/img/topicon2.png}" alt="t_icon3">
@@ -50,7 +45,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                             <p>join</p>
                         </a>
                     </li>
-                    <li>
+                    <li sec:authorize="isAuthenticated()"> <!--  로그인 후  -->
                         <a th:href="@{/memberView/mypage}">
                             <div class="icon">
                                 <img th:src="@{/img/laptop.png}" alt="t_icon4" width="32px">
@@ -58,14 +53,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                             <p>mypage</p>
                         </a>
                     </li>
-                    <li>
-                        <a th:href="@{/memberView/cart}">
-                            <div class="icon">
-                                <img th:src="@{/img/cart.png}" alt="t_icon5" width="32px">
-                            </div>
-                            <p>cart</p>
-                        </a>
-                    </li>
+
                 </ul>
             </div>
             <nav class="gnb">
