@@ -103,3 +103,23 @@
     color: #b37b0e;
 }
 
+#goUpdate {
+	text-align: center;
+	margin-top: 4rem;
+}
+
+#goUpdate a input {
+	width: 30rem;
+	height: 4rem;
+	font-size: 2rem;
+	border: none;
+	box-sizing: border-box;
+	background-color: #b37b0e;
+	color: white;
+}
+
+#goUpdate a input:hover {
+	background-color: #4F453A;
+	transition: 0.5s;
+	cursor: pointer;
+}

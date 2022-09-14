@@ -55,9 +55,13 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                         <td>주문일자: 2022/02/20</td>
                     </tr>
                 </table>
+                <div id="goUpdate">
+                	<a th:href="@{/memberView/updateForm}">
+                		<input type="button" value="회원수정 페이지로 이동">
+                	</a>	
+                </div>
             </section>
             
-        	<a th:href="@{/memberView/updateForm}">회원수정 페이지로</a>
             
             <section id="section_3">
                 <div class="sc_box">
