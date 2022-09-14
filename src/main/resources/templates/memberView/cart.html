@@ -79,7 +79,142 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <h1>※ -장바구니- ※</h1>
             </section>
             <section id="section_1">
-                
+                <table>
+                    <tr>
+                        <th>내 등급</th>
+                        <th>
+                            마일리지 및 쿠폰
+                        </th>
+                        <th>현재 주문 상태</th>
+                    </tr>
+                    <tr>
+                        <td>당신의 등급은 <span>0</span>등급입니다.</td>
+                        <td>
+                            <h1>마일리지</h1>
+                            <h1>보유쿠폰</h1>
+                        </td>
+                        <td>
+                            <h1>주문이력보기</h1>
+                            <h1>배송중 목록보기</h1>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <section id="section_2">
+                <table id="sc2_t1">
+                    <tr>
+                        <th>선택</th>
+                        <th>번호</th>
+                        <th>레시피명</th>
+                        <th>수량</th>
+                        <th>할인/적립</th>
+                        <th>구매하기</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>3</td>
+                        <td>허브솔트 닭가슴살</td>
+                        <td>
+                            <input type="number">
+                        </td>
+                        <td>
+                            <select>
+                                <option>할인</option>
+                                <option>적립</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="button" value="구매하기">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>2</td>
+                        <td>페퍼솔트 닭가슴살</td>
+                        <td>
+                            <input type="number">
+                        </td>
+                        <td>
+                            <select>
+                                <option>할인</option>
+                                <option>적립</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="button" value="구매하기">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>1</td>
+                        <td>라임솔트 닭가슴살</td>
+                        <td>
+                            <input type="number">
+                        </td>
+                        <td>
+                            <select>
+                                <option>할인</option>
+                                <option>적립</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="button" value="구매하기">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" id="last_td">
+                            <input type="button" value="전체취소">
+                            <input type="button" value="선택구매">
+                            <input type="button" value="전체구매">
+                        </td>
+                    </tr>
+                </table>
+                <table id="sc2_t2">
+                    <tr>
+                        <th>번호</th>
+                        <th>재료명</th>
+                        <th>수량</th>
+                    </tr>
+                    <tr>
+                        <td>0001</td>
+                        <td>닭가슴살</td>
+                        <td>
+                            <input type="number">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>0002</td>
+                        <td>통후추</td>
+                        <td>
+                            <input type="number">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>0003</td>
+                        <td>정제염</td>
+                        <td>
+                            <input type="number">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>0004</td>
+                        <td>치킨스톡분말</td>
+                        <td>
+                            <input type="number">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <input type="button" value="확정">
+                        </td>
+                    </tr>
+                </table>
             </section>
             <section id="section_3">
                 <div class="sc_box">
