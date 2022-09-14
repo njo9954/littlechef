@@ -5,7 +5,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <div class="ft_cont" th:fragment="fragment-footer">
         <div class="ft_logo">
             <a href="#" class="ft_logo">
-                <img id="ft_img" src="img/littlechef_footer.png" width="15%" alt="f_logo">
+                <img id="ft_img" th:src="@{/img/littlechef_footer.png}" width="15%" alt="f_logo">
             </a>
         </div>
         <address>대표 : 남정욱 / E-mail: help@10000recipe.com / Phone: 02) 323-5049<br>

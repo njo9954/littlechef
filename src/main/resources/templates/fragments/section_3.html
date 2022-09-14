@@ -4,9 +4,9 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <section id="section_3" th:fragment="fragment-section_3">
     <div class="sc_box">
         <ul class="banner">
-            <li><a href="#"><img src="img/banner1.jpg" alt="ban1"></a></li>
-            <li><a href="#"><img src="img/banner2.jpg" alt="ban2"></a></li>
-            <li><a href="#"><img src="img/banner3.jpg" alt="ban3"></a></li>
+            <li><a href="#"><img th:src="@{/img/banner1.jpg}" alt="ban1"></a></li>
+            <li><a href="#"><img th:src="@{/img/banner2.jpg}" alt="ban2"></a></li>
+            <li><a href="#"><img th:src="@{/img/banner3.jpg}" alt="ban3"></a></li>
         </ul>
     </div>           
 </section>
