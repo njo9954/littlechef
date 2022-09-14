@@ -55,14 +55,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                         <td>주문일자: 2022/02/20</td>
                     </tr>
                 </table>
-                <div id="goUpdate">
-                	<a th:href="@{/memberView/updateForm}">
-                		<input type="button" value="회원수정 페이지로 이동">
-                	</a>	
-                </div>
             </section>
-            
-            
             <section id="section_3">
                 <div class="sc_box">
                     <ul class="banner">
@@ -115,6 +108,15 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                     <a href="#"><img th:src="@{/img/up3.png}" alt="aside_logo"></a>
                 </li>
             </ul>
+        </aside>
+        <aside id="myaside">
+        	<ul class="goUpdate">
+		        <li>
+		            <a th:href="@{/memberView/updateForm}">
+		            	<input type="button" value="회원수정 페이지로 이동">
+		            </a>
+		        </li>
+    		</ul>
         </aside>
     </div>
 </body>
