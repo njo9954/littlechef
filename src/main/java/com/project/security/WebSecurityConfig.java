@@ -44,9 +44,9 @@ public class WebSecurityConfig {
         .passwordParameter("m_pw")		//로그인폼의 비밀번호 입력란의 name
         .and()
         .logout() // 자동으로 만들어짐
-        .logoutSuccessUrl("/")
+        .logoutSuccessUrl("/").permitAll()
         .invalidateHttpSession(true)
-        .permitAll()	//로그아웃시에 이동할 경로 // 로그아웃하고 어디로 돌아올지 경로. 보통 메인화면
+        //로그아웃시에 이동할 경로 // 로그아웃하고 어디로 돌아올지 경로. 보통 메인화면
         .and()
         .cors()
         .and()
