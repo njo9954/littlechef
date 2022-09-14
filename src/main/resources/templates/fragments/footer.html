@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>little chef</title>
+    <link rel="stylesheet" href="css/reset_1.css">
+    <link rel="stylesheet" href="css/style_recipe.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("aside").click(function() {
+                $("html").animate({
+                    scrollTop: 0,
+                }, 777)
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="container">
+            <section id="section_3">
+                <div class="sc_box">
+                    <ul class="banner">
+                        <li><a href="#"><img src="img/banner1.jpg" alt="ban1"></a></li>
+                        <li><a href="#"><img src="img/banner2.jpg" alt="ban2"></a></li>
+                        <li><a href="#"><img src="img/banner3.jpg" alt="ban3"></a></li>
+                    </ul>
+                </div>           
+            </section>
+            <section id="section_4">
+                <div class="sc4_cont">
+                    <div class="sc4_top">
+                        <div class="sct_cont">
+                            <h2>NEWS</h2><p>온라인 쇼핑몰이 현재 오픈을 준비하고 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="sc4_bottom">
+                        <ul class="sc4_menu">
+                            <li><a href="#">회사소개</a></li>
+                            <li><a href="#">이용약관</a></li>
+                            <li><a href="#">개인정보취급방침</a></li>
+                            <li><a href="#">대량구매</a></li>
+                            <li><a href="#">오시는 길</a></li>
+                        </ul>
+                    </div>                
+                </div>
+            </section>
+        </div>
+        <footer id="footer">
+            <div class="ft_cont">
+                <div class="ft_logo">
+                    <a href="#" class="ft_logo">
+                        <img id="ft_img" src="img/littlechef_footer.png" width="15%" alt="f_logo">
+                    </a>
+                </div>
+                <address>대표 : 남정욱 / E-mail: help@10000recipe.com / Phone: 02) 323-5049<br>
+                    주소: 서울 강남구 삼성동 123-45 한국무역센터 1106-1호<br>
+                    문의 전화(운영시간 평일 10:00~18:00)<br>
+                    쇼핑 문의(작은 요리 공방) : 02-1234-5678<br>
+                    서비스 이용문의 : 070-4444-6666<br>
+                    
+                    (주)작은 요리 공방 / 사업자등록번호 234-56-01234 / 통신판매업신고 2022-서울강남-3333 / 벤처기업확인 / 사업자정보확인
+                    서울지방중소기업청 제 0123456789-1-01643호</address>
+                <p class="copy">Copyright ©Little Chef Inc. All Rights Reserved</p>
+            </div>
+        </footer>
+        <aside id="aside">
+            <ul class="as_logo">
+                <li>
+                    <a href="#"><img src="img/up3.png" alt="aside_logo"></a>
+                </li>
+            </ul>
+        </aside>
+    </div>
+</body>
+</html>
