@@ -13,5 +13,14 @@ public interface MemberService {
 	public int insertMember(Member member);
 
 	public boolean idcheck(String searchId);
+
+	public Member getMemberInfo(String id);
+	
+	//회원탈퇴
+	public int deleteMember(Member member);
+
+	//회원정보 수정
+	public int update(Member member);
+
 		
 }

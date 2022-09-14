@@ -13,5 +13,11 @@ public interface MemberDAO {
 	//회원정보 조회
 	Member selectOne(String id);
 	
+	//회원정보 수정
+	int update(Member member);
+	
+	//회원정보 삭제
+	int deleteMember(Member member);
+	
 	
 }

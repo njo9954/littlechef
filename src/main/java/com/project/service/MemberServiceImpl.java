@@ -32,6 +32,34 @@ public class MemberServiceImpl implements MemberService {
 		result = member == null ? true : false;
 		return result;
 	}
+
+	@Override
+	public Member getMemberInfo(String id) {
+		
+		return memberDAO.selectOne(id);
+	}
+
+	@Override
+	public int deleteMember(Member member) {
+		if(!member.getPassword().equals("")) {
+			String encodePassword = passwordEncoder.encode(member.getM_pw());
+			member.setM_pw(encodePassword);
+		}
+		
+		int result=memberDAO.deleteMember(member);
+		return result;
+	}
+
+	@Override
+	public int update(Member member) {
+		if(!member.getPassword().equals("")) {
+			String encodePassword = passwordEncoder.encode(member.getM_pw());
+			member.setM_pw(encodePassword);
+		}
+		
+		int result=memberDAO.update(member);
+		return result;
+	}
 }
 	
 
