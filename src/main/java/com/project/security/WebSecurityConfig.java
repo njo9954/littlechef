@@ -24,7 +24,8 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
         .authorizeRequests()
-        .antMatchers("/", // 사람들이 들어와서 뭔가 눌러봄 // 그냥 들어와도 되는 경로 등록해야 아무나 들어올 수 있음
+        .antMatchers("/",// 사람들이 들어와서 뭔가 눌러봄 // 그냥 들어와도 되는 경로 등록해야 아무나 들어올 수 있음
+        		"/main",
         		"/memberView/join", // 가입하기 경로
         		"/memberView/cart", // 쇼핑카트 
         		"/memberView/login", // 로그인 
@@ -33,6 +34,7 @@ public class WebSecurityConfig {
                 "/board/read", // 글 읽기는 아무나
                 "/board/download",
                 "/img/**", // ~밑까지 static 밑 폴더. 다 열어놓음
+                "/video/**",
                 "/css/**",
                 "/js/**").permitAll()		//설정한 리소스의 접근을 인증절차 없이 허용 // 어떤 권한을 가졌든지 다 허락
         .anyRequest().authenticated()   	//위의 경로 외에는 모두 로그인을 해야 함 // 그 외에는 다 인증받고 들어와야 함
