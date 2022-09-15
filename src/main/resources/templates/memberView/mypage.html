@@ -70,10 +70,20 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
              <div th:replace="/fragments/aside.html :: fragment-aside"></div>
         </aside>
         <aside id="myaside">
-        	<ul class="goUpdate">
-		        <li>
+        	<ul>
+		        <li class="goUpdate">
 		            <a th:href="@{/memberView/updateForm}">
 		            	<input type="button" value="회원수정 페이지로 이동">
+		            </a>
+		        </li>
+		        <li class="goOrderList">
+		            <a th:href="@{/memberView/updateForm}">
+		            	<input type="button" value="주문내역 페이지로 이동">
+		            </a>
+		        </li>
+		        <li class="goDibsList">
+		            <a th:href="@{/memberView/updateForm}">
+		            	<input type="button" value="찜한내역 페이지로 이동">
 		            </a>
 		        </li>
     		</ul>
