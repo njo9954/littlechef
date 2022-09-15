@@ -25,6 +25,11 @@ img {display: block;}
 
 #header .h_cont {max-width: calc(1440px - 4rem); padding: 0 2rem; min-width: calc(1000px - 4rem); margin: 0 auto; height: 150px; display: flex; justify-content: space-between; align-items: center;}
 
+#header .h_cont h1 a img:hover {
+	filter: drop-shadow(1px 1px 2px #BF9849);
+	filter: brightness(123%);
+	transition: 0.7s;
+}
 /* Form */
 
 fieldset legend {display: none;}
@@ -63,7 +68,10 @@ button img {width: 80%; margin: 0 auto;}
 
 .gnb ul li a {display: flex; height: 40px; justify-content: center; align-items: center; font-size: 1.6rem; font-weight: 700; color: whitesmoke; background-color: #027d62;}
 
-.gnb ul li:hover a {background-color: #014A3A; color: #b37b0e;}
+.gnb ul li:hover a {
+	background-color: #014A3A; 
+	color: #FFCA61;
+	}
 
 
 /* Container Contents */
@@ -110,13 +118,20 @@ button img {width: 80%; margin: 0 auto;}
 
 .item_list li:last-child {border-right: 1px solid #ccc;}
 
-.item_list li a img {width: 100%;}
+.item_list li a img {
+	width: 100%;
+	}
+
+.item_list li a img:hover {
+	filter: brightness(108%);
+	filter: saturate(111%);
+}
 
 .item_list .pay {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0; transition: 0.3s;}
 
 .item_list .pay a {font-size: 2rem; color: whitesmoke; padding: 3rem; background-color: #333;}
 
-.item_list li:hover .pay {opacity: 0.8;}
+.item_list li:hover .pay {opacity: 0.8; cursor: pointer;}
 
 /* Section 3 */
 
@@ -170,6 +185,7 @@ button img {width: 80%; margin: 0 auto;}
 
 #ft_img:hover {
     opacity: 1;
+    filter: drop-shadow(1px 1px 1px #111);
     transition: 0.5s;
 }
 .ft_cont address {font-size: 1.2rem; font-weight: 500; color: #ccc; margin-bottom: 2rem; line-height: 2rem;}
