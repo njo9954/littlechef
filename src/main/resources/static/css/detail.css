@@ -79,4 +79,41 @@
 }
 /* Section 2 */
 
+#section_2 {
+    max-width: 144rem; 
+    padding: 0 2rem; 
+    min-width: calc(1000px - 4rem); 
+    margin: 0 auto; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
 
+#section_2 #sc2_button {
+    border: 1px solid #b37b0e;
+    width: 126rem;
+    height: 6rem;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+#section_2 #sc2_button a input[type=button] {
+    width: 24rem;
+    height: 3rem;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    color: white;
+    background-color: #b37b0e;
+    border: none;
+}
+
+#section_2 #sc2_button a input[type=button]:hover {
+    background-color: #4F453A;
+    transition: 0.5s;
+    cursor: pointer;
+}
