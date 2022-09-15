@@ -65,57 +65,17 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 </table>
             </section>
             <section id="section_3">
-                <div class="sc_box">
-                    <ul class="banner">
-                        <li><a href="#"><img th:src="@{/img/banner1.jpg}" alt="ban1"></a></li>
-                        <li><a href="#"><img th:src="@{/img/banner2.jpg}" alt="ban2"></a></li>
-                        <li><a href="#"><img th:src="@{/img/banner3.jpg}" alt="ban3"></a></li>
-                    </ul>
-                </div>           
+                 <div th:replace="/fragments/section_3.html :: fragment-section_3"></div>         
             </section>
             <section id="section_4">
-                <div class="sc4_cont">
-                    <div class="sc4_top">
-                        <div class="sct_cont">
-                            <h2>NEWS</h2><p>온라인 쇼핑몰이 현재 오픈을 준비하고 있습니다.</p>
-                        </div>
-                    </div>
-                    <div class="sc4_bottom">
-                        <ul class="sc4_menu">
-                            <li><a href="#">회사소개</a></li>
-                            <li><a href="#">이용약관</a></li>
-                            <li><a href="#">개인정보취급방침</a></li>
-                            <li><a href="#">대량구매</a></li>
-                            <li><a href="#">오시는 길</a></li>
-                        </ul>
-                    </div>                
-                </div>
+                 <div th:replace="/fragments/section_4.html :: fragment-section_4"></div>
             </section>
         </div>
         <footer id="footer">
-            <div class="ft_cont">
-                <div class="ft_logo">
-                    <a href="#" class="ft_logo">
-                        <img id="ft_img" th:src="@{/img/littlechef_footer.png}" width="15%" alt="f_logo">
-                    </a>
-                </div>
-                <address>대표 : 남정욱 / E-mail: help@10000recipe.com / Phone: 02) 323-5049<br>
-                    주소: 서울 강남구 삼성동 123-45 한국무역센터 1106-1호<br>
-                    문의 전화(운영시간 평일 10:00~18:00)<br>
-                    쇼핑 문의(작은 요리 공방) : 02-1234-5678<br>
-                    서비스 이용문의 : 070-4444-6666<br>
-                    
-                    (주)작은 요리 공방 / 사업자등록번호 234-56-01234 / 통신판매업신고 2022-서울강남-3333 / 벤처기업확인 / 사업자정보확인
-                    서울지방중소기업청 제 0123456789-1-01643호</address>
-                <p class="copy">Copyright ©Little Chef Inc. All Rights Reserved</p>
-            </div>
+             <div th:replace="/fragments/footer.html :: fragment-footer"></div>
         </footer>
         <aside id="aside">
-            <ul class="as_logo">
-                <li>
-                    <a href="#"><img th:src="@{/img/up3.png}" alt="aside_logo"></a>
-                </li>
-            </ul>
+             <div th:replace="/fragments/aside.html :: fragment-aside"></div>
         </aside>
     </div>
 </body>
