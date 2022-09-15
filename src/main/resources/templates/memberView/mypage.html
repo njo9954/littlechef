@@ -41,17 +41,20 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <table>
                     <tr>
                         <th>레시피 명</th>
-                        <td><a>갈릭 닭가슴살</a></td>
+                        <td>0001</td>
+                        <td><a href="#">갈릭 닭가슴살</a></td>
                         <td>주문일자: 2022/02/22</td>
                     </tr>
                     <tr>
                         <th>레시피 명</th>
-                        <td><a>페퍼 솔트 닭가슴살</a></td>
+                        <td>0002</td>
+                        <td><a href="#">페퍼 솔트 닭가슴살</a></td>
                         <td>주문일자: 2022/02/21</td>
                     </tr>
                     <tr>
                         <th>레시피 명</th>
-                        <td><a>민트 초코 닭가슴살</a></td>
+                        <td>0003</td>
+                        <td><a href="#">민트 초코 닭가슴살</a></td>
                         <td>주문일자: 2022/02/20</td>
                     </tr>
                 </table>
@@ -71,19 +74,65 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
         </aside>
         <aside id="myaside">
         	<ul>
+        		<li class="goHome">
+        			<a th:href="@{/}">홈으로</a>
+        		</li>
+        		<li class="upperline">
+					<a href="#">__________________________________</a>
+        		</li>
+        		<li class="member">
+        			<p>회원관리</p>
+        		</li>
 		        <li class="goUpdate">
 		            <a th:href="@{/memberView/updateForm}">
-		            	<input type="button" value="회원수정 페이지로 이동">
+		            	회원정보수정
 		            </a>
 		        </li>
+		        <li class="goLogout">
+		            <a th:href="@{/memberView/updateForm}">
+		            	로그아웃
+		            </a>
+		        </li>
+		        <li class="getout">
+		            <a th:href="@{/memberView/updateForm}">
+		            	회원탈퇴
+		            </a>
+		        </li>
+		        <li class="middleline">
+					<a href="#">__________________________________</a>
+        		</li>
+        		<li class="order">
+        			<p>주문관리</p>
+        		</li>
 		        <li class="goOrderList">
 		            <a th:href="@{/memberView/updateForm}">
-		            	<input type="button" value="주문내역 페이지로 이동">
+		            	주문내역
 		            </a>
 		        </li>
-		        <li class="goDibsList">
+		        <li class="goCartList">
 		            <a th:href="@{/memberView/updateForm}">
-		            	<input type="button" value="찜한내역 페이지로 이동">
+		            	장바구니
+		            </a>
+		        </li>
+		        <li class="underline">
+					<a href="#">__________________________________</a>
+        		</li>
+        		<li class="benefit">
+        			<p>혜택관리</p>
+        		</li>
+        		<li class="goDiscount">
+		            <a th:href="@{/memberView/updateForm}">
+		            	할인혜택
+		            </a>
+		        </li>
+		        <li class="goCoupon">
+		            <a th:href="@{/memberView/updateForm}">
+		            	쿠폰관리
+		            </a>
+		        </li>
+		        <li class="asideBanner">
+		            <a href="#">
+		            	<img th:src="@{/img/littlechef_footer.png}">
 		            </a>
 		        </li>
     		</ul>

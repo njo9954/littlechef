@@ -94,9 +94,24 @@
     text-align: left;
     border: 1px dotted #b37b0e;
 }
+#section_2 table td:nth-child(2) {
+	width: 6rem;
+	text-align: center;
+}
 #section_2 table td:last-child {
 	width: 20rem;
 	text-align: center;
+}
+
+#section_2 table td a {
+	color: #014A3A;
+}
+
+#section_2 table td a:hover {
+	color: 033C57;
+	text-decoration: underline;
+	cursor: pointer;
+	transition: 0.5s;
 }
 #section_2 table td span {
     font-weight: bold;
@@ -105,10 +120,11 @@
 
 #myaside {
     position: fixed;
-    width: 20rem;
+    width: 21rem;
     height: 60rem;
-    border: 1px solid #014A3A;
-    background-color: white;
+    border: 1px solid #dedede;
+    border-radius: 1.2rem;
+    background-color: rgba(234, 250, 234, 0.9);
     top: 15%;
     right: 1%;
     transform: translate(0%,10%);
@@ -116,7 +132,7 @@
     display: flex;
 }
 
-#myaside .goUpdate {
+#myaside .goHome {
 	text-align: center;
 	position: absolute;
     top: 6%;
@@ -125,20 +141,38 @@
     transition: 0.3s;
 }
 
-#myaside .goUpdate a input[type=button] {
-	color: white;
-	background-color: #b37b0e;
-	border: none;
-	padding: 0.8rem;
+#myaside .goHome a {
+	font-size: 2.4rem;
+	font-weight: bold;
+	color: #014A3A;
 }
 
-#myaside .goUpdate a input[type=button]:hover {
-	background-color: #4F453A;
-	transition: 0.5s;
+#myaside .goHome a:hover {
+	color: #045E8A;
+	text-decoration: underline;
 	cursor: pointer;
+	transition: 0.5s;
 }
 
-#myaside .goOrderList {
+#myaside .upperline {
+	text-align: center;
+	position: absolute;
+    top: 9%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: 0.3s;
+}
+
+#myaside .upperline a {
+	color: #014A3A;
+	font-weight: bold;
+}
+
+#myaside .upperline a:hover {
+	text-decoration: underline;
+}
+
+#myaside .member {
 	text-align: center;
 	position: absolute;
     top: 15%;
@@ -147,20 +181,35 @@
     transition: 0.3s;
 }
 
-#myaside .goOrderList a input[type=button] {
-	color: white;
-	background-color: #b37b0e;
+#myaside .member p {
+	font-size: 2.4rem;
+	font-weight: bold;
+	color: #014A3A;
+}
+
+#myaside .goUpdate {
+	text-align: center;
+	position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: 0.3s;
+}
+
+#myaside .goUpdate a {
+	font-size: 1.5rem;
+	color: #014A3A;
 	border: none;
 	padding: 0.8rem;
 }
 
-#myaside .goOrderList a input[type=button]:hover {
-	background-color: #4F453A;
+#myaside .goUpdate a:hover {
+	text-decoration: underline;
 	transition: 0.5s;
 	cursor: pointer;
 }
 
-#myaside .goDibsList {
+#myaside .goLogout {
 	text-align: center;
 	position: absolute;
     top: 24%;
@@ -169,15 +218,211 @@
     transition: 0.3s;
 }
 
-#myaside .goDibsList a input[type=button] {
-	color: white;
-	background-color: #b37b0e;
+#myaside .goLogout a {
+	font-size: 1.5rem;
+	color: #014A3A;
 	border: none;
 	padding: 0.8rem;
 }
 
-#myaside .goDibsList a input[type=button]:hover {
-	background-color: #4F453A;
+#myaside .goLogout a:hover {
+	text-decoration: underline;
 	transition: 0.5s;
 	cursor: pointer;
+}
+
+#myaside .getout {
+	text-align: center;
+	position: absolute;
+    top: 28%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: 0.3s;
+}
+
+#myaside .getout a {
+	font-size: 1.5rem;
+	color: #014A3A;
+	border: none;
+	padding: 0.8rem;
+}
+
+#myaside .getout a:hover {
+	text-decoration: underline;
+	transition: 0.5s;
+	cursor: pointer;
+}
+
+#myaside .middleline {
+	text-align: center;
+	position: absolute;
+    top: 31%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: 0.3s;
+}
+
+#myaside .middleline a {
+	color: #014A3A;
+	font-weight: bold;
+}
+
+#myaside .middleline a:hover {
+	text-decoration: underline;
+}
+
+#myaside .order {
+	text-align: center;
+	position: absolute;
+    top: 37%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: 0.3s;
+}
+
+#myaside .order p {
+	font-size: 2.4rem;
+	font-weight: bold;
+	color: #014A3A;
+}
+
+#myaside .goOrderList {
+	text-align: center;
+	position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: 0.3s;
+}
+
+#myaside .goOrderList a {
+	font-size: 1.5rem;
+	color: #014A3A;
+	border: none;
+	padding: 0.8rem;
+}
+
+#myaside .goOrderList a:hover {
+	text-decoration: underline;
+	transition: 0.5s;
+	cursor: pointer;
+}
+
+#myaside .goCartList {
+	text-align: center;
+	position: absolute;
+    top: 46%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: 0.3s;
+}
+
+#myaside .goCartList a {
+	font-size: 1.5rem;
+	color: #014A3A;
+	border: none;
+	padding: 0.8rem;
+}
+
+#myaside .goCartList a:hover {
+	text-decoration: underline;
+	transition: 0.5s;
+	cursor: pointer;
+}
+
+#myaside .underline {
+	text-align: center;
+	position: absolute;
+    top: 49%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: 0.3s;
+}
+
+#myaside .underline a {
+	color: #014A3A;
+	font-weight: bold;
+}
+
+#myaside .underline a:hover {
+	text-decoration: underline;
+}
+
+#myaside .benefit {
+	text-align: center;
+	position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: 0.3s;
+}
+
+#myaside .benefit p {
+	font-size: 2.4rem;
+	font-weight: bold;
+	color: #014A3A;
+}
+
+#myaside .goDiscount {
+	text-align: center;
+	position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: 0.3s;
+}
+
+#myaside .goDiscount a {
+	font-size: 1.5rem;
+	color: #014A3A;
+	border: none;
+	padding: 0.8rem;
+}
+
+#myaside .goDiscount a:hover {
+	text-decoration: underline;
+	transition: 0.5s;
+	cursor: pointer;
+}
+
+#myaside .goCoupon {
+	text-align: center;
+	position: absolute;
+    top: 64%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: 0.3s;
+}
+
+#myaside .goCoupon a {
+	font-size: 1.5rem;
+	color: #014A3A;
+	border: none;
+	padding: 0.8rem;
+}
+
+#myaside .goCoupon a:hover {
+	text-decoration: underline;
+	transition: 0.5s;
+	cursor: pointer;
+}
+
+#myaside .asideBanner {
+	text-align: center;
+	position: absolute;
+    top: 81%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: 0.3s;
+}
+
+#myaside .asideBanner a img {
+	width: 15rem;
+	opacity: 0.77;
+}
+
+#myaside .asideBanner a img:hover {
+	filter: drop-shadow(2px 2px 2px #029676);
+	opacity: 1;
+	transition: 0.5s;
 }
