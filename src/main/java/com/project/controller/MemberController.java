@@ -91,7 +91,7 @@ public class MemberController {
 			log.debug("{} 수정 성공", member);
 		}
 	
-		return "redirect:/";
+		return "redirect:/logout";
 	}
 	
 	

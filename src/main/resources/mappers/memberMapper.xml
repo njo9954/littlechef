@@ -50,12 +50,7 @@
 </update>
 
 <update id="deleteMember" parameterType="Member">
-	UPDATE site_member
-	SET	m_name=null, m_zipcode=null, m_phone=null, m_address1=null
-	, m_address2=null, m_email=null, m_birth=null, enabled=0
-	<if test="m_pw != null and m_pw != ''">
-	, m_pw = #{m_pw}
-	</if>
+	DELETE site_member
 	WHERE m_id=#{m_id}
 
 </update>

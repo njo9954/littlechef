@@ -87,7 +87,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <h1>회원정보 수정</h1>
             </section>
             <section id="section_1">
-                <form id="joinForm" th:action="@{/memberView/update}" method="post">
+                <form id="joinForm" method="post">
                     <table>
                         <tr>
                             <th>아이디</th>
@@ -153,8 +153,8 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                         </tr>                        
                         <tr>
                             <td colspan="2" id="table_last">
-                                <input type="submit" value="수정하기">
-                                <input type="submit" th:action="@{/memberView/deleteMember}" value="탈퇴하기">
+                                <input type="submit" value="수정하기" onclick="javascript: form.action='/littlechef/memberView/update';"/>
+                                <input type="submit" value="탈퇴하기" onclick="javascript: form.action='/littlechef/memberView/deleteMember';"/>
                             </td>
                         </tr>
                     </table>
