@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <div th:replace="/fragments/head.html :: fragment-head"></div>
+</head>
+<body>
+    <div id="wrap">
+        <header id="header">
+             <div th:replace="/fragments/header.html :: fragment-header"></div>
+        </header>
+        <div id="container">
+            <section id="section_0">
+                <div class="s0_cont">
+                    <div class="promotion">
+                        <video autoplay muted loop class="video">
+                            <source th:src="@{/video/salad_1280.mp4}">
+                        </video>
+                    </div>
+                </div>
+            </section>
+            <section id="section_2">
+                <h2><span>전체</span>&nbsp;RECIPE</h2>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="#">
+                                <img th:src="@{/img/sc2_1.jpg}">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#">
+                                <img th:src="@{/img/sc2_2.jpg}">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#">
+                                <img th:src="@{/img/sc2_3.jpg}">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#">
+                                <img th:src="@{/img/sc2_4.jpg}">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <a href="#">메뉴1</a>
+                        </th>
+                        <th>
+                            <a href="#">메뉴2</a>
+                        </th>
+                        <th>
+                            <a href="#">메뉴3</a>
+                        </th>
+                        <th>
+                            <a href="#">메뉴4</a>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">
+                                <img th:src="@{/img/sc2_5.jpg}">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#">
+                                <img th:src="@{/img/sc2_6.jpg}">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#">
+                                <img th:src="@{/img/sc2_7.jpg}">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#">
+                                <img th:src="@{/img/sc2_8.jpg}">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <a href="#">메뉴5</a>
+                        </th>
+                        <th>
+                            <a href="#">메뉴6</a>
+                        </th>
+                        <th>
+                            <a href="#">메뉴7</a>
+                        </th>
+                        <th>
+                            <a href="#">메뉴8</a>
+                        </th>
+                    </tr>
+                </table>
+            </section>
+            <section id="section_3">
+                 <div th:replace="/fragments/section_3.html :: fragment-section_3"></div>         
+            </section>
+            <section id="section_4">
+                 <div th:replace="/fragments/section_4.html :: fragment-section_4"></div>
+            </section>
+        </div>
+        <footer id="footer">
+             <div th:replace="/fragments/footer.html :: fragment-footer"></div>
+        </footer>
+        <aside id="aside">
+             <div th:replace="/fragments/aside.html :: fragment-aside"></div>
+        </aside>
+    </div>
+</body>
+</html>
