@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <div th:replace="/fragments/head.html :: fragment-head"></div>
+    <link rel="stylesheet" th:href="@{/css/discount}">
+</head>
+<body>
+    <div id="wrap">
+        <header id="header">
+             <div th:replace="/fragments/header.html :: fragment-header"></div>
+        </header>
+        <div id="container">
+            <section id="section_0">
+               <h1>보유 할인 혜택 모음</h1>
+            </section>
+            <section id="section_1">
+                
+            </section>
+            <section id="section_2">
+                <h2><span>TIME</span>&nbsp;DEAl!</h2>
+                <hr>
+            </section>
+            <section id="section_3">
+                 <div th:replace="/fragments/section_3.html :: fragment-section_3"></div>         
+            </section>
+            <section id="section_4">
+                 <div th:replace="/fragments/section_4.html :: fragment-section_4"></div>
+            </section>
+        </div>
+        <footer id="footer">
+             <div th:replace="/fragments/footer.html :: fragment-footer"></div>
+        </footer>
+        <aside id="aside">
+             <div th:replace="/fragments/aside.html :: fragment-aside"></div>
+        </aside>
+    </div>
+</body>
+</html>
