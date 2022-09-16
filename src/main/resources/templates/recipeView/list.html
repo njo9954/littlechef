@@ -3,6 +3,7 @@
 xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <div th:replace="/fragments/head.html :: fragment-head"></div>
+    <link rel="stylesheet" th:href="@{/css/recipeList.css}">
 </head>
 <body>
     <div id="wrap">
@@ -10,15 +11,6 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
              <div th:replace="/fragments/header.html :: fragment-header"></div>
         </header>
         <div id="container">
-            <section id="section_0">
-                <div class="s0_cont">
-                    <div class="promotion">
-                        <video autoplay muted loop class="video">
-                            <source th:src="@{/video/salad_1280.mp4}">
-                        </video>
-                    </div>
-                </div>
-            </section>
             <section id="section_2">
                 <h2><span>전체</span>&nbsp;RECIPE</h2>
                 <table>
