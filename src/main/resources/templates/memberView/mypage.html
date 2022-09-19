@@ -89,7 +89,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 		            </a>
 		        </li>
 		        <li class="goLogout">
-		            <a th:href="@{/memberView/updateForm}">
+		            <a th:href="@{/logout}">
 		            	로그아웃
 		            </a>
 		        </li>
@@ -105,12 +105,12 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
         			<p>주문관리</p>
         		</li>
 		        <li class="goOrderList">
-		            <a th:href="@{/memberView/updateForm}">
+		            <a th:href="@{/orderView/orderList}">
 		            	주문내역
 		            </a>
 		        </li>
 		        <li class="goCartList">
-		            <a th:href="@{/memberView/updateForm}">
+		            <a th:href="@{/orderView/cart}">
 		            	장바구니
 		            </a>
 		        </li>

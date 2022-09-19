@@ -168,10 +168,6 @@
 	font-weight: bold;
 }
 
-#myaside .upperline a:hover {
-	text-decoration: underline;
-}
-
 #myaside .member {
 	text-align: center;
 	position: absolute;
@@ -267,10 +263,6 @@
 	font-weight: bold;
 }
 
-#myaside .middleline a:hover {
-	text-decoration: underline;
-}
-
 #myaside .order {
 	text-align: center;
 	position: absolute;
@@ -342,10 +334,6 @@
 #myaside .underline a {
 	color: #014A3A;
 	font-weight: bold;
-}
-
-#myaside .underline a:hover {
-	text-decoration: underline;
 }
 
 #myaside .benefit {

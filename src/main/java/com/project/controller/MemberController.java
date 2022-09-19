@@ -114,12 +114,6 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
-	
-	@GetMapping("cart")
-	public String cart() {
-		return "/memberView/cart";
-	}
-	
 	@GetMapping("coupon")
 	public String coupon() {
 		return "/memberView/coupon";
