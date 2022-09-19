@@ -3,3 +3,78 @@
 h1 {
 	font-size: 4rem;
 }
+
+#container #section_1 {
+    max-width: 144rem;
+    margin: 2rem auto;
+}
+
+#section_1 table {
+    width: 110rem;
+    margin: 4rem auto;
+    border: 1px solid #b37b0e;
+    border-collapse: collapse;
+    box-sizing: border-box;
+}
+
+#section_1 table th {
+    background-color: #027d62;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+#section_1 table td {
+    border: 1px dotted #b37b0e;
+    color: #014A3A;
+    font-size: 1.8rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+#section_1 h2 {
+    padding-top: 2rem;
+    color: red;
+    font-size: 1.6rem;
+    padding-left: 17rem;
+}
+
+#section_1 h2:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#section_1 table td:first-child {
+	width: 6rem;
+}
+
+#section_1 table td:nth-child(2) {
+    text-align: left;
+    width: 70rem;
+    overflow: hidden;
+}
+
+#section_1 table td:last-child {
+	width: 6rem;
+}
+#section_1 table td a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type=button] {
+    color: white;
+    background-color: #b37b0e;
+    border: none;
+    width: 12rem;
+    height: 2.4rem;
+}
+
+input[type=button]:hover {
+    background-color: #4F453A;
+    cursor: pointer;
+    transition: 0.5s;
+}
