@@ -78,7 +78,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
         			<a th:href="@{/}">홈으로</a>
         		</li>
         		<li class="upperline">
-					<a href="#">__________________________________</a>
+					<a>__________________________________</a>
         		</li>
         		<li class="member">
         			<p>회원관리</p>
@@ -99,7 +99,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 		            </a>
 		        </li>
 		        <li class="middleline">
-					<a href="#">__________________________________</a>
+					<a>__________________________________</a>
         		</li>
         		<li class="order">
         			<p>주문관리</p>
@@ -115,18 +115,13 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 		            </a>
 		        </li>
 		        <li class="underline">
-					<a href="#">__________________________________</a>
+					<a>__________________________________</a>
         		</li>
         		<li class="benefit">
         			<p>혜택관리</p>
         		</li>
-        		<li class="goDiscount">
-		            <a th:href="@{/memberView/updateForm}">
-		            	할인혜택
-		            </a>
-		        </li>
 		        <li class="goCoupon">
-		            <a th:href="@{/memberView/updateForm}">
+		            <a th:href="@{/memberView/coupon}">
 		            	쿠폰관리
 		            </a>
 		        </li>

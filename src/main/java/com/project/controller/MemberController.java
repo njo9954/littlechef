@@ -119,5 +119,10 @@ public class MemberController {
 	public String cart() {
 		return "/memberView/cart";
 	}
+	
+	@GetMapping("coupon")
+	public String coupon() {
+		return "/memberView/coupon";
+	}
 }
 	
