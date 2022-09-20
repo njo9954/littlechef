@@ -15,4 +15,8 @@ public class RecipeController {
 		return "/recipeView/list";
 	}
 	
+	@GetMapping("detail")
+	public String detail() {
+		return "/recipeView/detail";
+	}
 }
