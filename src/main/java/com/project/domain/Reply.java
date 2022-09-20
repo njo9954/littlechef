@@ -14,6 +14,6 @@ public class Reply {
     String m_id;
     String br_title;
     String br_datetime;
-    String br_content;
+    String br_contents;
     int br_likecount;	
 }

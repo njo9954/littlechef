@@ -31,7 +31,7 @@ public class WebSecurityConfig {
         		"/memberView/login", // 로그인 
         		"/memberView/idcheck", // id중복검사 경로
                 "/board/list", // 글 목록보고
-                "/board/read", // 글 읽기는 아무나
+                "/board/readboard", // 글 읽기는 아무나
                 "/board/download",
                 "/img/**", // ~밑까지 static 밑 폴더. 다 열어놓음
                 "/video/**",

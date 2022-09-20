@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>후기 게시판</title>
+<link rel="stylesheet" th:href="@{/css/read.css}">
+<script>
+	//글 삭제
+	function deleteBoard(num) {
+		if (confirm('삭제하시겠습니까?')) {
+			location.href = 'delete?boardnum=' + num; // get방식
+		}
+	} // 그냥 이동할거면 js 필요없지만 한번 물어보고 보냄
+	function vaildation() {
+		
+	}
+	function deleteReply(replynum, boardnum) {
+		if(confirm('댓글을 삭제하시겠습니까?')) {
+			location.href = 'deleteReply?replynum=' + replynum;
+		}
+	}
+</script>
+</head>
+<body>
+	<h1>[ 후기 게시판 ]</h1>
+	<p><a th:href="@{/}"><img src="../img/home.png" alt="Home" id="home"></a></p> 
+	<table>
+		<tr>
+			<th>작성자</th>
+			<td th:text="${board.m_id}"></td>
+		</tr>
+		<tr>
+			<th>작성일</th>
+			<td th:text="${board.b_datetime}"></td>
+		</tr>
+		<tr>
+			<th>조회수</th>
+			<td th:text=${board.b_readcount}></td>
+		</tr>
+		<tr>
+			<th>제목</th>
+			<td th:text="${board.b_title}"></td>
+		</tr>
+		<tr>
+			<th>내용</th>
+			<td th:text="${board.b_contents}"></td>
+		</tr>
+		<tr>
+			<th>파일첨부</th>
+			<td>
+				<!-- <img src = "/board/download?boardnum=${board.boardnum}"> -->
+				<div th:if="${board.originalfile} != null">
+					<img th:src = "@{/board/download(b_num=${board.b_num})}" style="width: 650px">
+				</div>
+				<a th:text="${board.originalfile}" th:href="@{/board/download(b_num=${board.b_num})}"></a>
+			</td> <!-- 파일 이름 보이고 --> <!-- 이 경로로 이동 --> <!-- 번호를 보내줘야! --> <!-- board.boardnum : 1번 글에 첨부된 파일 내놔라 -->
+		</tr>
+	</table>
+
+</body>
+</html>
