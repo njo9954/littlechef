@@ -24,4 +24,106 @@
 		)
 </insert>
 
+<!-- 글개수 -->
+<select id="count" parameterType="map" resultType="int">
+	SELECT 
+		count(*)
+	FROM
+		site_board
+	<if test="type != null and searchWord != null">
+	<where>
+		<if test="type == 'b_title'">
+			UPPER(b_title) like '%' || UPPER(#{searchWord}) || '%'
+		</if>
+		<if test="type == 'b_contents'">
+			UPPER(b_contents) like '%' || UPPER(#{searchWord}) || '%'
+		</if>
+		<if test="type == 'm_id'">
+			UPPER(b_id) like UPPER(#{searchWord})
+		</if>
+		<if test="type == 'all'">
+			UPPER(b_title) like '%' || UPPER(#{searchWord}) || '%'
+			OR UPPER(b_contents) like '%' || UPPER(#{searchWord}) || '%'
+			OR UPPER(m_id) like UPPER(#{searchWord})
+		</if>
+	</where>
+	</if>
+</select>
+
+<!-- 글목록 -->
+<select id="selectAll" parameterType="map" resultType="Board">
+	SELECT 
+		b_num
+		, b_title
+		, m_id
+		, hits
+		, TO_CHAR(b_datetime, 'YY-MM-DD') AS inputdate
+	FROM
+		site_board
+		<!-- 전달된 값에 따라서 sql 변경 -> 동적 sql --> <!-- 검색어가 넘어왔는지부터 확인 -->
+	<if test="type != null and searchWord != null"> <!-- true, false가 나오는 조건식 --> <!-- vo : 변수명 map : key -->
+	<where> <!-- 조건이 하나도 안남으면 where도 지움 -->
+		<if test="type == 'b_title'"> <!-- 넘어왔다는 게 확인이 되면 타입에 들어있는 문자열 내용을 보면 알 수 있음 -> if문으로 확인 -->
+			UPPER(b_title) like '%' || UPPER(#{searchWord}) || '%'
+		</if>
+		<if test="type == 'b_contents'">
+			UPPER(b_contents) like '%' || UPPER(#{searchWord}) || '%'
+		</if>
+		<if test="type == 'm_id'">
+			UPPER(m_id) like UPPER(#{searchWord})
+		</if>
+		<if test="type == 'all'">
+			UPPER(b_title) like '%' || UPPER(#{searchWord}) || '%'
+			OR UPPER(b_contents) like '%' || UPPER(#{searchWord}) || '%'
+			OR UPPER(b_memberid) like UPPER(#{searchWord})
+		</if>
+	</where>
+	</if>
+	ORDER BY
+		b_num DESC
+</select>
+
+
+<select id="selectOne" parameterType="int" resultType="Board">
+	SELECT * FROM site_board WHERE b_num = #{b_num}
+</select>
+
+<update id="updateHits" parameterType="int">
+	UPDATE site_board
+	SET	b_readcount = b_readcount + 1
+	WHERE b_num = #{b_num}
+</update>
+
+<select id="selectTotal" resultType="int">
+	SELECT COUNT(b_num)
+	FROM site_board
+</select>
+
+<delete id="delete" parameterType="Board">
+	DELETE FROM site_board
+	WHERE
+		b_num = #{b_num}
+		AND
+		m_id = #{m_id}
+</delete>
+
+
+<update id="update" parameterType="Board">
+	UPDATE site_board
+	SET
+		b_title = #{b_title}
+		, b_contents = #{b_contents}
+		<if test="originalfile != null and savedfile != null">
+		, originalfile = #{originalfile}
+		, savedfile = #{savedfile}
+		</if>
+	WHERE
+		b_num = #{b_num}
+		AND
+		m_id = #{m_id}
+</update>
+
+
+
+
 </mapper>
