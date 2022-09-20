@@ -14,7 +14,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
             <section id="section_0">
                 <h1>로그인</h1>
             </section>
-            <scetion id="section_1">
+            <section id="section_1">
                 <form name="loginform" method="post" sec:action="@{/memberView/login}">
                     <fieldset id="login">
                         <legend>회원로그인</legend>
@@ -25,11 +25,11 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                             <input type="checkbox" name="save_id" id="save_id">
                             <button type="submit" class="btn_login">로그인</button>
                             <button type="button" class="btn_join"><a th:href="@{/memberView/join}">회원가입</a></button>
-                            <div th:if="${param.error}" style="color: red; background-color: #ffe6e6">ID 또는 비밀번호가 틀렸습니다.</div>
+                            <div th:if="${param.error}" id="error">* ID 또는 비밀번호가 틀렸습니다.</div>
                         </div>
                     </fieldset>
                 </form>
-            </scetion>           
+            </section>           
             <section id="section_3">
                  <div th:replace="/fragments/section_3.html :: fragment-section_3"></div>         
             </section>
