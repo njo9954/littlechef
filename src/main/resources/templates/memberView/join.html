@@ -91,7 +91,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                         <tr>
                             <th>아이디</th>
                             <td>
-                                <input type="text" name="m_id" id="m_id" placeholder="아이디를 입력하세요">
+                                <input type="text" name="m_id" id="m_id" readonly="readonly" placeholder="아이디를 입력하세요">
                                 <input type="button" value="중복확인" onclick="idFormOpen()">
                             </td>
                         </tr>
@@ -134,14 +134,14 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                         <tr>
                             <th>우편번호</th>
                             <td>
-                                <input type="text" name="m_zipcode" id="m_zipcode" placeholder="우편번호">
+                                <input type="text" name="m_zipcode" id="m_zipcode" readonly="readonly" placeholder="우편번호">
 								<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기">
                             </td>
                         </tr>
                         <tr>
                         	<th>도로명주소</th>
                         	<td>
-                        	<input type="text" name="m_address1" id="m_address1" placeholder="도로명주소">							
+                        	<input type="text" name="m_address1" id="m_address1" readonly="readonly" placeholder="도로명주소">							
                         	</td>
                         </tr>
                         
