@@ -104,6 +104,13 @@ create table site_event( -- 이벤트 테이블
 	event_info varchar2(500) not null,
 	event_status varchar2(20) not null
 );
+
+insert into site_food values (site_food_seq.nextval, '햄버거', 600, '고기', 0);
+insert into site_food values (site_food_seq.nextval, '피자', 800, '빵', 0);
+insert into site_food values (site_food_seq.nextval, '치킨', 900, '고기', 0);
+insert into site_food values (site_food_seq.nextval, '김치', 800, '야채', 0);
+insert into site_food values (site_food_seq.nextval, '쌀국수', 900, '밥', 0);
+
 			drop table site_board_reply;
 			drop table site_reference;
 			drop table site_event;
