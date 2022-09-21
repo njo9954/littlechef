@@ -1,0 +1,27 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.dao.FoodDAO">
+
+<!-- 게시글 저장 (파일명 나중에 추가) -->
+<select id="getFoodList" resultType="Food">
+	select 
+		*
+	from 
+		site_food
+	
+</select>
+
+<!-- 게시글 저장 (파일명 나중에 추가) -->
+<select id="getDetail" parameterType="int" resultType="Food">
+	select 
+		*
+	from 
+		site_food
+	where
+		food_id=#{food_id}
+	
+</select>
+
+</mapper>

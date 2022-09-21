@@ -5,6 +5,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <div th:replace="/fragments/head.html :: fragment-head"></div>
     <link rel="stylesheet" th:href="@{/css/recipeList.css}">
 </head>
+
 <body>
     <div id="wrap">
         <header id="header">
@@ -13,17 +14,24 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
         <div id="container">
             <section id="section_2">
                 <h2><span>전체</span>&nbsp;RECIPE</h2>
-                <table>
+                
+                <table name="table">
                     <tr>
+	                   	<th:block th:each="food:${foodlist}">
+                    		<td>
+	                            <a th:href="@{/recipeView/detail}">
+	                                <p><img th:src="@{/img/sc2_} + ${foodStat.count} + '.jpg'"></p>
+	                                <p> <span th:text="${food.food_name}">메뉴</span></p>
+	                            </a>
+	                        </td>
+	                   	</th:block>
+                   	</tr>
+                        <!--  
                         <td>
-                            <a href="#">
-                                <img th:src="@{/img/sc2_1.jpg}">
-                            </a>
-                        </td>
-                        <td>
-                            <a href="#">
+                           <p> <a href="#">
                                 <img th:src="@{/img/sc2_2.jpg}">
-                            </a>
+                            </a></p>
+                            <p></p>
                         </td>
                         <td>
                             <a href="#">
@@ -50,6 +58,9 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                             <a href="#">메뉴4</a>
                         </th>
                     </tr>
+                    <tr>
+      					<th th:text="${food.food_name}"></th>
+      				</tr>
                     <tr>
                         <td>
                             <a th:href="@{/recipeView/detail}">
@@ -84,7 +95,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                         </th>
                         <th>
                             <a href="#">메뉴8</a>
-                        </th>
+                        </th> -->
                     </tr>
                 </table>
             </section>
