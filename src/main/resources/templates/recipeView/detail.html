@@ -24,25 +24,26 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <div id="sc1_right">
                     <table>
                     		<tr th:each="food : ${food}">
-								<th>작성자</th>
+								<th>레시피 번호</th>
 									<td th:text="${food.food_id}"></td>
 								</tr>
 							<tr>
-								<th>작성일</th>
+								
+								<th>레시피 제목</th>
 								<td th:text="${food.food_name}"></td>
 							</tr>
 							<tr>
-								<th>제목</th>
+								<th>조회수</th>
+								<td th:text="${food.bookmark_count}"></td>
+							</tr>
+								<th>칼로리</th>
 								<td th:text="${food.food_cal}"></td>
 							</tr>
 							<tr>
-								<th>내용</th>
+								<th>태그</th>
 								<td th:text="${food.food_tag}"></td>
 							</tr>
-							<tr>
-								<th>내용</th>
-								<td th:text="${food.bookmark_count}"></td>
-							</tr>
+							
                     	<!-- 
                         <h1>제품 상세</h1>
                         <legend>제품 개요</legend>

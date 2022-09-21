@@ -15,7 +15,8 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
             <section id="section_2">
                 <h2><span>전체</span>&nbsp;RECIPE</h2>
                 
-                <table name="table">
+                <!--  
+                <table>
                     <tr>
 	                   	<th:block th:each="food:${foodlist}">
                     		<td>
@@ -25,8 +26,29 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	                            </a>
 	                        </td>
 	                   	</th:block>
-                   	</tr>
-                        <!--  
+                   	</tr>!-->
+                   	
+                   	<table>
+						<th:block th:each="food, stat : ${foodlist}">
+						<th:block th:if="${stat.index % 4 == 0}">
+						<tr>
+						</th:block>
+
+						<td>
+							<a th:href="@{/recipeView/detail(food_id=${food.food_id})}">
+								<p><img th:src="@{/img/sc2_} + ${stat.count} + '.jpg'" class="recipeImg"></p>
+								<p><span th:text="${food.food_name}"></span></p>
+							</a>
+						</td>
+
+						<th:block th:if="${stat.index % 4 == 3}">
+						</tr>
+						</th:block>
+						</th:block>
+
+					</table>        	
+                   	
+                   	<!-- 
                         <td>
                            <p> <a href="#">
                                 <img th:src="@{/img/sc2_2.jpg}">
