@@ -12,7 +12,7 @@ public class Board { // 후기 게시판
 	int food_id;
 	String m_id;
 	String b_title;
-	String b_datatime;
+	String b_datetime;
 	String b_contents;
 	int b_readcount;
 	int b_likecount;

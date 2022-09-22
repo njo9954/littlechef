@@ -32,7 +32,7 @@
 		</tr>
 		<tr>
 			<th>작성일</th>
-			<td th:text="${board.inputdate}"></td>
+			<td th:text="${board.b_datetime}"></td>
 		</tr>
 		<tr>
 			<th>조회수</th>
@@ -49,7 +49,7 @@
 		<tr>
 			<th>파일첨부</th>
 			<td>
-				<!-- <img src = "/board/download?boardnum=${board.boardnum}"> -->
+				<!-- <img src = "/board/download?boardnum=${board.boardnum}"> 
 				<div th:if="${board.originalfile} != null">
 					<img th:src = "@{/board/download(b_num=${board.b_num})}" style="width: 650px">
 				</div>
@@ -81,23 +81,23 @@
 	
 		<div id="navigator">
 	
-	<!-- 페이지 이동 링크 -->     
+	<!--    
 	<a th:href="|javascript:pagingFormSubmit(${navi.currentPage - navi.pagePerGroup})|">◁◁</a>
 	<a th:href="|javascript:pagingFormSubmit(${navi.currentPage - 1})|">◀</a> 
 	
-	<!-- 숫자를 보여주기 위한 반복문 -->
+	<!-- 
 	<span th:each="counter : ${#numbers.sequence(navi.startPageGroup, navi.endPageGroup)}"> 
 		<th:block th:if="${counter == navi.currentPage}"><b></th:block> <!-- if문의 결과 참이든 거짓이든 무조건 없어짐. 별 기능 없는 태그 --> <!-- 지금 보고 있는 페이지랑 반복문의 페이지랑 만나면 다르게 표현하려고(현재 페이지 좀 굵게) 씀 -->
-			<a th:text="${counter}" th:href="|javascript:pagingFormSubmit(${counter})|"></a>&nbsp; <!-- 1, 2, 3, 4, 5. 매번 다른 숫자를 보냄 -->
-		<th:block th:if="${counter == navi.currentPage}"></b></th:block>
-	</span>
+		<!--  	<a th:text="${counter}" th:href="|javascript:pagingFormSubmit(${counter})|"></a>&nbsp; <!-- 1, 2, 3, 4, 5. 매번 다른 숫자를 보냄 -->
+		<!-- <th:block th:if="${counter == navi.currentPage}"></b></th:block>-->
+	<!-- </span>
 	
 	<a th:href="|javascript:pagingFormSubmit(${navi.currentPage + 1})|">▶</a> 
 	<a th:href="|javascript:pagingFormSubmit(${navi.currentPage + navi.pagePerGroup})|">▷▷</a>
 	<br><br>
 	
 	<!-- 검색폼 -->
-	<form id="pagingForm" method="get" th:action="@{/board/listboard}">
+	<!-- <form id="pagingForm" method="get" th:action="@{/board/listboard}">
 		<input type="hidden" name="page" id="page" />
 		<select id="type" name="type">
 			<option value="b_title" th:selected="${type} == 'b_title'">제목</option>
@@ -108,7 +108,7 @@
 		<input type="text"  name="searchWord" th:value="${searchWord}">
 		<input type="button" onclick="pagingFormSubmit(1)" value="검색">
 	</form>
-	
+	-->
 	</div>
 </body>
 </html>

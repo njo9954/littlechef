@@ -116,14 +116,11 @@ public class BoardController { // 후기 컨트롤러
 			Board board = service.selectOne(b_num); //DB에서 글을 읽어서
 			log.debug("전달된 값 : {}", board);
 			
-			service.updateHits(b_num); // 조회수 0
-			
-			
 			//현재 글의 리플 목록 읽기
 		//	ArrayList<Reply> replylist = service.selectReply(boardnum);
 			
 			//결과가 있으면 모델에 저장하고 html에서 출력
-			model.addAttribute("site_board", board);
+			model.addAttribute("board", board);
 		//	model.addAttribute("replylist", replylist);
 			
 			return "/boardView/readboard";

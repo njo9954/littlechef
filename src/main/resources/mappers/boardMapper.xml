@@ -54,10 +54,11 @@
 <select id="selectAll" parameterType="map" resultType="Board">
 	SELECT 
 		b_num
+		, food_id
 		, b_title
 		, m_id
 		, b_readcount
-		, TO_CHAR(b_datetime, 'YY-MM-DD-HH:MI') AS inputdate
+		, TO_CHAR(b_datetime, 'YY-MM-DD-HH:MI') AS b_datetime
 	FROM
 		site_board
 		<!-- 전달된 값에 따라서 sql 변경 -> 동적 sql --> <!-- 검색어가 넘어왔는지부터 확인 -->
