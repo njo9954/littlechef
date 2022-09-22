@@ -50,6 +50,18 @@
     transition: 1s;
 }
 
+#section_2 table td a p {
+	padding-top: 1rem;
+}
+#section_2 table td a p span {
+	font-size: 2rem;
+	color: #027d62;
+}
+
+#section_2 table td a p span:hover {
+	text-decoration: underline;
+}
+
 #section_2 table th a {
     font-size: 2rem;
     color: #027d62;

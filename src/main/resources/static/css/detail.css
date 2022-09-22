@@ -62,8 +62,14 @@
     margin-bottom: 1.2rem;
 }
 
+#sc1_right table {
+	width: 30rem;
+	margin: 14rem auto;
+}
+
 #sc1_right tr th {
-    font-size: 2.2rem;
+	text-align: left;
+    font-size: 2.5rem;
     color: #027d62;
     padding: 1.2rem;
 }
@@ -73,9 +79,10 @@
     background-color: #027d62;
 }
 #sc1_right tr td {
-    font-size: 2rem;
+    font-size: 2.1rem;
     color: #b37b0e;
     padding-top: 1rem;
+    padding-left: 2rem;
 }
 /* Section 2 */
 
@@ -116,4 +123,8 @@
     background-color: #4F453A;
     transition: 0.5s;
     cursor: pointer;
+}
+
+#second {
+	padding-top: 100rem;
 }
