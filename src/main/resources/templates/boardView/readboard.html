@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <title>후기 게시판</title>
-<link rel="stylesheet" th:href="@{/css/read.css}">
 <script>
 	//글 삭제
 	function deleteBoard(b_num) {
@@ -59,55 +58,37 @@
 	</table>
 <!-- 본인글인 경우 수정/삭제 -->
 	<div th:if="${#authentication.name} == ${board.m_id}">
-		<a th:href="@{/board/update(boardnum=${board.b_num})}">수정</a> <!-- @{/update(boardnum=${board.boardnum})} --> <!-- @{/board/update} -->
+		<a th:href="@{/board/update(b_num=${board.b_num})}">수정</a> <!-- @{/update(boardnum=${board.boardnum})} --> <!-- @{/board/update} -->
 		<a th:href="|javascript:deleteBoard(${board.b_num})|">삭제</a>
 	</div>
 	
 	<a th:href="@{/boardView/listboard}">목록보기</a>
 
-
-	<form id="pagingForm" th:action="@{/board/list}" method="get">
-		<input type="hidden" name="page" id="page">
-		<select name="type" id="type">
-			<option value="title" th:selected="${type} == 'title'">제목</option> 	
-			<option value="contents" th:selected="${type} == 'contents'">본문</option> 
-			<option value="memberid" th:selected="${type} == 'memberid'">사용자ID</option>
-			<option value="all" th:selected="${type} == 'all'">전체</option>
-		</select>
-		<input type="text" name="searchWord" th:value="${searchWord}"> 		
-		<input type="button" value="검색" onclick="pagingFormSubmit(1)">
-	</form> -->
 	
-		<div id="navigator">
 	
-	<!--    
-	<a th:href="|javascript:pagingFormSubmit(${navi.currentPage - navi.pagePerGroup})|">◁◁</a>
-	<a th:href="|javascript:pagingFormSubmit(${navi.currentPage - 1})|">◀</a> 
+	<!-- 로그인한 경우 댓글 작성 폼 -->
+	<div sec:authorize="isAuthenticated()">
+		<form th:action="@{/boardView/replyWrite}" method="post" onsubmit="return vaildation();">
+			<input type="hidden" name="b_num" th:value="${board.b_num}"> <!-- 글번호 자동으로 넣어서 감 -->
+			<input type="text" name="br_replytext" id="br_replytext" style="width:500px;">
+			<input type="submit" value="확인">
+		</form>
+	</div>
 	
-	<!-- 
-	<span th:each="counter : ${#numbers.sequence(navi.startPageGroup, navi.endPageGroup)}"> 
-		<th:block th:if="${counter == navi.currentPage}"><b></th:block> <!-- if문의 결과 참이든 거짓이든 무조건 없어짐. 별 기능 없는 태그 --> <!-- 지금 보고 있는 페이지랑 반복문의 페이지랑 만나면 다르게 표현하려고(현재 페이지 좀 굵게) 씀 -->
-		<!--  	<a th:text="${counter}" th:href="|javascript:pagingFormSubmit(${counter})|"></a>&nbsp; <!-- 1, 2, 3, 4, 5. 매번 다른 숫자를 보냄 -->
-		<!-- <th:block th:if="${counter == navi.currentPage}"></b></th:block>-->
-	<!-- </span>
-	
-	<a th:href="|javascript:pagingFormSubmit(${navi.currentPage + 1})|">▶</a> 
-	<a th:href="|javascript:pagingFormSubmit(${navi.currentPage + navi.pagePerGroup})|">▷▷</a>
-	<br><br>
-	
-	<!-- 검색폼 -->
-	<!-- <form id="pagingForm" method="get" th:action="@{/board/listboard}">
-		<input type="hidden" name="page" id="page" />
-		<select id="type" name="type">
-			<option value="b_title" th:selected="${type} == 'b_title'">제목</option>
-			<option value="b_contents" th:selected="${type} == 'b_contents'">내용</option>
-			<option value="m_id" th:selected="${type} == 'm_id'">작성자ID</option>
-			<option value="all" th:selected="${type} == 'all'">전체</option>
-		</select>
-		<input type="text"  name="searchWord" th:value="${searchWord}">
-		<input type="button" onclick="pagingFormSubmit(1)" value="검색">
-	</form>
-	-->
+	<!-- 댓글 목록 -->
+	<table>
+		<tr th:each="reply : ${replylist}">
+			<th th:text="${reply.m_id}"></th>
+			<td th:text="${reply.br_replytext}" style="width: 400px;"></td>
+			<td th:text="${reply.br_datetime}" style="width: 200px;">
+			<!-- <td style="width: 50px;"><a href="@{/board/updateReply(replynum=${reply.replynum})}" th:if="${#authentication.name} == ${reply.memberid}">[수정]</a></td> -->
+			<td style="width: 50px;">
+				<span th:if="${#authentication.name} == ${reply.m_id}">
+					<a href="|javascript:deleteReply(${reply.br_num}, ${reply.b_num})|">[삭제]</a> <!-- 삭제하고 페이지를 돌아오는 기능 --> <!-- ${reply.boardnum} : 삭제하러 이 페이지를 떠남. 읽던 글로 돌아와야. 어떤 글을 읽고 있었는지 모르기 때문에 같이 보냄 -->
+				</span>
+			</td>
+		</tr>
+	</table>
 	</div>
 </body>
 </html>

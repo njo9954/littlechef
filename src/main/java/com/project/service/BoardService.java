@@ -20,6 +20,10 @@ public interface BoardService {
 	public ArrayList<Board> selectAll(PageNavigator navi, String type, String searchWord);
 
 	public int updateHits(int b_num);
+	
+	public int delete(Board board);
+	
+	public int update(Board board);
 
 	//후기 게시판 댓글 
 	

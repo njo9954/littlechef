@@ -118,11 +118,11 @@ public class BoardController { // 후기 컨트롤러
 			log.debug("전달된 값 : {}", board);
 			
 			//현재 글의 리플 목록 읽기
-		//	ArrayList<Reply> replylist = service.selectReply(boardnum);
+			ArrayList<Reply> replylist = service.selectReply(b_num);
 			
 			//결과가 있으면 모델에 저장하고 html에서 출력
 			model.addAttribute("board", board);
-		//	model.addAttribute("replylist", replylist);
+			model.addAttribute("replylist", replylist);
 			
 			return "/boardView/readboard";
 		}
@@ -166,7 +166,7 @@ public class BoardController { // 후기 컨트롤러
 			service.deleteReply(reply);
 				
 			//글읽기로 이동
-			return "redirect:/boardView/read?b_num=" + reply.getB_num();
+			return "redirect:/boardView/readboard?b_num=" + reply.getB_num();
 		}
 		
 		
