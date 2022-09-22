@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>write board</title>
+<link rel="stylesheet" th:href="@{/css/writeboard}">
+</head>
+<body>
+	<div id="wrap">
+		<div id="container">
+			<section id="section_0">
+		<h1>댓글 작성</h1>
+	</section>
+	<section id="section_1">
+		<!-- <form id="writeform" th:action="@{/boardView/writeboard}" method="post"
+		onsubmit="return validation();"> --> <!-- enctype="multipart/form-data" -->
+			<table>
+			<!-- 메뉴별 타이틀  -->
+				<tr>
+					<th>내용</th>
+					<td><input type=text placeholder="댓글 입력" style="width: 500px; margin:5px"></td>
+					<td><input type="button" value="완료"></td>		
+				</tr> 
+			</table>
+		<!-- </form> -->
+		</section>
+		</div>
+	</div>
+</body>
+</html>

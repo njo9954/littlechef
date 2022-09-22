@@ -127,6 +127,11 @@ public class BoardController { // 후기 컨트롤러
 			return "/boardView/readboard";
 		}
 		
+		@GetMapping("replywrite")
+		public String replywrite() {
+			return "/boardView/writereply";
+		}
+		
 		//리플 저장
 		@PostMapping("replyWrite")
 		public String replyWrite(

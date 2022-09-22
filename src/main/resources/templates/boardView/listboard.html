@@ -31,38 +31,52 @@ td{
         		<h1>레시피 후기 게시판</h1>
         	</section>
         	<section id="section_1">
+        		<table id="btn_table">
+        			<tr>
+        				<td>
+        					<a th:href="@{/boardView/writeboard}" id="write_button">
+                    			<input type="button" value="후기 작성하기">
+                			</a>
+        				</td>
+        			</tr>
+        		</table>
                 <table>
                     <tr>
                         <th>후기제목</th> 
                         <td>닭가슴살에 후추랑 소금만 넣고 삶았더니 부드럽고 맛있어요!</td>
                         <th>좋아요</th>
-                        <td class="white">
-				<a th:href="@{/boardView/writeboard}"><input type="button" value="후기작성하기" id="writebutton"></a>
-			</td>
                         <td>
-                            <a href="#"><img src="img/btn_more.png"></a>
+                            <a href="#"><img th:src="@{/img/btn_more.png}"></a>
                         </td>
                     </tr>
                     <tr>
                         <th colspan="4">후기내용</th>
                     </tr>
                     <tr>
-                        <td colspan="4"> <td>
+                        <td colspan="4"></td>
                     </tr>   
                 </table>
+                <table id="btn_table2">
+        			<tr>
+        				<td>
+        					<a th:href="@{/boardView/replywrite}" id="reply_button">
+                    			<input type="button" value="댓글 작성하기">
+                			</a>
+        				</td>
+        			</tr>
+        		</table>
             </section>
             <section id="section_2">
                 <table>
                 	<tr>
-                	<th>번호</th>
-                	<th>작성자</th>
-                	<th>글 제목</th>
-                	<th>작성 시간</th>
-                	<th>조회수</th>
-                	<th>추천</th>
+	                	<th>번호</th>
+	                	<th>작성자</th>
+	                	<th>글 제목</th>
+	                	<th>작성 시간</th>
+	                	<th>조회수</th>
+	                	<th>추천</th>
                 	</tr>
-                
-                   <tr th:each=" list:${listboard}">
+                   	<tr th:each=" list:${listboard}">
                         <td th:text="${list.b_num}" class="center"></td>
                         <td th:text="${list.m_id}" class="center"></td>
                         <td><a th:text="${list.b_title}" th:href="@{/boardView/readboard(b_num=${list.b_num})}"></a></td>

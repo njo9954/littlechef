@@ -4,6 +4,56 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <div th:replace="/fragments/head.html :: fragment-head"></div>
     <link rel="stylesheet" th:href="@{/css/recipeList.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/slick.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/slick-theme.css}"/>
+	<script type="text/javascript" th:src="@{/js/slick.min.js}"></script>
+	<script>
+	    $(document).ready(function(){
+	        $(".visual").slick({
+	            // 마우스 오버시 멈춤
+	            pauseOnHover : true,
+	            // 클릭 및 이벤트시 자동재생 멈춤
+	            pauseOnFocus : false,
+	            // 옆 화살표
+	            arrows : true,
+	            // 밑에 점
+	            dots : true,
+	        })
+	    })
+	</script>
+	<style>
+	    .visual {
+	        width: 144rem;
+	        margin: 0 auto;
+	    }
+	    .visual .slick-next {
+	        right: 20px;
+	        position: relative;
+	    }
+	    .visual .slick-prev {
+	        left: 20px;
+	        z-index: 1;
+	    }
+	    .visual slick-next:before {
+	        position: absolute;
+	        content: '';
+	        background-color: white;
+	    }
+	    .visual .slick-dots {
+	        width: 144rem;
+	        height: 1rem;
+	        top: 0;
+	        position: relative;
+	    }
+	    .slick-dots .slick-active button {
+	        color: blue;
+	        position: absolute;
+	    }
+	    .slick-dots li button:before {
+	        color: navy;
+	    }
+	</style>
+    
 </head>
 
 <body>
@@ -27,26 +77,44 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	                        </td>
 	                   	</th:block>
                    	</tr>!-->
-                   	
+                   	<div class="visual">
+                   	<div>
                    	<table>
 						<th:block th:each="food, stat : ${foodlist}">
 						<th:block th:if="${stat.index % 4 == 0}">
 						<tr>
 						</th:block>
-
 						<td>
 							<a th:href="@{/recipeView/detail(food_id=${food.food_id})}">
 								<p><img th:src="@{/img/sc2_} + ${stat.count} + '.jpg'" class="recipeImg"></p>
 								<p><span th:text="${food.food_name}"></span></p>
 							</a>
 						</td>
-
 						<th:block th:if="${stat.index % 4 == 3}">
 						</tr>
 						</th:block>
 						</th:block>
-					</table>        	
-                   	
+					</table>
+					</div>
+					<div>
+                   	<table>
+						<th:block th:each="food, stat : ${foodlist}">
+						<th:block th:if="${stat.index % 4 == 0}">
+						<tr>
+						</th:block>
+						<td>
+							<a th:href="@{/recipeView/detail(food_id=${food.food_id})}">
+								<p><img th:src="@{/img/sc2_} + ${stat.count} + '.jpg'" class="recipeImg"></p>
+								<p><span th:text="${food.food_name}"></span></p>
+							</a>
+						</td>
+						<th:block th:if="${stat.index % 4 == 3}">
+						</tr>
+						</th:block>
+						</th:block>
+					</table>
+					</div>
+					</div>
                    	<!-- 
                         <td>
                            <p> <a href="#">
@@ -117,8 +185,6 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                         <th>
                             <a href="#">메뉴8</a>
                         </th> -->
-                    </tr>
-                </table>
             </section>
             <section id="section_3">
                  <div th:replace="/fragments/section_3.html :: fragment-section_3"></div>         
