@@ -5,6 +5,8 @@ import java.util.HashMap;
 
 import org.apache.ibatis.annotations.Mapper;
 import com.project.domain.Board;
+import com.project.domain.Reply;
+
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.stereotype.Repository;
@@ -20,22 +22,29 @@ public interface BoardDAO { //  후기 게시판
 //		public ArrayList<Board> selectAll(HashMap<String, String> map, RowBounds rb);
 		//글 읽기
 		public Board selectOne(int boardnum);
-		//조회수 증가
-/*		public int updateHits(int boardnum);
 		
-		public int selectTotal();
 		
-		public int delete(Board board);
+	//   public int delete(Board board);
 		
-		public int update(Board board);
-*/
+	//	public int update(Board board);
+
 		
-		// 후기 개수 
+		// 후기 게시판
 		public int count(HashMap<String, String> map);
-		//후기 목록 
+		
 		public ArrayList<Board> selectAll(HashMap<String, String> map, RowBounds rb);
 		
 		public int selectTotal();
 	
 		public int updateHits(int boardnum);
+	
+		
+		//후기 게시판  댓글 
+		public int insertReply(Reply reply);
+		
+		public ArrayList<Reply> selectReply(int boardnum);
+		
+		public Reply selectOneReply(int replynum);
+		
+		public int deleteReply(Reply reply);
 }

@@ -81,7 +81,7 @@
 	</where>
 	</if>
 	ORDER BY
-		b_num ASC
+		b_num DESC
 </select>
 
 
@@ -123,7 +123,39 @@
 		AND
 		m_id = #{m_id}
 </update>
+<insert id="insertReply" parameterType="Reply">
+	INSERT INTO spring5_reply
+	(
+	replynum
+	, boardnum
+	, memberid
+	, replytext
+	)
+	VALUES
+	(
+	spring5_reply_seq.NEXTVAL
+	, #{boardnum}
+	, #{memberid}
+	, #{replytext}
+	)
+</insert>
 
+
+<select id="selectReply" parameterType="int" resultType="Reply">
+	SELECT * FROM site_board_reply WHERE b_num = #{b_num} ORDER BY b_datetime DESC
+</select>
+
+<select id="selectOneReply" parameterType="int" resultType="Reply">
+	SELECT * FROM site_board_reply WHERE b_num = #{b_num} AND br_num = #{br_num}
+</select>
+
+<delete id="deleteReply" parameterType="Reply">
+	DELETE FROM site_board_reply
+	WHERE
+		br_num = #{br_num}
+		AND
+		m_id = #{m_id}
+</delete>
 
 
 

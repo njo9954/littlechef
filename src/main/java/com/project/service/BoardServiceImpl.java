@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.domain.Board;
+import com.project.domain.Reply;
 import com.project.util.PageNavigator;
 import com.project.dao.BoardDAO;
 @Service
@@ -60,6 +61,29 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int updateHits(int boardnum) {
 		int result = boardDAO.updateHits(boardnum);
+		return result;
+	}
+	@Override
+	public int insertReply(Reply reply) {
+		int result = boardDAO.insertReply(reply);
+		return result;
+	}
+
+	@Override
+	public ArrayList<Reply> selectReply(int boardnum) {
+		ArrayList<Reply> list = boardDAO.selectReply(boardnum);
+		return list;
+	}
+
+	@Override
+	public Reply selectOneReply(int replynum) {
+		Reply reply = boardDAO.selectOneReply(replynum);
+		return reply;
+	}
+
+	@Override
+	public int deleteReply(Reply reply) {
+		int result = boardDAO.deleteReply(reply);
 		return result;
 	}
 

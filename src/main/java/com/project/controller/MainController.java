@@ -12,10 +12,4 @@ public class MainController {
 		return "main";
 	}
 	
-	
-	
-	@GetMapping("review")
-	public String review() {
-		return "/review";
-	}
 }

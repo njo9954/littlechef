@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.project.service.BoardService;
 import com.project.util.PageNavigator;
 import com.project.domain.Board;
+import com.project.domain.Reply;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -126,7 +127,47 @@ public class BoardController { // 후기 컨트롤러
 			return "/boardView/readboard";
 		}
 		
+		//리플 저장
+		@PostMapping("replyWrite")
+		public String replyWrite(
+				Reply reply
+				, @AuthenticationPrincipal UserDetails user) {
+			//본문글번호, 리플내용 전달받아 로그인한 아이디 추가
+			String id = user.getUsername();
+			reply.setM_id(id);
+			//DB에 저장
+			log.debug("reply : {}", reply);
+			service.insertReply(reply);
+			
+			//아까 읽던 글로 돌아감
+			return "redirect:/boardView/read?b_num=" + reply.getB_num();
+		}
 		
+		@PostMapping("deleteReply")
+		public String deleteReply(
+				int br_num
+				, @AuthenticationPrincipal UserDetails user) {
+			
+			// 해당번호의 댓글 조회
+			Reply reply = service.selectOneReply(br_num);
+			log.debug("reply : {}", reply);
+			
+			//결과가 없으면 글목록으로 리다이렉트
+			if (reply == null) {
+				return "redirect:/";
+			}
+			
+			//로그인한 아이디 확인
+			String m_id = user.getUsername();
+			reply.setM_id(m_id);
+			// ~로그인한 아이디 다시 집어넣어서 댓글 작성자 아이디를 로그인한 아이디로 고침 / 혹시 다른 사람의 글로 접근했을 때
+			
+			//전달된 번호의 글 삭제 // 0 : 글 못지움 / 1 : 글 삭제함
+			service.deleteReply(reply);
+				
+			//글읽기로 이동
+			return "redirect:/boardView/read?b_num=" + reply.getB_num();
+		}
 		
 		
 }
