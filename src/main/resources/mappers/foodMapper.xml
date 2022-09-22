@@ -28,23 +28,22 @@ INSERT INTO SITE_FOOD
 	(
 	food_id
 	, food_name
+	, food_category
 	, food_contents
 	, food_cal
 	, food_price
 	, food_tag
-	, bookmark_count
-	
 	)
 	values
 	(
 		site_food_seq.nextval
 		, #{food_id}
+		, #{food_category}
 		, #{food_name}
 		, #{food_contents}
 		, #{food_cal}
 		, #{food_price}
 		, #{food_tag}
-		, #{bookmark_count}
 	)
 
 </insert>
