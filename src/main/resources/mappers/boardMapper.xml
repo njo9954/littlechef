@@ -123,20 +123,21 @@
 		AND
 		m_id = #{m_id}
 </update>
+
 <insert id="insertReply" parameterType="Reply">
-	INSERT INTO spring5_reply
+	INSERT INTO site_board_reply
 	(
-	replynum
-	, boardnum
-	, memberid
-	, replytext
+	br_num
+	, b_num
+	, m_id
+	, br_replytext
 	)
 	VALUES
 	(
-	spring5_reply_seq.NEXTVAL
-	, #{boardnum}
-	, #{memberid}
-	, #{replytext}
+	site_board_reply_seq.NEXTVAL
+	, #{b_num}
+	, #{m_id}
+	, #{br_replytext}
 	)
 </insert>
 

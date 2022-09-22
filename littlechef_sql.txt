@@ -39,15 +39,15 @@ create table site_board(   -- 후기 테이블
 );
 
 
+create sequence site_board_reply_seq;
 create table site_board_reply(   -- 후기게시판 댓글 테이블
     br_num number primary key not null,
     b_num number references site_board(b_num) on delete cascade,
     m_id varchar2(20) references site_member(m_id) on delete cascade,
-    br_title varchar2(50) not null,
     br_datetime date default sysdate not null,
-    br_content varchar2(500) not null,
-    br_likecount number default 0 not null
+    br_replytext varchar2(500) not null
 );
+
 
 create table site_ingredient(  -- 재료 테이블
 	i_name varchar(20) primary key not null, 
