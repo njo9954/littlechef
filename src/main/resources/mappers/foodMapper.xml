@@ -23,5 +23,27 @@
 		food_id=#{food_id}
 	
 </select>
+<insert id="writeFood" parameterType="Food">
+INSERT INTO SITE_FOOD
+	(
+	food_id
+	, food_name
+	, food_contents
+	, food_cal
+	, food_tag
+	, bookmark_count
+	
+	)
+	values
+	(
+		site_food_seq.nextval
+		, #{food_id}
+		, #{food_name}
+		, #{food_contents}
+		, #{food_cal}
+		, #{food_tag}
+		, #{bookmark_count}
+	)
 
+</insert>
 </mapper>

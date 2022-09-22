@@ -16,6 +16,8 @@ public interface FoodDAO {
 	
 	//레시피 상세내역 불러오기
 	Food getDetail(int food_id);
+
+	int writeFood(Food food);
 	
 	
 	

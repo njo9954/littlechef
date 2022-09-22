@@ -30,5 +30,12 @@ public class FoodServiceImpl implements FoodService {
 		
 		return food;
 	}
+
+	@Override
+	public int writeFood(Food food) {
+		int result = fooddao.writeFood(food);
+		return result;
+		
+	}
 	
 }

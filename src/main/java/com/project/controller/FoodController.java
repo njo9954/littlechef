@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -28,6 +29,13 @@ public class FoodController {
 	@GetMapping("recipeView/writeFood")
 	public String writeFood() {
 		return "recipeView/writeFood";
+	}
+	
+	@PostMapping("recipeView/writeFood")
+	public String wrtieFood(Food food)
+	{
+		int result = foodservice.writeFood(food);
+		return "redirect:recipeView/list";
 	}
 	
 	//레시피 탭 클릭했을 시 레시피 이름 출력
