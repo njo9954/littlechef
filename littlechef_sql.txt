@@ -24,6 +24,7 @@ create table site_food( -- 식품테이블
 	food_name varchar2(20) not null , 
 	food_contents varchar2(500) not null,
 	food_cal number not null,
+	food_price number not null, 
 	food_tag varchar2(200) not null,
 	bookmark_count  number default 0 not null
 );
@@ -68,7 +69,6 @@ create table site_bookmark(  -- 찜기능 테이블
 create table site_cart (  -- 장바구니 테이블
     c_id number primary key not null,
     i_name references site_ingredient(i_name)on delete cascade,
-    c_allergy varchar2(20),
     c_cal number not null,
     c_price number not null,
     c_amount number not null
