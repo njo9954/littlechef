@@ -11,4 +11,11 @@ public class MainController {
 	public String main() {
 		return "main";
 	}
+	
+	
+	
+	@GetMapping("review")
+	public String review() {
+		return "/review";
+	}
 }

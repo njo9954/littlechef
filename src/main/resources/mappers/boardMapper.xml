@@ -56,8 +56,8 @@
 		b_num
 		, b_title
 		, m_id
-		, hits
-		, TO_CHAR(b_datetime, 'YY-MM-DD') AS inputdate
+		, b_readcount
+		, TO_CHAR(b_datetime, 'YY-MM-DD-HH:MI') AS inputdate
 	FROM
 		site_board
 		<!-- 전달된 값에 따라서 sql 변경 -> 동적 sql --> <!-- 검색어가 넘어왔는지부터 확인 -->
@@ -80,7 +80,7 @@
 	</where>
 	</if>
 	ORDER BY
-		b_num DESC
+		b_num ASC
 </select>
 
 

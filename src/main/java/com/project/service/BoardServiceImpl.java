@@ -1,9 +1,14 @@
 package com.project.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.domain.Board;
+import com.project.util.PageNavigator;
 import com.project.dao.BoardDAO;
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -21,6 +26,41 @@ public class BoardServiceImpl implements BoardService {
 	public Board selectOne(int boardnum) {
 		Board board = boardDAO.selectOne(boardnum);
 		return board;
+	}
+	@Override
+	public PageNavigator getPageNavigator(int pagePerGroup, int countPerPage, int page, String type,
+			String searchWord) {
+		HashMap<String, String> map = new HashMap<>();
+		map.put("type", type);
+		map.put("searchWord", searchWord);
+		
+		int total = boardDAO.count(map);
+		PageNavigator navi = new PageNavigator(pagePerGroup, countPerPage, page, total);
+		
+		return navi;
+	}
+	
+	@Override
+	public int selectTotal() {
+		int result = boardDAO.selectTotal();
+		return result;
+	}
+	
+	@Override
+	public ArrayList<Board> selectAll(PageNavigator navi, String type, String searchWord) {
+		HashMap<String, String> map = new HashMap<>();
+		map.put("type", type);
+		map.put("searchWord", searchWord); // Map에 담을 때 이름으로 꺼내서 써야 함. "type", "searchWord"
+		
+		RowBounds rb = new RowBounds(navi.getStartRecord(), navi.getCountPerPage());
+		
+		ArrayList<Board> boardlist = boardDAO.selectAll(map, rb); //list
+		return boardlist;
+	}
+	@Override
+	public int updateHits(int boardnum) {
+		int result = boardDAO.updateHits(boardnum);
+		return result;
 	}
 
 	

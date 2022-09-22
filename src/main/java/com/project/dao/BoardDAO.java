@@ -29,4 +29,13 @@ public interface BoardDAO { //  후기 게시판
 		
 		public int update(Board board);
 */
+		
+		// 후기 개수 
+		public int count(HashMap<String, String> map);
+		//후기 목록 
+		public ArrayList<Board> selectAll(HashMap<String, String> map, RowBounds rb);
+		
+		public int selectTotal();
+	
+		public int updateHits(int boardnum);
 }
