@@ -11,15 +11,38 @@
 		<h1>레시피 등록</h1>
 		<form action="/recipeView/writeFood" method="post">
 			<div class="mb-3">
-				<label class="form-label">제목</label>
+				<label class="form-label">음식명</label>
 				<input type="text" class="form-control" name="food_name">
 			</div>
 			<div class="mb-3">
-				<label class="form-label">내용</label>
+				<label class="form-label">레시피</label>
 				<textarea class="form-control" rows="5" name="content"></textarea>
 			</div>
-			
+			<div class="mb-3">
+				<label class="form-label">칼로리</label>
+				<input type="text" class="form-control" name="food_cal">
+			</div>
+			<div class="mb-3">
+				<label class="form-label">태그</label>
+				<select class="form-select form-select-sm" size="5" aria-label="태그">
+						 <option selected value="meat">볶음</option>
+ 						 <option value="vegetable">끓이기</option>		
+ 						 <option value="vegetable">부침</option>
+ 						 <option value="vegetable">조림</option>
+ 						 <option value="vegetable">비빔</option>
+ 						 <option value="vegetable">찜</option>
+ 						 <option value="vegetable">절임</option>
+ 						 <option value="vegetable">튀김</option>
+ 						 <option value="vegetable">삶기</option>
+ 						 <option value="vegetable">굽기</option>
+ 						 <option value="vegetable">데치기</option>
+ 						 <option value="vegetable">회</option>
+ 						 <option value="vegetable">기타</option>
+ 						 				
+				</select>
+			</div>
 			<button type="button" class="btn btn-success" onclick="javascript:location.href='/littlechef/recipeView/list'">이전으로</button>
+			<a class="btn btn-warning" href="#" role="button">추천</a>
 			<button type="submit" class="btn btn-primary">작성</button>
 		</form>
 	</div>
