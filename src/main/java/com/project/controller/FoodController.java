@@ -25,6 +25,11 @@ public class FoodController {
 	FoodService foodservice;
 	FoodDAO fooddao;
 	
+	@GetMapping("recipeView/writeFood")
+	public String writeFood() {
+		return "recipeView/writeFood";
+	}
+	
 	//레시피 탭 클릭했을 시 레시피 이름 출력
 	@GetMapping("recipeView/list")
 	public String getFood(Model model) {
