@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+html {
+	font-size: 62.5%
+}
+
+#container #section_0 {
+    max-width: 144rem;
+    margin: 0 auto;
+}
+
+#section_0 h1 {
+    font-size: 4rem;
+    padding: 4rem;
+    text-align: center;
+    color:#014A3A;
+}
+
+#section_0 h1:hover {
+    color: white;
+    background-color: #014A3A;
+}
+
+#container #section_1 {
+	width: 108rem;
+	margin: 4rem auto;
+}
+
+#section_1 table {
+	width: 80rem;
+	margin: 0 auto;
+	border: none;
+	box-sizing: border-box;
+	border-collapse: collapse;
+}
+
+#section_1 table tr {
+	border: none;
+}
+
+#section_1 table th {
+	width: 21rem;
+	color: white;
+	background-color: #027d62;
+	font-size: 2rem;
+	border: 1px dotted #014A3A;
+}
+
+#section_1 table td {
+	border: 1px dotted #014A3A;
+	box-sizing: border-box;
+}
+
+#section_1 table td input[type=text] {
+	width: 57rem;
+	font-size: 1.6rem;
+	margin: 0.6rem;
+	padding: 0.6rem;
+	box-sizing: border-box;
+}
+
+#section_1 table td input[type=text]:focus {
+	color: black;
+	background-color: #FFC787;
+	transition: 1s;
+}
+
+#section_1 table td textarea {
+	width: 57rem;
+	height: 20rem;
+	font-size: 1.6rem;
+	margin: 0.6rem;
+	padding: 0.6rem;
+	box-sizing: border-box;
+}
+
+#section_1 table td textarea:focus {
+	color: black;
+	background-color: #FFC787;
+	transition: 1s;
+}
+
+#section_1 table td input[type=submit] {
+	width: 12rem;
+	height: 3.2rem;
+	margin: 0.6rem;
+	color: white;
+	background-color: #b37b0e;
+	border: none;
+}
+
+#section_1 table td input[type=submit]:hover {
+	background-color: #4F453A;
+	cursor: pointer;
+	transition: 0.5s;
+}

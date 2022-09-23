@@ -1,54 +1,68 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html lang="ko" xmlns:th="http://thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" th:href="@{/css/writeboard.css}">
-<title>Insert title here</title>
-<style>
-	th {
-		background-color: #e6e6e6;
-		width: 120px;
-	}
-	td {
-		background-color: #f2f2f2;
-	}
-</style>
+    <div th:replace="/fragments/head.html :: fragment-head"></div>
+    <link rel="stylesheet" th:href="@{/css/updateboard.css}">
 </head>
 <body>
-	<h1>[ 후기 수정하기 ]</h1>
-	<form id="updateform" th:action="@{/boardView/updateboard}" method="post"
-		onsubmit="return validation();" > <!-- enctype="multipart/form-data"> <!-- 파일을 같이 업로드 할 때는 enctype 반드시 적어줘야! --> <!-- 바이너리 데이터까지 다 첨부 -->
-		<!-- hidden : 글 번호 -->
-		<input type="hidden" name="b_num" th:value="${board.b_num}">
-		
-		<table>
-			<!-- 메뉴별 타이틀  -->
-				<tr>
-					<th>레시피 번호</th>
-					<td><input type=text name="food_id" id="food_id" placeholder="레시피 번호입력"></td>		
-				</tr>
-				<tr>
-					<th>제목</th>
-					<td><input type=text name="b_title" id="b_title" placeholder="후기 제목"></td>
-				</tr>
-				<tr>
-					<th>후기내용</th>
-					<td><textarea name="b_contents" id="b_contents" placeholder="후기 내용"></textarea></td>
-				</tr>
-				<tr>
-					<th>사진첨부</th>
-					<td>
-						<input type=file name="upload" size="30"> <!--  value="파일 선택" style="margin: 5px" -->
-				<!--		 <div th:if="${originalfile} == null">선택된 파일 없음</div>
-						<div th:if="${originalfile} != null" th:text="${originalfile}"></div> -->
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<input type="submit" value="등록">
-					</td>
-				</tr> 
-			</table>
-	</form>
+    <div id="wrap">
+        <header id="header">
+             <div th:replace="/fragments/header.html :: fragment-header"></div>
+        </header>
+        <div id="container">
+        	<section id="section_0">
+        		<h1>[ 후기 수정하기 ]</h1>
+        	</section>
+        	<section id="section_1">
+        		<form id="updateform" th:action="@{/boardView/updateboard}" method="post"
+					onsubmit="return validation();" > <!-- enctype="multipart/form-data"> <!-- 파일을 같이 업로드 할 때는 enctype 반드시 적어줘야! --> <!-- 바이너리 데이터까지 다 첨부 -->
+					<!-- hidden : 글 번호 -->
+					<input type="hidden" name="b_num" th:value="${board.b_num}">
+					
+					<table>
+						<!-- 메뉴별 타이틀  -->
+							<tr>
+								<th>레시피 번호</th>
+								<td><input type=text name="food_id" id="food_id" placeholder="레시피 번호입력"></td>		
+							</tr>
+							<tr>
+								<th>제목</th>
+								<td><input type=text name="b_title" id="b_title" placeholder="후기 제목"></td>
+							</tr>
+							<tr>
+								<th>후기내용</th>
+								<td><textarea name="b_contents" id="b_contents" placeholder="후기 내용"></textarea></td>
+							</tr>
+							<tr>
+								<th>사진첨부</th>
+								<td>
+									<input type=file name="upload" size="30"> <!--  value="파일 선택" style="margin: 5px" -->
+							<!--		 <div th:if="${originalfile} == null">선택된 파일 없음</div>
+									<div th:if="${originalfile} != null" th:text="${originalfile}"></div> -->
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<input type="submit" value="등록">
+								</td>
+							</tr> 
+						</table>
+				</form>
+        	</section>
+            <section id="section_3">
+                 <div th:replace="/fragments/section_3.html :: fragment-section_3"></div>         
+            </section>
+            <section id="section_4">
+                 <div th:replace="/fragments/section_4.html :: fragment-section_4"></div>
+            </section>
+        </div>
+        <footer id="footer">
+             <div th:replace="/fragments/footer.html :: fragment-footer"></div>
+        </footer>
+        <aside id="aside">
+             <div th:replace="/fragments/aside.html :: fragment-aside"></div>
+        </aside>
+    </div>
 </body>
 </html>
