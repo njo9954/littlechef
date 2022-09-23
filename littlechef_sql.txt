@@ -125,6 +125,6 @@ insert into site_food values (site_food_seq.nextval, '쌀국수','레시피 내�
 			drop table site_ingredient;
 			drop table site_board;
 			drop table site_member;
-			drop table site_food;'
+			drop table site_food;
 					
 commit;
