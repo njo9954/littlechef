@@ -95,18 +95,32 @@
 
 #section_1 #btn_table2 tr td {
 	border: none;
+	padding-left: 1rem;
+	text-align: left;
 }
-#btn_table2 a input[type=button] {
+
+#btn_table2 input[type=text] {
+	width: 54rem;
+	height: 2.8rem;
+	padding-left: 1rem;
 	font-size: 1.6rem;
-	width: 20rem;
+}
+
+#btn_table2 input[type=text]:focus {
+	background-color: #FFC787;
+}
+
+#btn_table2 input[type=button] {
+	font-size: 1.6rem;
+	width: 6rem;
 	height: 3rem;
 	color: white;
 	background-color: #b37b0e;
 	border: none;
-	margin: 0 auto;
+	margin-left: 1rem;
 }
 
-#btn_table2 a input[type=button]:hover {
+#btn_table2 input[type=button]:hover {
 	cursor: pointer;
 	background-color: #4F453A;
 	transition: 0.5s;
@@ -144,10 +158,10 @@
     width: 10rem;
 }
 #section_2 table th:nth-child(4) {
-    width: 10rem;
+    width: 20rem;
 }
 #section_2 table th:nth-child(5) {
-	width: 10rem;
+	width: 8rem;
 }
 #section_2 table th:last-child {
     width: 8rem;
@@ -157,7 +171,13 @@
     padding: 1rem;
     text-align: left;
 }
+#section_2 table td:first-child {
+	padding-left: 2rem;
+}
 #section_2 table td:nth-child(4) {
+    text-align: center;
+}
+#section_2 table td:nth-child(5) {
     text-align: center;
 }
 #section_2 table td:last-child {
