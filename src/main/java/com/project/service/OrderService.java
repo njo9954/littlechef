@@ -10,4 +10,6 @@ public interface OrderService {
 	
 	public int insertCart(Cart cart);
 
+	public ArrayList<Cart> selectCart(String username);
+
 }

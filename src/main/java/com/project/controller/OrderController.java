@@ -1,6 +1,9 @@
 package com.project.controller;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
@@ -31,6 +34,7 @@ public class OrderController {
 	@Autowired
 	FoodService foodservice;
 	
+	//장바구니 담기
 	@PostMapping("/cart")
 	public String cart(@RequestParam(name="food_id", defaultValue="0") int food_id, @AuthenticationPrincipal UserDetails user) {
 		
@@ -46,12 +50,22 @@ public class OrderController {
 		int result=orderservice.insertCart(cart);
 		log.debug("result : {}", result);
 
-		return "/orderView/cart";
+		return "redirect:/orderView/cart";
 	}
 	
-	@GetMapping("/cartList")
-	public String cartList() {
-		return "/orderView/cartList";
+	//장바구니 목록
+	@GetMapping("/cart")
+	public String cartlist(Model model, @AuthenticationPrincipal UserDetails user) throws Exception {
+		log.debug("cart() called");
+		
+		String username=user.getUsername();
+		ArrayList<Cart> cartlist=orderservice.selectCart(username);
+
+		log.debug("cartlist : {}", cartlist);
+
+		model.addAttribute("cartlist", cartlist);
+
+		return "/orderView/cart";
 	}
 	
 	@GetMapping("order")

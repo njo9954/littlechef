@@ -47,12 +47,12 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                         <th>구매하기</th>
                         <th>삭제하기</th>
                     </tr>
-                    <tr>
+                    <tr th:each="cart:${cartlist}">
                         <td>
                             <input type="checkbox">
                         </td>
                         <td>3</td>
-                        <td>허브솔트 닭가슴살</td>
+                        <td th:text="${cart.c_id}"></td>
                         <td>
                             <input type="number">
                         </td>

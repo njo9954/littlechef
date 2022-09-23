@@ -26,7 +26,7 @@
 		)
 </insert>
 
-<select id="selectCart" resultType="Cart">
+<select id="selectCart" parameterType="String" resultType="Cart">
 SELECT *
 FROM site_cart
 WHERE m_id=#{m_id}
