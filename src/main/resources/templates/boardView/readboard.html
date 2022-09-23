@@ -81,8 +81,8 @@
 			<th th:text="${reply.m_id}"></th>
 			<td th:text="${reply.br_replytext}" style="width: 400px;"></td>
 			<td th:text="${reply.br_datetime}" style="width: 200px;">
-			<!-- <td style="width: 50px;"><a href="@{/board/updateReply(replynum=${reply.replynum})}" th:if="${#authentication.name} == ${reply.memberid}">[수정]</a></td> -->
 			<td style="width: 50px;">
+				
 				<span th:if="${#authentication.name} == ${reply.m_id}">
 					<a href="|javascript:deleteReply(${reply.br_num}, ${reply.b_num})|">[삭제]</a> <!-- 삭제하고 페이지를 돌아오는 기능 --> <!-- ${reply.boardnum} : 삭제하러 이 페이지를 떠남. 읽던 글로 돌아와야. 어떤 글을 읽고 있었는지 모르기 때문에 같이 보냄 -->
 				</span>
