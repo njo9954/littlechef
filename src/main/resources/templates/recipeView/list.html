@@ -64,7 +64,8 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
         <div id="container">
             <section id="section_2">
                 <h2><span>전체</span>&nbsp;RECIPE</h2>
-                <a th:href="@{/recipeView/writeFood}">레시피 등록</a>
+                <div sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/recipeView/writeFood}">레시피 등록</a>
+                </div>
                 
                 <!--  
                 <table>
