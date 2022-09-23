@@ -69,12 +69,12 @@ create table site_bookmark(  -- 찜기능 테이블
 
 create table site_cart (  -- 장바구니 테이블
     c_id number primary key not null,
-    i_name references site_ingredient(i_name)on delete cascade,
-    c_cal number not null,
-    c_price number not null,
-    c_amount number not null
+    food_id references site_food(food_id)on delete cascade,
+    m_id  references site_member(m_id)on delete cascade,
+    c_cal number default 0  not null,
+    c_price number default 0 not null,
+    c_amount number default 0  not null
 );
-
 
 create table site_order(  -- 주문 테이블
     order_id number primary key not null,
@@ -126,5 +126,5 @@ insert into site_food values (site_food_seq.nextval, '쌀국수','레시피 내�
 			drop table site_board;
 			drop table site_member;
 			drop table site_food;'
-			
+					
 commit;
