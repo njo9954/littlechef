@@ -1,0 +1,173 @@
+@charset "UTF-8";
+
+/* Container Contents */
+
+#container #section_0 {
+    max-width: 144rem;
+    margin: 0 auto;
+}
+
+#section_0 h1 {
+    font-size: 4rem;
+    padding: 4rem;
+    text-align: center;
+    color:#014A3A;
+}
+
+#section_0 h1:hover {
+    color: white;
+    background-color: #014A3A;
+}
+
+/* Section 1 */
+
+#container #section_1 {
+    width: 144rem;
+    margin: 4rem auto;
+}
+
+#section_1 table {
+    width: 120rem;
+    border: 1px solid #027d62;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+#section_1 table th {
+    width: 12rem;
+    color: white;
+    background-color: #027d62;
+    font-size: 2rem;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+#section_1 table td {
+    font-size: 1.8rem;
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px dotted #027d62;
+}
+
+#section_1 table td:nth-child(4) {
+	width: 2rem;
+	box-sizing: border-box;
+}
+
+#section_1 table td a img {
+    width: 2rem;
+}
+
+#section_1 #btn_table {
+	border: none;
+	margin-bottom: 2rem;
+}
+
+#section_1 #btn_table tr {
+	border: none;
+}
+
+#section_1 #btn_table tr td {
+	border: none;
+}
+#btn_table a input[type=button] {
+	font-size: 1.6rem;
+	width: 20rem;
+	height: 3rem;
+	color: white;
+	background-color: #b37b0e;
+	border: none;
+	margin: 0 auto;
+}
+
+#btn_table a input[type=button]:hover {
+	cursor: pointer;
+	background-color: #4F453A;
+	transition: 0.5s;
+}
+
+#section_1 #btn_table2 {
+	border: none;
+	margin-top: 2rem;
+}
+
+#section_1 #btn_table2 tr {
+	border: none;
+}
+
+#section_1 #btn_table2 tr td {
+	border: none;
+}
+#btn_table2 a input[type=button] {
+	font-size: 1.6rem;
+	width: 20rem;
+	height: 3rem;
+	color: white;
+	background-color: #b37b0e;
+	border: none;
+	margin: 0 auto;
+}
+
+#btn_table2 a input[type=button]:hover {
+	cursor: pointer;
+	background-color: #4F453A;
+	transition: 0.5s;
+}
+/* Section 2 */
+
+
+#container #section_2 {
+    width: 144rem;
+    margin: 4rem auto;
+}
+
+#section_2 table {
+    width: 120rem;
+    border: 1px solid #027d62;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+#section_2 table th {
+    color: white;
+    background-color: #027d62;
+    font-size: 2rem;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+#section_2 table th:first-child {
+    width: 8rem;
+    box-sizing: border-box;
+    padding: 1rem;
+    text-align: left;
+}
+#section_2 table th:nth-child(2) {
+    width: 10rem;
+}
+#section_2 table th:nth-child(4) {
+    width: 10rem;
+}
+#section_2 table th:nth-child(5) {
+	width: 10rem;
+}
+#section_2 table th:last-child {
+    width: 8rem;
+}
+#section_2 table td {
+    font-size: 1.8rem;
+    padding: 1rem;
+    text-align: left;
+}
+#section_2 table td:nth-child(4) {
+    text-align: center;
+}
+#section_2 table td:last-child {
+    text-align: center;
+}
+#section_2 table td a:hover {
+    color: #027d62;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: 0.5s;
+}
