@@ -59,7 +59,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 				</table>
 			<!-- 본인글인 경우 수정/삭제 -->
 				<div th:if="${#authentication.name} == ${board.m_id}" id="myboard">
-					<a th:href="@{/board/update(b_num=${board.b_num})}">수정</a> <!-- @{/update(boardnum=${board.boardnum})} --> <!-- @{/board/update} -->
+					<a th:href="@{/boardView/updateboard(b_num=${board.b_num})}">수정</a> <!-- @{/update(boardnum=${board.boardnum})} --> <!-- @{/board/update} -->
 					<a th:href="|javascript:deleteBoard(${board.b_num})|">삭제</a>
 				</div>
 			
