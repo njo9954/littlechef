@@ -23,7 +23,7 @@ public interface BoardService {
 	
 	public int delete(Board board);
 	
-	public int update(Board board);
+	int updateboard(Board board);
 
 	//후기 게시판 댓글 
 	
@@ -34,5 +34,6 @@ public interface BoardService {
 	public Reply selectOneReply(int replynum);
 
 	public int deleteReply(Reply reply);
+
 
 }

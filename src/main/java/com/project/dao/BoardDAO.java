@@ -32,7 +32,7 @@ public interface BoardDAO { //  후기 게시판
 	
 		public int delete(Board board);
 		
-		public int update(Board board);
+		public int updateboard(Board board);
 		
 		//후기 게시판  댓글 
 		public int insertReply(Reply reply);

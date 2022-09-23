@@ -109,7 +109,7 @@
 </delete>
 
 
-<update id="update" parameterType="Board">
+<update id="updateboard" parameterType="Board">
 	UPDATE site_board
 	SET
 		b_title = #{b_title}

@@ -186,7 +186,7 @@ public class BoardController { // 후기 컨트롤러
 			
 			log.debug("수정할 글정보 : {}", board);
 		//	int result = 
-					service.update(board);
+					service.updateboard(board);
 			
 			//글 수정 성공 and 첨부된 파일이 있는 경우 파일도 삭제
 			//수정한 제목과 본문, 파일명(있다면) DB에서 수정 // update 구문 xml 파일에서 if문으로
@@ -195,7 +195,7 @@ public class BoardController { // 후기 컨트롤러
 	//		}
 			
 			//읽던 글로 돌아감
-			return "redirect:/boardView/readboard?boardnum=" + board.getB_num(); // redirect:/board/read // 글읽기로 감. int형 boardnum 기다림 0 -> 글 없어서 목록으로 감 // 글 번호까지 줘야 갈 수 있음 // 읽기 화면으로 가되 아까 있던 페이지로 감
+			return "redirect:/boardView/readboard?b_num=" + board.getB_num(); // redirect:/board/read // 글읽기로 감. int형 boardnum 기다림 0 -> 글 없어서 목록으로 감 // 글 번호까지 줘야 갈 수 있음 // 읽기 화면으로 가되 아까 있던 페이지로 감
 		}
 		
 		
