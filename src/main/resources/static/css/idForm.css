@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+html {
+	font-size: 62.5%
+}
+
+header h1 {
+	font-size: 3rem;
+	padding: 1rem;
+	text-align: center;
+	color: white;
+	background-color: #027d62;
+}
+
+#section_1 {
+	width: 80rem;
+	margin: 0 auto;
+}
+
+#section_1 table {
+	width: 50rem;
+	margin: 0 auto;
+}
+
+#section_1 table th {
+	width: 10rem;
+	font-size: 1.8rem;
+	text-align: center;
+	color: white;
+	background-color: #027d62;
+}
+
+
+#section_1 table td input[type=text] {
+	margin-left: 1rem;
+	width: 24rem;
+	height: 2.4rem;
+	font-size: 1.6rem;
+}
+
+#section_1 table td input[type=text]:hover {
+	background-color: #FFC787;
+	transition: 1s;
+}
+
+#section_1 table td input[type=submit] {
+	width: 8rem;
+	margin-left: 1rem;
+	font-size: 1.6rem;
+	padding: 0.4rem;
+	color: white;
+	background-color: #b37b0e;
+	border: none;
+}
+
+#section_1 table td input[type=submit]:hover {
+	background-color: #4F453A;
+	cursor: pointer;
+	transition: 0.5s;
+}

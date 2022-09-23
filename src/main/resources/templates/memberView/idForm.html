@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ID 중복 확인</title>
+<link rel="stylesheet" th:href="@{/css/idForm.css}">
 <script>
 //검색폼 확인
 function validation() {
@@ -28,12 +29,19 @@ function inputId(id) {
 	<h1>[ ID 중복 확인 ]</h1>
 </header>
 <br>
-<section>
+<section id="section_1">
 	<form action="idcheck" method="post" onsubmit="return validation()">
-		검색할 ID <input type="text" name="searchId" id="searchId">
+	<table>
+		<tr>
+			<th>검색할 ID</th>
+			<td>
+				<input type="text" name="searchId" id="searchId">
 				<input type="submit" value="검색" />
+			</td>
+			<td></td>
+		</tr>
+	</table>
 	</form>
-
 	<!-- 검색 후에만 출력 -->
 	<div th:if="${searchId != null}">
 		<!-- 사용 가능한 경우에만 출력 -->
