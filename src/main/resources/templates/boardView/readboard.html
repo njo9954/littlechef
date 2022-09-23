@@ -1,116 +1,93 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://thymeleaf.org"
-xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-    <div th:replace="/fragments/head.html :: fragment-head"></div>
-    <link rel="stylesheet" th:href="@{/css/readboard.css}">
+<meta charset="UTF-8">
+<title>후기 게시판</title>
+<script>
+	//글 삭제
+	function deleteBoard(b_num) {
+		if (confirm('삭제하시겠습니까?')) {
+			location.href = 'delete?b_num=' + b_num; // get방식
+		}
+	} 
+	function vaildation() {
+		
+	}
+	function deleteReply(br_num, b_num) {
+		if(confirm('댓글을 삭제하시겠습니까?')) {
+			location.href = 'deleteReply?br_num=' + br_num;
+		}
+	}
+</script>
 </head>
 <body>
-    <div id="wrap">
-        <header id="header">
-             <div th:replace="/fragments/header.html :: fragment-header"></div>
-        </header>
-        <div id="container">
-        	<section id="section_0">
-        		<h1>[ 후기 게시판 ]</h1>
-        	</section>
-        	<section id="section_1">
-        		<table>
-        			<tr>
-        				<td>
-        					<a th:href="@{/}"><input type="button" value="홈으로"></a>
-        					<a th:href="@{/boardView/listboard}"><input type="button" value="목록으로"></a>
-        				</td>
-        			</tr>
-        		</table>
-        	</section>
-        	<section id="section_2">
-        		<table id="sc2_t1">
-					<tr>
-						<th>작성자</th>
-						<td th:text="${board.m_id}"></td>
-					</tr>
-					<tr>
-						<th>작성일</th>
-						<td th:text="${board.b_datetime}"></td>
-					</tr>
-					<tr>
-						<th>조회수</th>
-						<td th:text=${board.b_readcount}></td>
-					</tr>
-					<tr>
-						<th>제목</th>
-						<td th:text="${board.b_title}"></td>
-					</tr>
-					<tr>
-						<th>내용</th>
-						<td th:text="${board.b_contents}"></td>
-					</tr>
-					<tr>
-						<th>파일첨부</th>
-						<td>
-							<!-- <img src = "/board/download?boardnum=${board.boardnum}"> 
-							<div th:if="${board.originalfile} != null">
-								<img th:src = "@{/board/download(b_num=${board.b_num})}" style="width: 650px">
-							</div>
-							<a th:text="${board.originalfile}" th:href="@{/board/download(b_num=${board.b_num})}"></a>
-						</td> <!-- 파일 이름 보이고 --> <!-- 이 경로로 이동 --> <!-- 번호를 보내줘야! --> <!-- board.boardnum : 1번 글에 첨부된 파일 내놔라 -->
-					</tr>
-				</table>
-			<!-- 본인글인 경우 수정/삭제 -->
-				<div th:if="${#authentication.name} == ${board.m_id}" id="myboard">
-					<a th:href="@{/boardView/updateboard(b_num=${board.b_num})}">수정</a> <!-- @{/update(boardnum=${board.boardnum})} --> <!-- @{/board/update} -->
-					<a th:href="|javascript:deleteBoard(${board.b_num})|">삭제</a>
+	<h1>[ 후기 게시판 ]</h1>
+	<p><a th:href="@{/}"><input type="button" value="home"></a></p> 
+	<table>
+		<tr>
+			<th>작성자</th>
+			<td th:text="${board.m_id}"></td>
+		</tr>
+		<tr>
+			<th>작성일</th>
+			<td th:text="${board.b_datetime}"></td>
+		</tr>
+		<tr>
+			<th>조회수</th>
+			<td th:text=${board.b_readcount}></td>
+		</tr>
+		<tr>
+			<th>제목</th>
+			<td th:text="${board.b_title}"></td>
+		</tr>
+		<tr>
+			<th>내용</th>
+			<td th:text="${board.b_contents}"></td>
+		</tr>
+		<tr>
+			<th>파일첨부</th>
+			<td>
+				<!-- <img src = "/board/download?boardnum=${board.boardnum}"> 
+				<div th:if="${board.originalfile} != null">
+					<img th:src = "@{/board/download(b_num=${board.b_num})}" style="width: 650px">
 				</div>
-			
-				<!-- 로그인한 경우 댓글 작성 폼 -->
-				<div sec:authorize="isAuthenticated()">
-					<form th:action="@{/boardView/replyWrite}" method="post" onsubmit="return vaildation();">
-						<table id="writereply">
-						<!-- 메뉴별 타이틀  -->
-							<tr>
-								<th>
-								댓글 입력
-								<input type="hidden" name="b_num" th:value="${board.b_num}"> <!-- 글번호 자동으로 넣어서 감 -->
-								</th>
-								<td>
-									<input type=text placeholder="댓글 입력" name="br_replytext" id="br_replytext">
-									<input type="submit" value="완료">
-								</td>		
-							</tr> 
-						</table>
-					</form>
-				</div>
-				
-				<!-- 댓글 목록 -->
-				<table id="sc2_t2">
-					<tr th:each="reply : ${replylist}">
-						<th th:text="${reply.m_id}"></th>
-						<td th:text="${reply.br_replytext}"></td>
-						<td th:text="${reply.br_datetime}">
-						<!-- <td style="width: 50px;"><a href="@{/board/updateReply(replynum=${reply.replynum})}" th:if="${#authentication.name} == ${reply.memberid}">[수정]</a></td> -->
-						<td>
-							<span th:if="${#authentication.name} == ${reply.m_id}">
-								<a href="|javascript:deleteReply(${reply.br_num}, ${reply.b_num})|">[삭제]</a> <!-- 삭제하고 페이지를 돌아오는 기능 --> <!-- ${reply.boardnum} : 삭제하러 이 페이지를 떠남. 읽던 글로 돌아와야. 어떤 글을 읽고 있었는지 모르기 때문에 같이 보냄 -->
-							</span>
-						</td>
-					</tr>
-				</table>
-				</div>
-        	</section>
-            <section id="section_3">
-                 <div th:replace="/fragments/section_3.html :: fragment-section_3"></div>         
-            </section>
-            <section id="section_4">
-                 <div th:replace="/fragments/section_4.html :: fragment-section_4"></div>
-            </section>
-        </div>
-        <footer id="footer">
-             <div th:replace="/fragments/footer.html :: fragment-footer"></div>
-        </footer>
-        <aside id="aside">
-             <div th:replace="/fragments/aside.html :: fragment-aside"></div>
-        </aside>
-    </div>
+				<a th:text="${board.originalfile}" th:href="@{/board/download(b_num=${board.b_num})}"></a>
+			</td> <!-- 파일 이름 보이고 --> <!-- 이 경로로 이동 --> <!-- 번호를 보내줘야! --> <!-- board.boardnum : 1번 글에 첨부된 파일 내놔라 -->
+		</tr>
+	</table>
+<!-- 본인글인 경우 수정/삭제 -->
+	<div th:if="${#authentication.name} == ${board.m_id}">
+		<a th:href="@{/boardView/updateboard(b_num=${board.b_num})}">수정</a> <!-- @{/update(boardnum=${board.boardnum})} --> <!-- @{/board/update} -->
+		<a th:href="|javascript:deleteBoard(${board.b_num})|">삭제</a>
+	</div>
+	
+	<a th:href="@{/boardView/listboard}">목록보기</a>
+
+	
+	
+	<!-- 로그인한 경우 댓글 작성 폼 -->
+	<div sec:authorize="isAuthenticated()">
+		<form th:action="@{/boardView/replyWrite}" method="post" onsubmit="return vaildation();">
+			<input type="hidden" name="b_num" th:value="${board.b_num}"> <!-- 글번호 자동으로 넣어서 감 -->
+			<input type="text" name="br_replytext" id="br_replytext" style="width:500px;">
+			<input type="submit" value="확인">
+		</form>
+	</div>
+	
+	<!-- 댓글 목록 -->
+	<table>
+		<tr th:each="reply : ${replylist}">
+			<th th:text="${reply.m_id}"></th>
+			<td th:text="${reply.br_replytext}" style="width: 400px;"></td>
+			<td th:text="${reply.br_datetime}" style="width: 200px;">
+			<!-- <td style="width: 50px;"><a href="@{/board/updateReply(replynum=${reply.replynum})}" th:if="${#authentication.name} == ${reply.memberid}">[수정]</a></td> -->
+			<td style="width: 50px;">
+				<span th:if="${#authentication.name} == ${reply.m_id}">
+					<a href="|javascript:deleteReply(${reply.br_num}, ${reply.b_num})|">[삭제]</a> <!-- 삭제하고 페이지를 돌아오는 기능 --> <!-- ${reply.boardnum} : 삭제하러 이 페이지를 떠남. 읽던 글로 돌아와야. 어떤 글을 읽고 있었는지 모르기 때문에 같이 보냄 -->
+				</span>
+			</td>
+		</tr>
+	</table>
 </body>
 </html>

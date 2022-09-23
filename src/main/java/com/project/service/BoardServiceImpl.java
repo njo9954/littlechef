@@ -30,6 +30,18 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
+	public int delete(Board board) {
+		int result = boardDAO.delete(board);
+		return result;
+	}
+
+	@Override
+	public int updateboard(Board board) {
+		int result = boardDAO.updateboard(board);
+		return result;
+	}
+	
+	@Override
 	public PageNavigator getPageNavigator(int pagePerGroup, int countPerPage, int page, String type,
 			String searchWord) {
 		HashMap<String, String> map = new HashMap<>();
@@ -89,16 +101,5 @@ public class BoardServiceImpl implements BoardService {
 		return result;
 	}
 	
-	@Override
-	public int delete(Board board) {
-		int result = boardDAO.delete(board);
-		return result;
-	}
 
-	@Override
-	public int updateboard(Board board) {
-		int result = boardDAO.updateboard(board);
-		return result;
-	}
-	
 }
