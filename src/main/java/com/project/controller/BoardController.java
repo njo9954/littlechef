@@ -145,7 +145,7 @@ public class BoardController { // 후기 컨트롤러
 			service.insertReply(reply);
 			
 			//아까 읽던 글로 돌아감
-			return "redirect:/boardView/read?b_num=" + reply.getB_num();
+			return "redirect:/boardView/readboard?b_num=" + reply.getB_num();
 		}
 		
 		@PostMapping("deleteReply")
