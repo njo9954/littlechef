@@ -52,6 +52,7 @@ html {
 #section_1 table td input[type=text]:focus {
 	color: black;
 	background-color: #FFC787;
+	transition: 1s;
 }
 
 #section_1 table td input[type=button] {
