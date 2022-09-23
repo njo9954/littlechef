@@ -1,0 +1,35 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.dao.OrderDAO">
+
+<!-- 게시글 저장 (파일명 나중에 추가) -->
+<insert id="insertCart" parameterType="Cart">
+	INSERT INTO site_cart
+		(
+			c_id 
+   			, food_id 
+    		, m_id  
+    		, c_cal 
+    		, c_price
+   			, c_amount 
+		)
+		VALUES
+		(
+			site_cart_seq.NEXTVAL
+			, #{food_id}
+			, #{m_id}
+			, #{c_cal}
+			, #{c_price}
+			, #{c_amount}
+		)
+</insert>
+
+<select id="selectCart" resultType="Cart">
+SELECT *
+FROM site_cart
+WHERE m_id=#{m_id}
+</select>
+
+</mapper>

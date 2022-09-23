@@ -19,6 +19,4 @@ public interface FoodDAO {
 
 	int writeFood(Food food);
 	
-	
-	
 }

@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import com.project.dao.FoodDAO;
 import com.project.domain.Food;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class FoodServiceImpl implements FoodService {
 	
@@ -25,7 +28,7 @@ public class FoodServiceImpl implements FoodService {
 
 	@Override
 	public Food getDetail(int food_id) {
-		
+		log.debug("getDetail");
 		Food food = fooddao.getDetail(food_id);
 		
 		return food;

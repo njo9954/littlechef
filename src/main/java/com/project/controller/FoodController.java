@@ -32,7 +32,7 @@ public class FoodController {
 	}
 	
 	@PostMapping("recipeView/writeFood")
-	public String wrtieFood(Food food)
+	public String writeFood(Food food)
 	{
 		int result = foodservice.writeFood(food);
 		return "redirect:recipeView/list";

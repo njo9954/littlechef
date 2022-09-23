@@ -28,6 +28,7 @@ public class BoardServiceImpl implements BoardService {
 		Board board = boardDAO.selectOne(boardnum);
 		return board;
 	}
+	
 	@Override
 	public PageNavigator getPageNavigator(int pagePerGroup, int countPerPage, int page, String type,
 			String searchWord) {
@@ -63,6 +64,7 @@ public class BoardServiceImpl implements BoardService {
 		int result = boardDAO.updateHits(boardnum);
 		return result;
 	}
+	
 	@Override
 	public int insertReply(Reply reply) {
 		int result = boardDAO.insertReply(reply);
@@ -86,6 +88,7 @@ public class BoardServiceImpl implements BoardService {
 		int result = boardDAO.deleteReply(reply);
 		return result;
 	}
+	
 	@Override
 	public int delete(Board board) {
 		int result = boardDAO.delete(board);
