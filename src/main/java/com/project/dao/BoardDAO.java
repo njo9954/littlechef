@@ -16,18 +16,10 @@ import com.project.domain.Board;
 public interface BoardDAO { //  후기 게시판 
 		//글 저장
 		public int writeBoard(Board board);
-		//글 개수
-//		public int count(HashMap<String, String> map);
-		//글 목록
-//		public ArrayList<Board> selectAll(HashMap<String, String> map, RowBounds rb);
 		//글 읽기
 		public Board selectOne(int boardnum);
 		
 		
-	//   public int delete(Board board);
-		
-	//	public int update(Board board);
-
 		
 		// 후기 게시판
 		public int count(HashMap<String, String> map);

@@ -114,10 +114,6 @@
 	SET
 		b_title = #{b_title}
 		, b_contents = #{b_contents}
-		<if test="originalfile != null and savedfile != null">
-		, originalfile = #{originalfile}
-		, savedfile = #{savedfile}
-		</if>
 	WHERE
 		b_num = #{b_num}
 		AND
