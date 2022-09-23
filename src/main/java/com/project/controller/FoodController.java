@@ -34,8 +34,10 @@ public class FoodController {
 	@PostMapping("recipeView/writeFood")
 	public String writeFood(Food food)
 	{
+		
 		int result = foodservice.writeFood(food);
-		return "redirect:recipeView/list";
+		log.debug("저장한 레시피 정보 :{}", food);
+		return "redirect:list";
 	}
 	
 	//레시피 탭 클릭했을 시 레시피 이름 출력

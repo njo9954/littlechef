@@ -54,12 +54,12 @@ create table site_board_reply(   -- 후기게시판 댓글 테이블
 );
 
 
-create table site_ingredient(  -- 재료 테이블
+/* create table site_ingredient(  -- 재료 테이블
 	i_name varchar(20) primary key not null, 
 	i_type varchar(20) not null ,
 	i_stock number not null,
 	i_allergy varchar2(20)
-);
+); */
 
 
 create table site_bookmark(  -- 찜기능 테이블 

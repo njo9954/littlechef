@@ -9,7 +9,7 @@
 <body>
 	<div class="container">
 		<h1>레시피 등록</h1>
-		<form action="/recipeView/writeFood" method="post">
+		<form th:action="@{/recipeView/writeFood}" method="post">
 			<div class="mb-3">
 				<label class="form-label">음식명</label>
 				<input type="text" class="form-control" name="food_name">
@@ -34,7 +34,7 @@
 			</div>
 			<div class="mb-3">
 				<label class="form-label">레시피</label>
-				<textarea class="form-control" rows="5" name="content"></textarea>
+				<textarea class="form-control" rows="5" name="food_contents"></textarea>
 			</div>
 			<div class="mb-3">
 				<label class="form-label">칼로리</label>
