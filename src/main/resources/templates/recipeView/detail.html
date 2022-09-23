@@ -73,9 +73,12 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
             </section>
             <section id="section_2">
             	<div id="sc2_button">
-                    <a th:href="@{/orderView/cart}">
-                        <input type="button" value="장바구니에 담기">
+                    <form th:action="@{/orderView/cart}" method="post">
+                    <a>	
+                    	<input type="hidden" name="food_id" th:value="${food.food_id}"> 
+                        <input type="submit" value="장바구니에 담기">
                     </a>
+                    </form>
                 </div>
             </section>  
             <section id="section_3">
