@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 html {
 	font-size: 62.5%
 }
@@ -29,7 +30,7 @@ html {
 }
 
 #section_1 table th {
-	width: 21rem;
+	width: 10rem;
 	color: white;
 	background-color: #027d62;
 	font-size: 2rem;
@@ -37,12 +38,11 @@ html {
 }
 
 #section_1 table td {
-	border: 1px dotted #014A3A;
 	box-sizing: border-box;
 }
 
 #section_1 table td input[type=text] {
-	width: 57rem;
+	width: 60rem;
 	font-size: 1.6rem;
 	margin: 0.6rem;
 	padding: 0.6rem;
@@ -54,22 +54,8 @@ html {
 	background-color: #FFC787;
 }
 
-#section_1 table td textarea {
-	width: 57rem;
-	height: 20rem;
-	font-size: 1.6rem;
-	margin: 0.6rem;
-	padding: 0.6rem;
-	box-sizing: border-box;
-}
-
-#section_1 table td textarea:focus {
-	color: black;
-	background-color: #FFC787;
-}
-
-#section_1 table td input[type=submit] {
-	width: 12rem;
+#section_1 table td input[type=button] {
+	width: 6rem;
 	height: 3.2rem;
 	margin: 0.6rem;
 	color: white;
@@ -77,7 +63,7 @@ html {
 	border: none;
 }
 
-#section_1 table td input[type=submit]:hover {
+#section_1 table td input[type=button]:hover {
 	background-color: #4F453A;
 	cursor: pointer;
 	transition: 0.5s;
