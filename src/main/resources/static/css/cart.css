@@ -89,6 +89,9 @@
 #section_2 #sc2_t1 th:nth-child(5) {
     width: 12rem;
 }
+#section_2 #sc2_t1 th:nth-child(6) {
+    width: 12rem;
+}
 #section_2 #sc2_t1 th:last-child {
     width: 14rem;
 }
