@@ -25,7 +25,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                     <table>
                     		<tr th:each="food : ${food}">
 								<th>레시피 번호</th>
-									<td th:text="${food.food_id}"></td>
+								<td th:text="${food.food_id}"></td>
 								</tr>
 							<tr>
 								
@@ -80,7 +80,43 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                     </a>
                     </form>
                 </div>
-            </section>  
+            </section>
+            <section id="section_2s">
+                	<table>
+                		<tr>
+                			<th>번호</th>
+                			<th>작성자명</th>
+                			<th>후기 제목</th>
+                			<th>작성일시</th>
+                			<th>추천수</th>
+                			<th>조회수</th>
+                		</tr>
+                		<tr>
+                			<td>3</td>
+                			<td>abc123</td>
+                			<td><a>요번만 3번째에요</a></td>
+                			<td>2022/02/24</td>
+                			<td>0</td>
+                			<td>0</td>
+                		</tr>
+                		<tr>
+                			<td>2</td>
+                			<td>abc123</td>
+                			<td><a>다시먹어도 맛있어요</a></td>
+                			<td>2022/02/23</td>
+                			<td>0</td>
+                			<td>0</td>
+                		</tr>
+                		<tr>
+                			<td>1</td>
+                			<td>abc123</td>
+                			<td><a>너무 맛있어요</a></td>
+                			<td>2022/02/22</td>
+                			<td>0</td>
+                			<td>0</td>
+                		</tr>
+                	</table>
+                </div>
             <section id="section_3">
                  <div th:replace="/fragments/section_3.html :: fragment-section_3"></div>         
             </section>
