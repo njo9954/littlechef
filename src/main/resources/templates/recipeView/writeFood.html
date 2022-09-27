@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, intial-scale=1"/>
 <title>레시피 등록</title>
 <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -34,7 +38,9 @@
 			</div>
 			<div class="mb-3">
 				<label class="form-label">레시피</label>
-				<textarea class="form-control" rows="5" name="food_contents"></textarea>
+   				  				
+				<textarea name="food_contents" id="editor"></textarea>
+				
 			</div>
 			<div class="mb-3">
 				<label class="form-label">칼로리</label>
@@ -63,11 +69,26 @@
  						 				
 				</select>
 			</div>
+			<button id="btn-upload" type="button" style="border: 1px solid #ddd; outline: none;">파일 추가</button>
+  			<input id="input_file" multiple="multiple" type="file" style="display:none;">
 			<button type="button" class="btn btn-success" onclick="javascript:location.href='/littlechef/recipeView/list'">이전으로</button>
 			<button type="submit" class="btn btn-primary">작성</button>
 		</form>
 	</div>
 	<script src="js/jquery-3.6.0.min.js"></script>
-	<scirpt src="js/bootstrap.min.js"></scirpt>
+	<script src="js/bootstrap.min.js"></script>
+	
+		<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+    <script>
+      ClassicEditor.create( document.querySelector( '#editor' ) );
+    </script>
+	<script>
+ $(function () {
+    $('#btn-upload').click(function (e) {
+        e.preventDefault();
+        $('#input_file').click();
+    });
+});
+ </script>
 </body>
 </html>
