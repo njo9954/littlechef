@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+
 /* Section 2 */
 
 #container #section_2 {
@@ -19,6 +20,30 @@
 }
 
 #section_2 h2 span {color: #027d62;}
+
+#section_2 #admin_input {
+	width: 144rem;
+	height: 12rem;
+	margin: 2rem auto;
+	border: 1px solid #014A3A;
+	box-sizing: border-box;
+}
+
+#section_2 #admin_input a input[type=button] {
+	width: 16rem;
+	font-size: 1.6rem;
+	padding: 0.4rem;
+	box-sizing: border-box;
+	border: none;
+	color: white;
+	background-color: #027d62;
+}
+
+#section_2 #admin_input a input[type=button]:hover {
+	background-color: #014A3A;
+	cursor: pointer;
+	transition: 0.5s;
+}
 
 #section_2 table {
     width: 144rem;
