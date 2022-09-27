@@ -254,7 +254,7 @@ public class BoardController { // 후기 컨트롤러
 			
 			//결과가 없으면 글목록으로 리다이렉트
 			if (reply == null) {
-				return "redirect:/";
+				return "redirect:/boardView/listboard";
 			}
 			
 			//로그인한 아이디 확인
@@ -268,4 +268,5 @@ public class BoardController { // 후기 컨트롤러
 			//글읽기로 이동
 			return "redirect:/boardView/readboard?b_num=" + reply.getB_num();
 		}
+		
 }

@@ -14,7 +14,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 		function vaildation() {
 			
 		}
-		function deleteReply(br_num, b_num) {
+		function deleteReply(br_num) { 
 			if(confirm('댓글을 삭제하시겠습니까?')) {
 				location.href = 'deleteReply?br_num=' + br_num;
 			}
@@ -92,10 +92,8 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 							</td>
 						</tr>
 					</table>
-						
-						
-					</form>
-				</div>
+				</form>
+			</div>
 				<!-- 댓글 목록 -->
 				<table id="sc2_t2">
 					<tr th:each="reply : ${replylist}">
@@ -105,7 +103,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 						<td style="width: 50px;">
 							
 							<span th:if="${#authentication.name} == ${reply.m_id}">
-								<a href="|javascript:deleteReply(${reply.br_num}, ${reply.b_num})|">[삭제]</a> <!-- 삭제하고 페이지를 돌아오는 기능 --> <!-- ${reply.boardnum} : 삭제하러 이 페이지를 떠남. 읽던 글로 돌아와야. 어떤 글을 읽고 있었는지 모르기 때문에 같이 보냄 -->
+								<a th:href="|javascript:deleteReply(${reply.br_num})|">[삭제]</a> <!-- 삭제하고 페이지를 돌아오는 기능 --> <!-- ${reply.boardnum} : 삭제하러 이 페이지를 떠남. 읽던 글로 돌아와야. 어떤 글을 읽고 있었는지 모르기 때문에 같이 보냄 -->
 							</span>
 						</td>
 					</tr>

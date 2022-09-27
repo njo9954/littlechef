@@ -143,15 +143,16 @@
 </select>
 
 <select id="selectOneReply" parameterType="int" resultType="Reply">
-	SELECT * FROM site_board_reply WHERE b_num = #{b_num} AND br_num = #{br_num}
+	SELECT * FROM site_board_reply WHERE br_num = #{br_num}
 </select>
 
 <delete id="deleteReply" parameterType="Reply">
 	DELETE FROM site_board_reply
+
 	WHERE
-		br_num = #{br_num}
-		AND
-		m_id = #{m_id}
+	br_num = #{br_num}
+	AND
+	m_id = #{m_id}
 </delete>
 
 
