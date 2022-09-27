@@ -88,7 +88,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 	<table>
                 		<tr>
                 			<td colspan="6" id="td_btn">
-                				<a th:href="@{/boardView/listboard}">
+                				<a th:href="|@{/boardView/writeboard}?food_id=${food.food_id}|">
                 					<input type="button" value="후기 작성하기">
                 				</a>
                 			</td>
