@@ -160,3 +160,22 @@
 	color: #4F453A;
 	padding: 0.4rem;
 }
+
+#section_2s table #td_btn {
+	text-align: center;
+}
+
+#section_2s table #td_btn a input[type=button] {
+	color: white;
+	background-color: #b37b0e;
+	font-size: 1.8rem;
+	padding: 0.6rem 1.2rem;
+	margin: 0.4rem;
+	border: none;
+}
+
+#section_2s table #td_btn a input[type=button]:hover {
+	background-color: #4F453A;
+	cursor: pointer;
+	transition: 0.5s;
+}
