@@ -243,7 +243,7 @@ public class BoardController { // 후기 컨트롤러
 			return "redirect:/boardView/readboard?b_num=" + reply.getB_num();
 		}
 		
-		@PostMapping("deleteReply")
+		@GetMapping("deleteReply")
 		public String deleteReply(
 				int br_num
 				, @AuthenticationPrincipal UserDetails user) {
