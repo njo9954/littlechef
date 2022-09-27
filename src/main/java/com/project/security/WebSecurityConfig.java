@@ -69,7 +69,7 @@ public class WebSecurityConfig {
                 "where m_id = ?") // DB연결 프로그래밍을 할 때 전달된 값 끼워넣어서 sql 실행하는 게 ? // mybatis에서의 #
         // 권한
         .authoritiesByUsernameQuery( // 로그인을 했느냐가 중요한 기능도 있고 관리자인지 일반회원인지 구분
-        		"select m_id username, rolename role_name " +
+        		"select m_id username, role_name role_name " +
                 "from site_member " +
                 "where m_id = ?");
     }

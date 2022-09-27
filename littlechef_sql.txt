@@ -16,7 +16,7 @@ create table site_member(  -- 멤버 테이플
 	m_coupon number default 0,
 	m_mileage number default 0,
 	enabled	NUMBER DEFAULT 1 CHECK(enabled IN(1, 0)),	--계정상태.숫자1자리. 1은 사용가능(기본값). 0은 사용불가능 아이디.(휴먼,차단일 경우
-	role_name VARCHAR2(20) DEFAULT 'ROLE_USER' CHECK(rolename IN('ROLE_USER', 'ROLE_ADMIN'))	--문자열20byte. 'ROLE_USER'(기본값), 'ROLE_ADMIN'중 하나.
+	role_name VARCHAR2(20) DEFAULT 'ROLE_USER' CHECK(role_name IN('ROLE_USER', 'ROLE_ADMIN'))	--문자열20byte. 'ROLE_USER'(기본값), 'ROLE_ADMIN'중 하나.
 );
 
 create sequence site_food_seq;
