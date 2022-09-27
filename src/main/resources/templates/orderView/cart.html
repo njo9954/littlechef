@@ -51,10 +51,10 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                         <td>
                             <input type="checkbox">
                         </td>
-                        <td>3</td>
-                        <td th:text="${cart.c_id}"></td>
+                        <td th:text="${cart.food_id}">카트번호</td>
+                        <td th:text="${cart.food_name}">음식이름</td>
                         <td>
-                            <input type="number">
+                            <input type="number" placeholder="수량" th:value="${cart.c_amount}">
                         </td>
                         <td>
                             <select>

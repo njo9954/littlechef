@@ -14,4 +14,5 @@ public class Cart {
 	int c_cal;
 	int c_price;
 	int c_amount;
+	String food_name;
 }

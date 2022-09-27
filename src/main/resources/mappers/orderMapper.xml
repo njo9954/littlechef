@@ -27,9 +27,12 @@
 </insert>
 
 <select id="selectCart" parameterType="String" resultType="Cart">
-SELECT *
-FROM site_cart
-WHERE m_id=#{m_id}
+SELECT
+    SF.food_id, SF.food_name, SC.c_amount 
+FROM
+    site_cart SC, site_food SF
+WHERE
+    SC.food_id = SF.food_id
+    AND SC.m_id = #{m_id}
 </select>
-
 </mapper>
