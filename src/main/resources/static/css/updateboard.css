@@ -46,6 +46,10 @@ html {
 	border: 1px dotted #014A3A;
 }
 
+#section_1 table #contents {
+	vertical-align: middle;
+}
+
 #section_1 table td {
 	border: 1px dotted #014A3A;
 	box-sizing: border-box;
