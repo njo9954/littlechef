@@ -161,6 +161,17 @@
 	padding: 0.4rem;
 }
 
+#section_2s table td a {
+	color: #4F453A;
+}
+
+#section_2s table td a:hover {
+	color: #b37b0e;
+	text-decoration: underline;
+	cursor: pointer;
+	transition: 0.5s;
+}
+
 #section_2s table #td_btn {
 	text-align: center;
 }
