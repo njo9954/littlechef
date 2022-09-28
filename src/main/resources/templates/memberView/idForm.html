@@ -43,19 +43,18 @@ function inputId(id) {
 	</table>
 	</form>
 	<!-- 검색 후에만 출력 -->
-	<div th:if="${searchId != null}">
+	<div th:if="${searchId != null}" id="idCheck">
 		<!-- 사용 가능한 경우에만 출력 -->
 		<div th:if="${result}">
-			<p><span th:text="${searchId}"></span><span> : 사용할 수 있는 ID입니다.</span></p>
+			<p><span th:text="${searchId}" class="searchId"></span><span id="usable"> : 사용할 수 있는 ID입니다.</span></p>
 			<p><input type="button" value="ID사용하기" th:searchId="${searchId}" onclick="inputId(this.getAttribute('searchId'))"></p>
 		</div>
 		<!-- 사용 불가능한 경우에만 출력 -->
-		<div th:if="${not result}">
-			<p><span th:text="${searchId}"></span><span> : 이미 사용중인 ID입니다.</span></p>
+		<div th:if="${not result}" id="">
+			<p><span th:text="${searchId}" class="searchId"></span><span id="disable"> : 이미 사용중인 ID입니다.</span></p>
 		</div>
 		
 	</div>
-	
 </section>
 </body>
 </html>

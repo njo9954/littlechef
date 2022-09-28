@@ -58,3 +58,39 @@ header h1 {
 	cursor: pointer;
 	transition: 0.5s;
 }
+
+
+#section_1 #idCheck {
+	width: 50rem;
+	margin: 2rem auto;
+}
+
+#section_1 #idCheck .searchId {
+	font-size: 1.6rem;
+	color: #999;
+}
+
+#section_1 #idCheck #usable {
+	font-size: 1.6rem;
+	color: #000;
+}
+
+#section_1 #idCheck #disable {
+	font-size: 1.6rem;
+	color: #ff0000;
+}
+
+#section_1 #idCheck input[type=button] {
+	width: 12rem;
+	font-size: 1.6rem;
+	padding: 0.4rem 1rem;
+	color: white;
+	background-color: #b37b0e;
+	border: none;
+}
+
+#section_1 #idCheck input[type=button]:hover {
+	background-color: #4F453A;
+	cursor: pointer;
+	transition: 0.5s;
+}
