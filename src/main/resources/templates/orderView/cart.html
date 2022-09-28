@@ -74,7 +74,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	                        </td>
                         </form>
                     </tr>
-                    <tr th:each="cart:${cartlist}">
+                    <tr>
                     	<form method="post">
                         	<td colspan="7" id="last_td">
                            		<input id="deleteall" type="submit" value="전체취소" onclick="javascript: form.action='/littlechef/orderView/deleteall';">
