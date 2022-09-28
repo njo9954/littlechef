@@ -71,6 +71,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                     </table>                    
                 </div>
             </section>
+            <section>
             <div style="height: 300px; margin: 10px; display: inline-block">
             <table>
             <tr th:each="food : ${food}">
@@ -79,7 +80,8 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
             </tr>
             </table>
             </div>
-                    	
+            
+            </section>        	
             <section id="section_2">
             	<div id="sc2_button">
                     <form th:action="@{/orderView/cart}" method="post">
