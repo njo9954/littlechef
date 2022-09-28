@@ -27,5 +27,17 @@ public class OrderServiceImpl implements OrderService {
 		ArrayList<Cart> cartlist=orderdao.selectCart(username);
 		return cartlist;
 	}
+
+	@Override
+	public int deleteCart(Cart cartIdAndMemberId) {
+		int list=orderdao.deleteCart(cartIdAndMemberId);
+		return list;
+	}
+
+	@Override
+	public int deleteCartAll(String username) {
+		int list=orderdao.deleteCartAll(username);
+		return list;
+	}
 	
 }

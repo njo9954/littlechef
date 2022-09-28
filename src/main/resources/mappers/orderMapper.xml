@@ -28,11 +28,28 @@
 
 <select id="selectCart" parameterType="String" resultType="Cart">
 SELECT
-    SF.food_id, SF.food_name, SC.c_amount 
+    SF.food_id, SF.food_name, SC.c_amount, SC.c_id, sc.c_cal, sc.c_price, sc.m_id 
 FROM
     site_cart SC, site_food SF
 WHERE
     SC.food_id = SF.food_id
     AND SC.m_id = #{m_id}
+ORDER BY
+	sc.c_id
 </select>
+
+<delete id="deleteCart" parameterType="Cart">
+	DELETE FROM 
+		site_cart
+	WHERE
+		c_id=#{c_id}
+		and m_id=#{m_id}
+</delete>
+
+<delete id="deleteCartAll" parameterType="String">
+	DELETE FROM 
+		site_cart
+	WHERE 
+		m_id=#{m_id}
+</delete>
 </mapper>

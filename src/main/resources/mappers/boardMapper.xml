@@ -155,6 +155,4 @@
 	m_id = #{m_id}
 </delete>
 
-
-
 </mapper>

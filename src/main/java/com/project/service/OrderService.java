@@ -12,4 +12,8 @@ public interface OrderService {
 
 	public ArrayList<Cart> selectCart(String username);
 
+	public int deleteCart(Cart cartIdAndMemberId);
+
+	public int deleteCartAll(String username);
+
 }

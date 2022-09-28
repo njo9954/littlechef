@@ -44,8 +44,12 @@ public class OrderController {
 		Food food=foodservice.getDetail(food_id);
 		Cart cart=new Cart();
 		log.debug("cart : {}", cart);
+		log.debug("food: {}", food);
 		cart.setM_id(user.getUsername());
-		cart.setFood_id(food.getFood_id());
+		cart.setFood_id(food_id);
+		cart.setC_amount(1);
+		cart.setC_price(food.getFood_price());
+		cart.setFood_name(food.getFood_name());
 		log.debug("cart : {}", cart);
 		int result=orderservice.insertCart(cart);
 		log.debug("result : {}", result);
@@ -68,8 +72,41 @@ public class OrderController {
 		return "/orderView/cart";
 	}
 	
-	@GetMapping("order")
-	public String order() {
+	//장바구니 선택 삭제
+	@PostMapping("/delete")
+	public String delete(int c_id, @AuthenticationPrincipal UserDetails user) {
+		log.debug("delete() called");
+		
+		String username=user.getUsername();
+		
+		Cart cartIdAndMemberId = new Cart();
+		cartIdAndMemberId.setC_id(c_id);
+		cartIdAndMemberId.setM_id(user.getUsername());
+		int result = orderservice.deleteCart(cartIdAndMemberId);
+
+		log.debug("delete", result);
+
+		return "redirect:/orderView/cart";
+
+	}
+	
+	//장바구니 전체 삭제
+	@PostMapping("/deleteall")
+	public String deleteall(@AuthenticationPrincipal UserDetails user) {
+		log.debug("deleteall() called");
+		
+		String username=user.getUsername();
+		int result = orderservice.deleteCartAll(username);
+
+		log.debug("delete", result);
+
+		return "redirect:/orderView/cart";
+
+	}
+
+	
+	@PostMapping("order")
+	public String order(Model model, @AuthenticationPrincipal UserDetails user) {
 		return "/orderView/order";
 	}
 	

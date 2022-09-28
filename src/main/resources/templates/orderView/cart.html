@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://thymeleaf.org"
 xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head>
     <div th:replace="/fragments/head.html :: fragment-head"></div>
     <link rel="stylesheet" th:href="@{/css/cart.css}">
@@ -48,77 +49,39 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                         <th>삭제하기</th>
                     </tr>
                     <tr th:each="cart:${cartlist}">
-                        <td>
-                            <input type="checkbox">
-                        </td>
-                        <td th:text="${cart.food_id}">카트번호</td>
-                        <td th:text="${cart.food_name}">음식이름</td>
-                        <td>
-                            <input type="number" placeholder="수량" th:value="${cart.c_amount}">
-                        </td>
-                        <td>
-                            <select>
-                                <option>할인</option>
-                                <option>적립</option>
-                            </select>
-                        </td>
-                        <td>
-                            <input type="button" value="구매하기">
-                        </td>
-                        <td>
-                            <input type="button" value="삭제하기">
-                        </td>
+                    	<form method="post">
+	                        <td>
+	                            <input type="checkbox">
+	                        </td>
+	                        <td th:text="${cart.c_id}">카트번호</td>
+	                        <td th:text="${cart.food_name}">음식이름</td>
+	                        <td>
+	                            <input type="number" placeholder="수량" th:value="${cart.c_amount}">
+	                        </td>
+	                        <td>
+	                            <select>
+	                                <option>할인</option>
+	                                <option>적립</option>
+	                            </select>
+	                        </td>
+	                        <td>
+	                            <input type="button" value="구매하기">
+	                        </td>
+	                        <td>
+	                        	<input type="hidden" name="c_id" th:value="${cart.c_id}">
+	                            <input id="delete" type="submit" value="삭제하기"
+	                            onclick="javascript: form.action='/littlechef/orderView/delete';">
+	                        </td>
+                        </form>
                     </tr>
-                    <tr>
-                        <td>
-                            <input type="checkbox">
-                        </td>
-                        <td>2</td>
-                        <td>페퍼솔트 닭가슴살</td>
-                        <td>
-                            <input type="number">
-                        </td>
-                        <td>
-                            <select>
-                                <option>할인</option>
-                                <option>적립</option>
-                            </select>
-                        </td>
-                        <td>
-                            <input type="button" value="구매하기">
-                        </td>
-                        <td>
-                            <input type="button" value="삭제하기">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="checkbox">
-                        </td>
-                        <td>1</td>
-                        <td>라임솔트 닭가슴살</td>
-                        <td>
-                            <input type="number">
-                        </td>
-                        <td>
-                            <select>
-                                <option>할인</option>
-                                <option>적립</option>
-                            </select>
-                        </td>
-                        <td>
-                            <input type="button" value="구매하기">
-                        </td>
-                        <td>
-                            <input type="button" value="삭제하기">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="7" id="last_td">
-                            <input type="button" value="전체취소">
-                            <input type="button" value="선택구매">
-                            <input type="button" value="전체구매">
-                        </td>
+                    <tr th:each="cart:${cartlist}">
+                    	<form method="post">
+                        	<td colspan="7" id="last_td">
+                           		<input id="deleteall" type="submit" value="전체취소" onclick="javascript: form.action='/littlechef/orderView/deleteall';">
+                            	<input type="button" value="선택구매">
+                            	<input type="button" value="전체구매">
+                        	</td>
+                        </form>
                     </tr>
                 </table>
             </section>
