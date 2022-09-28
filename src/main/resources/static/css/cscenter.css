@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+/* Container Contents */
+
+#container #section_0 {
+    max-width: 144rem;
+    margin: 0 auto;
+}
+
+#section_0 h1 {
+    font-size: 4rem;
+    padding: 5rem;
+    text-align: center;
+    border-bottom: 1px solid #014A3A;
+    color:#b37b0e;
+}
+
+#section_0 h1:hover {
+    color: white;
+    background-color: #014A3A;
+}
+/* Section 1 */
+
+#container #section_1 {
+	width: 144rem;
+	margin: 4rem auto;
+} 
+
+#section_1 table {
+	width: 120rem;
+	margin: 0 auto;
+	border: 1px solid #014a3a;
+	box-sizing: border-box;
+}
+
+#section_1 table th {
+	color: white;
+	background-color: #027d62;
+	font-size: 2.2rem;
+	padding: 0.6rem;
+}
+
+#section_1 table th.num {
+	width: 6rem;
+}
+
+#section_1 table #thead {
+	font-size: 3.2rem;
+	padding: 1rem;
+	font-weight: bold;
+	background-color: #014a3a;
+}
+#section_1 table td {
+	padding-left: 1.8rem;
+	border: 1px dotted #027d62;
+}
+#section_1 table td a {
+	font-size: 1.8rem;
+	color: #014A3A;
+}
+
+#section_1 table td a:hover {
+	text-decoration: underline;
+	cursor: pointer;
+	transition: 0.5s;
+}
+#container #section_2 {
+	width: 144rem;
+	margin: 4rem auto;
+}
+#section_2 #etc {
+	width: 120rem;
+	margin: 0 auto;
+} 
+
+#section_2 #etc ul li {
+	margin-top: 1rem;
+}
+
+#section_2 #etc ul li a {
+	font-size: 1.6rem;
+	color: #014a3a;
+}
+#section_2 #etc ul li .etc {
+	font-size: 1.8rem;
+	font-weight: bold;
+}
+#section_2 #etc ul li a span {
+	color: blue;
+}
+
+#section_2 #etc ul li a span:hover {
+	text-decoration: underline;
+	cursor: pointer;
+	transition: 0.5s;
+}

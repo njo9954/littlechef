@@ -12,4 +12,9 @@ public class MainController {
 		return "main";
 	}
 	
+	//cs center page
+	@GetMapping("/cscenter")
+	public String cscenter() {
+		return "cscenter";
+	}
 }
