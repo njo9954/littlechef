@@ -21,9 +21,9 @@ create table site_member(  -- 멤버 테이플
 create sequence site_food_seq;
 create table site_food( -- 식품테이블
 	food_id number primary key not null , 
-	food_name NCLOB not null , 
-	food_category NCLOB not null,
-	food_contents NCLOB  not null,
+	food_name varchar2(20) not null , 
+	food_category varchar2(30) not null,
+	food_contents long not null,
 	food_cal number not null,
 	food_price number not null, 
 	food_tag varchar2(200) not null,

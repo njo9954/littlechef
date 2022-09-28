@@ -19,7 +19,6 @@ import com.project.service.BoardService;
 import com.project.util.PageNavigator;
 import com.project.domain.Board;
 import com.project.domain.Reply;
-
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -41,6 +40,7 @@ public class BoardController { // 후기 컨트롤러
 		
 	@Autowired
 	BoardService service;
+	
 
 	@GetMapping("listboard")
 	public String list(
@@ -73,7 +73,15 @@ public class BoardController { // 후기 컨트롤러
 	
 	//후기쓰기 폼으로 이동
 	@GetMapping("writeboard")
-	public String write() {
+	public String write(Model model) { // food_id를 받아주고 
+		
+		//log.debug("후기쓸 레시피:{}", food_id);
+		
+		//Board board = service.selectOne(food_id);
+		
+		//model.addAttribute("board", board); // 보내준다. 
+		//log.debug("board:{}",board);
+		
 		return "/boardView/writeboard";
 	}
 	
@@ -81,7 +89,7 @@ public class BoardController { // 후기 컨트롤러
 	//후기저장
 		@PostMapping("writeboard")
 		public String write(
-				Board board
+				Board board 
 				, @AuthenticationPrincipal UserDetails user // 로그인한 사용자 정보 전달
 				, MultipartFile upload) {
 			
@@ -100,10 +108,11 @@ public class BoardController { // 후기 컨트롤러
 //			}
 			
 			log.debug("저장할 글정보 : {}", board);
+		
 			
 			service.writeBoard(board);
 			
-			return "redirect:listboard";
+			return "redirect:/boardView/listboard?b_num=" + board.getB_num();
 		}
 		
 		@GetMapping("delete")
@@ -132,6 +141,7 @@ public class BoardController { // 후기 컨트롤러
 			//글이 삭제되고 첨부파일도 있는 경우 파일삭제
 		//	if(result == 1 && savedfile != null) { // 혹시 글 못지웠을 때 파일 삭제할 필요 없음
 		//		FileService.deleteFile(uploadPath + "/" + savedfile); // 전체 경로 만들어서 fileService에 파일 삭제하는 코드 들어있음
+			
 			
 			
 			//글목록으로 이동
@@ -197,8 +207,6 @@ public class BoardController { // 후기 컨트롤러
 			//읽던 글로 돌아감
 			return "redirect:/boardView/readboard?b_num=" + board.getB_num(); // redirect:/board/read // 글읽기로 감. int형 boardnum 기다림 0 -> 글 없어서 목록으로 감 // 글 번호까지 줘야 갈 수 있음 // 읽기 화면으로 가되 아까 있던 페이지로 감
 		}
-		
-		
 		
 		//후기 상세 읽기
 		@GetMapping("readboard")
