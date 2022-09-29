@@ -54,13 +54,15 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
             <li><a href="#">랭킹</a></li>
             <li><a href="#">이벤트</a></li>
             <li><a href="#">특가/기획전</a></li>
-            <li><form name="search" method="post">
+            <li>
+            <form name="search" method="post">
                 <fieldset>
                     <legend>검색창</legend>
-                    <input type="text" name="search_bar" placeholder="검색어를 입력하세요">
+                    <input type="text" name="search_bar" placeholder="검색어를 입력하세요" id="search">
                     <button type="submit"><img th:src="@{/img/search.svg}" alt="검색아이콘"></button>
                 </fieldset>
-            </form></li>
+            </form>
+            </li>
         </ul>
     </nav>
 </header>

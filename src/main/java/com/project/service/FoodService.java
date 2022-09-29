@@ -12,5 +12,8 @@ public interface FoodService {
 	//레시피 상세 내용 불러오기
 	Food getDetail(int food_id);
 	int writeFood(Food food);
+	//레시피 찾기
+	ArrayList<Food> foodSearch(String type, String searchWord);
+	
 
 }

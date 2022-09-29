@@ -14,88 +14,86 @@
 <!-- include summernote css/js -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-
 </head>
 <body>
 	<div class="container">
-		<h1>레시피 등록</h1>
-		<form th:action="@{/recipeView/writeFood}" th:object="${postForm}" method="post">
-			<div class="mb-3">
-				<label class="form-label">음식명</label>
-				<input type="text" class="form-control" name="food_name">
-			</div>
-			<div class="mb-3">
-				<label class="form-label">카테고리</label>
-				<select class="form-select form-select-sm" name="food_category" size="1" aria-label="태그">
-						 <option selected value="base">밑반찬</option>
- 						 <option value="main">메인반찬</option>		
- 						 <option value="guk">국/탕/찌개</option>
- 						 <option value="dessert">디저트</option>
- 						 <option value="mandu">면/만두</option>
- 						 <option value="rice">밥/죽/떡</option>
- 						 <option value="kimchi">김치/젓갈/장</option>
- 						 <option value="sauce">양념/소스/잼</option>
- 						 <option value="west">양식</option>
- 						 <option value="salad">샐러드</option>
- 						 <option value="bread">스프/빵/과자</option>
- 						 <option value="etc">기타</option>
- 						 				
-				</select>
-			</div>
-			<div class="mb-3">
-				<label class="form-label">레시피</label>
-   				  				
-				<textarea id="summernote" name="food_contents"></textarea>
+		<section id="section_0">
+			<h1>레시피 등록</h1>
+		</section>
+		<section id="section_1">
+			<form th:action="@{/recipeView/writeFood}" th:object="${postForm}" method="post">
+				<div class="mb-3">
+					<label class="form-label">음식명</label>
+					<input type="text" class="form-control" name="food_name">
+				</div>
+				<div class="mb-3">
+					<label class="form-label">카테고리</label>
+					<select class="form-select form-select-sm" name="food_category" size="1" aria-label="태그">
+							 <option selected value="base">밑반찬</option>
+	 						 <option value="main">메인반찬</option>		
+	 						 <option value="guk">국/탕/찌개</option>
+	 						 <option value="dessert">디저트</option>
+	 						 <option value="mandu">면/만두</option>
+	 						 <option value="rice">밥/죽/떡</option>
+	 						 <option value="kimchi">김치/젓갈/장</option>
+	 						 <option value="sauce">양념/소스/잼</option>
+	 						 <option value="west">양식</option>
+	 						 <option value="salad">샐러드</option>
+	 						 <option value="bread">스프/빵/과자</option>
+	 						 <option value="etc">기타</option>
+	 						 				
+					</select>
+				</div>
+				<div class="mb-3">
+					<label class="form-label">레시피</label>
+	   				  				
+					<textarea id="summernote" name="food_contents"></textarea>
+					
+				</div>
 				
-			</div>
-			
-			<script>
-    $(document).ready(function() {
-        $('#summernote').summernote({
-        	height: 300,                 // set editor height
-        	minHeight: null,             // set minimum height of editor
-        	maxHeight: null,             // set maximum height of editor
-        	focus: true                  // set focus to editable area after initializing summernote
-        	
-        	
-        });
-    });
-  </script>
-			<div class="mb-3">
-				<label class="form-label">칼로리</label>
-				<input type="text" class="form-control" name="food_cal">
-			</div>
-			<div class="mb-3">
-				<label class="form-label">가격</label>
-				<input type="text" class="form-control" name="food_price">
-			</div>
-			<div class="mb-3">
-				<label class="form-label">태그</label>
-				<select class="form-select form-select-sm" name="food_tag" size="5" aria-label="태그">
-						 <option selected value="bok">볶음</option>
- 						 <option value="boil">끓이기</option>		
- 						 <option value="buchim">부침</option>
- 						 <option value="zorim">조림</option>
- 						 <option value="bibim">비빔</option>
- 						 <option value="zzim">찜</option>
- 						 <option value="zulim">절임</option>
- 						 <option value="fry">튀김</option>
- 						 <option value="sam">삶기</option>
- 						 <option value="roast">굽기</option>
- 						 <option value="dechi">데치기</option>
- 						 <option value="sasami">회</option>
- 						 <option value="etc">기타</option>
- 						 				
-				</select>
-			</div>
-			<button id="btn-upload" type="button" style="border: 1px solid #ddd; outline: none;">파일 추가</button>
-  			<input id="input_file" multiple="multiple" type="file" style="display:none;">
-			<button type="button" class="btn btn-success" onclick="javascript:location.href='/littlechef/recipeView/list'">이전으로</button>
-			<button type="submit" class="btn btn-primary">작성</button>
-		</form>
+				<script>
+			    $(document).ready(function() {
+			        $('#summernote').summernote({
+			        	height: 300,                 // set editor height
+			        	minHeight: null,             // set minimum height of editor
+			        	maxHeight: null,             // set maximum height of editor
+			        	focus: true                  // set focus to editable area after initializing summernote
+			        	
+			        });
+			    });
+			  	</script>
+				<div class="mb-3">
+					<label class="form-label">칼로리</label>
+					<input type="text" class="form-control" name="food_cal">
+				</div>
+				<div class="mb-3">
+					<label class="form-label">가격</label>
+					<input type="text" class="form-control" name="food_price">
+				</div>
+				<div class="mb-3">
+					<label class="form-label">태그</label>
+					<select class="form-select form-select-sm" name="food_tag" size="5" aria-label="태그">
+							 <option selected value="bok">볶음</option>
+	 						 <option value="boil">끓이기</option>		
+	 						 <option value="buchim">부침</option>
+	 						 <option value="zorim">조림</option>
+	 						 <option value="bibim">비빔</option>
+	 						 <option value="zzim">찜</option>
+	 						 <option value="zulim">절임</option>
+	 						 <option value="fry">튀김</option>
+	 						 <option value="sam">삶기</option>
+	 						 <option value="roast">굽기</option>
+	 						 <option value="dechi">데치기</option>
+	 						 <option value="sasami">회</option>
+	 						 <option value="etc">기타</option>				
+					</select>
+				</div>
+				<button id="btn-upload" type="button" style="border: 1px solid #ddd; outline: none;">파일 추가</button>
+	  			<input id="input_file" multiple="multiple" type="file" style="display:none;">
+				<button type="button" class="btn btn-success" onclick="javascript:location.href='/littlechef/recipeView/list'">이전으로</button>
+				<button type="submit" class="btn btn-primary">작성</button>
+			</form>
+		</section>
 	</div>
-
-	
-	
 </body>
 </html>

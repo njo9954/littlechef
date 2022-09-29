@@ -10,7 +10,8 @@
 		*
 	from 
 		site_food
-	
+	<!-- where
+		food_name like '%' || upper(#{searchWord}) || '%' -->
 </select>
 
 <!-- 게시글 저장 (파일명 나중에 추가) -->

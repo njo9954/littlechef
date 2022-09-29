@@ -18,13 +18,6 @@ public class FoodServiceImpl implements FoodService {
 	@Autowired
 	private FoodDAO fooddao;
 
-	@Override
-	public ArrayList<Food> foodList() {
-		
-		ArrayList<Food> foodlist=fooddao.getFoodList();
-		
-		return foodlist;
-	}
 
 	@Override
 	public Food getDetail(int food_id) {
@@ -39,6 +32,14 @@ public class FoodServiceImpl implements FoodService {
 		int result = fooddao.writeFood(food);
 		return result;
 		
+	}
+
+
+	@Override
+	public ArrayList<Food> foodList() {
+		ArrayList<Food> foodlist=fooddao.getFoodList();
+		
+		return foodlist;
 	}
 	
 }

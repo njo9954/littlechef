@@ -70,10 +70,12 @@ button img {width: 80%; margin: 0 auto;}
 
 .gnb ul li:hover a {
 	background-color: #014A3A; 
-	color: #FFCA61;
+	color: #FFC787;
 	}
 
-
+#search:focus {
+	background-color: #FFC787;
+}
 /* Container Contents */
 
 #container #section_0 {
