@@ -66,12 +66,12 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
         <div id="container">
             <section id="section_2">
                 <h2><span>전체</span>&nbsp;RECIPE</h2>
-               
+                <div>
                 	<a th:href="@{/recipeView/writeFood}" sec:authorize="hasRole('ROLE_ADMIN')" id="admin_input">
                 		<input class="btn btn-success btn-lg" type="button" value="레시피 등록하기">
                 	</a>
-            
-                
+                </div>
+                	
                 <!-- 
                 <table>
                     <tr>

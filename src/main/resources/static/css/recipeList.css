@@ -31,8 +31,8 @@
 
 #section_2 #admin_input a input[type=button] {
 	width: 16rem;
+	height: 2.4rem;
 	font-size: 1.6rem;
-	padding: 0.4rem;
 	box-sizing: border-box;
 	border: none;
 	color: white;
