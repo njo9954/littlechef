@@ -152,6 +152,22 @@ input[type=number]::-webkit-inner-spin-button {
     cursor: pointer;
     transition: 0.5s;
 }
+
+#section_2 #sc2_t1 td input[type=submit] {
+    color: white;
+    border: none;
+    width: 12rem;
+    height: 3rem;
+    margin: 0.5rem;
+    box-sizing: border-box;
+    background-color: #b37b0e;
+}
+
+#section_2 #sc2_t1 td input[type=submit]:hover {
+    background-color: #4F453A;
+    cursor: pointer;
+    transition: 0.5s;
+}
 #section_2 #sc2_t1 #last_td {
     text-align: right;
 }
