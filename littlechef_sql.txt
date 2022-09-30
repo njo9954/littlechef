@@ -104,7 +104,6 @@ create table site_event( -- 이벤트 테이블
 	event_status varchar2(20) not null
 );
 
-create sequence site_food_seq;
 create sequence site_board_seq;
 create sequence site_board_reply_seq;
 create sequence site_cart_seq;
