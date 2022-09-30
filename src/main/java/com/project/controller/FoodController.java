@@ -57,8 +57,6 @@ public class FoodController {
 	@GetMapping("recipeView/detail")
 	public String getDetail(Model model,  
 			@RequestParam(name="food_id", defaultValue = "0") int food_id 
-			, String type 
-			, String searchWord
 			) {
 
 		log.debug("get recipeView/detail called");
@@ -70,8 +68,6 @@ public class FoodController {
 		log.debug("후기글 목록:", list);
 				
 		model.addAttribute("list", list);
-		model.addAttribute("type", type); // 저장해서 html 페이지에서 사용
-		model.addAttribute("searchWord", searchWord);
 		
 	
 		return "recipeView/detail";
