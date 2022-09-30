@@ -111,11 +111,6 @@ create sequence site_cart_seq;
 create sequence site_food_seq;
 
 
-insert into site_food values (site_food_seq.nextval, '햄버거','카테고리','레시피 내용', 800,6000, '고기',0);
-insert into site_food values (site_food_seq.nextval, '피자','카테고리','레시피 내용', 600,6000, '빵',0);
-insert into site_food values (site_food_seq.nextval, '치킨','카테고리','레시피 내용', 600,6000, '고기',0);
-insert into site_food values (site_food_seq.nextval, '김치','카테고리','레시피 내용', 600,6000, '야채',0);
-insert into site_food values (site_food_seq.nextval, '쌀국수','카테고리','레시피 내용', 600,6000, '밥',0);
 
 
 			drop table site_board_reply;
