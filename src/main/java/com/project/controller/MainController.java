@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.project.domain.Food;
 import com.project.service.FoodService;
@@ -32,17 +33,25 @@ public class MainController {
 		return "cscenter";
 	}
 	
-	//search기능
-	@PostMapping("/search")
-	public String foodList(Model model, 
-			String type, String searchWord) {
-		log.debug("검색대상 : {}, 검색어 : {}", type, searchWord);
-		log.debug("검색대상:{}, 검색어:{}"
-				, type, searchWord);
-		log.debug("foodlist() called");
-		model.addAttribute("type", type);
-		model.addAttribute("searchWord", searchWord);
-		log.debug("리스트 잘 적용되는지 확인");
-		return "redirect:/";
+	/**
+	 * 카테고리와 검색어를 전달받아 검색결과를 리턴
+	 * @param category 상품 카테고리
+	 * @param searchWord 검색어
+	 */
+	
+	@PostMapping("search")
+	public String postSearch(Model model, String searchWord) {
+		log.debug("postSearch() called");
+		log.debug("searchWord : {}", searchWord);
+		String foodlist =  service.search(searchWord);
+		model.addAttribute("foodlist", foodlist);
+		return "search";
+	}
+	
+	@GetMapping("search")
+	public String getSearch() {
+		log.debug("getSearch() called");
+		return "search";
 	}
 }
+

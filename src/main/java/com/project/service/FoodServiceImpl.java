@@ -1,13 +1,13 @@
 package com.project.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.dao.FoodDAO;
-import com.project.domain.Board;
 import com.project.domain.Food;
 
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,6 @@ public class FoodServiceImpl implements FoodService {
 	
 	@Autowired
 	private FoodDAO fooddao;
-	
 
 
 	@Override
@@ -43,13 +42,11 @@ public class FoodServiceImpl implements FoodService {
 		return foodlist;
 	}
 
-
 	@Override
-	public ArrayList<Board> selectboard(int food_id) {
-		ArrayList<Board> list = fooddao.selectboard(food_id);
-		return list;
+	public String search(String searchWord) {
+		String result = fooddao.search(searchWord);
+		return result;
 	}
-
 
 	
 }

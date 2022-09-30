@@ -47,10 +47,15 @@ INSERT INTO SITE_FOOD
 	)
 
 </insert>
-<select id="selectboard" parameterType="int" resultType="Board">
-	SELECT * 
-	FROM site_board
-	WHERE food_id = #{food_id}
+<select id="search" parameterType="String" resultType="String">
+	select 
+		*
+	from 
+		site_food
+	<where>
+		<if test="searchWord != null">
+			food_name like '%' || #{searchWord} || '%'
+		</if>
+	</where> 
 </select>
-
 </mapper>
