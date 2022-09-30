@@ -3,6 +3,7 @@ package com.project.dao;
 import java.util.ArrayList;
 import org.apache.ibatis.annotations.Mapper;
 
+import com.project.domain.Board;
 import com.project.domain.Food;
 
 @Mapper
@@ -17,5 +18,7 @@ public interface FoodDAO {
 	int writeFood(Food food);
 
 	String search(String searchWord);
+
+	ArrayList<Board> selectboard(int food_id);
 
 }

@@ -58,4 +58,16 @@ INSERT INTO SITE_FOOD
 		</if>
 	</where> 
 </select>
+
+<select id="selectboard" parameterMap="int" resultType="Board">
+	SELECT *
+	FROM site_board
+	WHERE food_id = #{food_id}
+
+
+
+</select>
+
+
+
 </mapper>

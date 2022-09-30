@@ -3,6 +3,7 @@ package com.project.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.project.domain.Board;
 import com.project.domain.Food;
 
 public interface FoodService {
@@ -14,6 +15,8 @@ public interface FoodService {
 	int writeFood(Food food);
 	//레시피 찾기
 	String search(String searchWord);
+
+	ArrayList<Board> selectboard(int food_id);
 	
 
 }
