@@ -38,4 +38,6 @@ public interface BoardService {
 
 	public int deleteReply(Reply reply);
 
+
+
 }

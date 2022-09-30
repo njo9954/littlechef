@@ -14,15 +14,14 @@
 	<section id="section_1">
 		<form id="writeform" th:action="@{/boardView/writeboard}" method="post"
 		onsubmit="return validation();"> <!-- enctype="multipart/form-data" -->
-			
+		
 		<!--   <input type="hidden" name="food_id" id="food_id" th:value="${board.food_id}"> -->	
 			<table>
 			<!-- 메뉴별 타이틀  -->
 				<tr>
 				</tr>
 				<tr>
-					<th>(임시)레시피번호</th>
-					<td><input type=text name="food_id" id="food_id"  ></td>
+					<td><input type=hidden th:value="${food_id}" name="food_id" id="food_id"  ></td>
 				</tr>
 				
 				<tr>

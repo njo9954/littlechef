@@ -73,13 +73,13 @@ public class BoardController { // 후기 컨트롤러
 	
 	//후기쓰기 폼으로 이동
 	@GetMapping("writeboard")
-	public String write(Model model) { // food_id를 받아주고 
+	public String write(Model model ,int food_id) { // food_id를 받아주고 
 		
 		//log.debug("후기쓸 레시피:{}", food_id);
 		
 		//Board board = service.selectOne(food_id);
 		
-		//model.addAttribute("board", board); // 보내준다. 
+		model.addAttribute("food_id", food_id); // 보내준다. 
 		//log.debug("board:{}",board);
 		
 		return "/boardView/writeboard";
