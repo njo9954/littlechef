@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.project.domain.Board;
 import com.project.domain.Food;
-import com.project.domain.Member;
 
 @Mapper
 public interface FoodDAO {
@@ -18,5 +18,7 @@ public interface FoodDAO {
 	Food getDetail(int food_id);
 
 	int writeFood(Food food);
+	
+	ArrayList<Board> selectboard(int food_id);
 	
 }

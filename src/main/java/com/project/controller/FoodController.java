@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.dao.FoodDAO;
+import com.project.domain.Board;
 import com.project.domain.Food;
 import com.project.service.BoardService;
 import com.project.service.FoodService;
@@ -65,11 +66,10 @@ public class FoodController {
 		log.debug("food: {}", food);
 		model.addAttribute("food", food);
 		
-	
-		
-
-		//ArrayList<Board> 타입으로 모델에 저장
-
+		ArrayList<Board> list = foodservice.selectboard(food_id);//food_id에 대한 후기글 목록 가져오기)
+		log.debug("후기글 목록:", list);
+				
+		model.addAttribute("list", list);
 		model.addAttribute("type", type); // 저장해서 html 페이지에서 사용
 		model.addAttribute("searchWord", searchWord);
 		

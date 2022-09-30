@@ -47,4 +47,10 @@ INSERT INTO SITE_FOOD
 	)
 
 </insert>
+<select id="selectboard" parameterType="int" resultType="Board">
+	SELECT * 
+	FROM site_board
+	WHERE food_id = #{food_id}
+</select>
+
 </mapper>

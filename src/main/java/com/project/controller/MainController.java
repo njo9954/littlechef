@@ -40,8 +40,6 @@ public class MainController {
 		log.debug("검색대상:{}, 검색어:{}"
 				, type, searchWord);
 		log.debug("foodlist() called");
-		ArrayList<Food> list = service.foodSearch(type, searchWord);
-		model.addAttribute("foodList", list);
 		model.addAttribute("type", type);
 		model.addAttribute("searchWord", searchWord);
 		log.debug("리스트 잘 적용되는지 확인");

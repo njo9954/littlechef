@@ -5,6 +5,10 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <div th:replace="/fragments/head.html :: fragment-head"></div>
     <link rel="stylesheet" th:href="@{/css/detail.css}">
 </head>
+<style>
+
+
+</style>
 <body>
     <div id="wrap">
         <header id="header">
@@ -43,30 +47,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 								<th>태그</th>
 								<td th:text="${food.food_tag}"></td>
 							</tr>
-							<!-- 
-                        <h1>제품 상세</h1>
-                        <legend>제품 개요</legend>
-                        <tr>
-                            <th>제품명</th>
-                            <td>말랑말랑 오다리</td>
-                        </tr>
-                        <tr>
-                            <th colspan="2">오늘의 추천 레시피!</th>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <p>
-                                    바쁜 일상에 지친 직장인!<br>
-                                    오늘의 안주는 무엇일까 고민하는 당신!<br>
-                                    시원한 맥주 한잔과 함께 오다리 어떠세요?
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>주재료</th>
-                            <td>오징어 다리, 설탕, 물엿, 간장</td>
-                        </tr>
-                         -->
+			
                     </table>                    
                 </div>
             </section>
@@ -101,7 +82,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	                		<th>조회수</th>
 	                		<th>추천</th>
                 	</tr>
-                		<tr th:each=" list:${listboard}">
+                		<tr th:each=" list:${list}">
                         <td th:text="${list.b_num}" class="center"></td>
                         <td th:text="${list.m_id}" class="center"></td>
                         <td><a th:text="${list.b_title}" th:href="@{/boardView/readboard(b_num=${list.b_num})}"></a></td>
@@ -109,22 +90,8 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                         <td th:text="${list.b_readcount}" class="center"></td>
                         <td th:text="${list.b_likecount}" class="center"></td>
                     </tr>
-                		<tr>
-                			<td>2</td>
-                			<td>abc123</td>
-                			<td><a>다시먹어도 맛있어요</a></td>
-                			<td>2022/02/23</td>
-                			<td>0</td>
-                			<td>0</td>
-                		</tr>
-                		<tr>
-                			<td>1</td>
-                			<td>abc123</td>
-                			<td><a>너무 맛있어요</a></td>
-                			<td>2022/02/22</td>
-                			<td>0</td>
-                			<td>0</td>
-                		</tr>
+
+                
                 	</table>
                 </div>
             <section id="section_3">
