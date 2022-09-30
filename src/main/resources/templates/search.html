@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <div th:replace="/fragments/head.html :: fragment-head"></div>
+    <link rel="stylesheet" th:href="@{/css/search.css}">
+</head>
+<body>
+    <div id="wrap">
+        <header id="header">
+             <div th:replace="/fragments/header.html :: fragment-header"></div>
+        </header>
+        <div id="container">
+        	<section id="section_0">
+        		<h1>검색결과</h1>
+        	</section>
+        	<section id="section_1">
+        		<table>
+        			<tr>
+        				<th>번호</th>
+        				<th>레시피명</th>
+        			</tr>
+        			<tr th:each="food:${foodlist}">
+        				<td th:text="${food.f_id}"></td>
+        				<td th:text="${food.f_name}"></td>
+        			</tr>
+        		</table>
+        	</section>
+            <section id="section_3">
+                 <div th:replace="/fragments/section_3.html :: fragment-section_3"></div>         
+            </section>
+            <section id="section_4">
+                 <div th:replace="/fragments/section_4.html :: fragment-section_4"></div>
+            </section>
+        </div>
+        <footer id="footer">
+             <div th:replace="/fragments/footer.html :: fragment-footer"></div>
+        </footer>
+        <aside id="aside">
+             <div th:replace="/fragments/aside.html :: fragment-aside"></div>
+        </aside>
+    </div>
+</body>
+</html>
