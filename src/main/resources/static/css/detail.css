@@ -85,6 +85,13 @@
     padding-top: 1rem;
     padding-left: 2rem;
 }
+
+#container #section_1s {
+	width: 126rem; 
+    padding: 0 2rem;  
+    margin: 4rem auto;
+    font-size: 2rem; 
+}
 /* Section 2 */
 
 #section_2 {

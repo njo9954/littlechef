@@ -41,5 +41,11 @@ public class FoodServiceImpl implements FoodService {
 		
 		return foodlist;
 	}
+
+	@Override
+	public ArrayList<Food> foodSearch(String type, String searchWord) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
