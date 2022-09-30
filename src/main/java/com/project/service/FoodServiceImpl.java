@@ -38,7 +38,6 @@ public class FoodServiceImpl implements FoodService {
 	@Override
 	public ArrayList<Food> foodList() {
 		ArrayList<Food> foodlist=fooddao.getFoodList();
-		
 		return foodlist;
 	}
 
