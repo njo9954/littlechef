@@ -20,6 +20,14 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 			}
 		}
 	</script>
+	<style>
+	textarea{
+		 resize:none;
+	}
+	
+	
+	
+	</style>
 </head>
 <body>
     <div id="wrap">
@@ -59,8 +67,10 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 						<td th:text="${board.b_title}"></td>
 					</tr>
 					<tr>
-						<th>내용</th>
-						<td th:text="${board.b_contents}"></td>
+						<th style="margin:auto; text-align:center;">내용</th>
+						
+						<td><textarea rows="30" cols="120" colsth:value="${board.b_contents}" th:text="${board.b_contents}"></textarea></td>
+							
 					</tr>
 					<tr>
 						<th>파일첨부</th>

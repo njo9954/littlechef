@@ -5,6 +5,13 @@
 <title>write board</title>
 <link rel="stylesheet" th:href="@{/css/writeboard.css}">
 </head>
+	<style>
+	textarea{
+			resize:none;
+	}
+	</style>
+	
+
 <body>
 	<div id="wrap">
 		<div id="container">
@@ -26,12 +33,14 @@
 				
 				<tr>
 					<th>제목</th>
-					<td><input type=text name="b_title" id="b_title" placeholder="후기 제목"></td>
+					<td><input type=text name="b_title" id="b_title" placeholder="후기 제목" maxlength="50"></td>
 				</tr>
 				<tr>
 					<th>후기내용</th>
-					<td><textarea name="b_contents" id="b_contents" placeholder="후기 내용"></textarea></td>
+					<td><textarea name="b_contents" id="b_contents" placeholder="후기 내용" maxlength="2000"></textarea>
+				</td>
 				</tr>
+				
 			<!--	<tr>
 					<th>사진첨부</th>
 					<td>
