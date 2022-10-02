@@ -12,6 +12,7 @@
   position: relative;
   width: 750px;
   height: 750px;
+  margin:auto;
 }
 .rouletter-bg {
   position: absolute;
@@ -62,6 +63,7 @@
 .hidden-input {
   display: none;
 }
+
 </style>
 
 
@@ -111,16 +113,16 @@ const rRotate = () => {
 const rLayerPopup = (num) => {
   switch (num) {
     case 1:
-      alert("당첨!! 스타벅스 아메리카노");
+      alert("*당첨* 스타벅스 아메리카노");
       break;
     case 3:
-      alert("당첨!! 햄버거 세트 교환권");
+      alert("*당첨* 햄버거 세트 교환권");
       break;
     case 5:
-      alert("당첨!! CU 3,000원 상품권");
+      alert("*당첨* CU 3,000원 상품권");
       break;
     default:
-      alert("꽝! 다음기회에");
+      alert("꽝~! 아쉽게도 다음기회에..");
   }
 };
 
@@ -179,13 +181,8 @@ document.addEventListener("click", function (e) {
                     </ul>
                 </div>
             </section>
-            <section id="section_2">
-                <h2><span>쇼핑</span>&nbsp;BEST</h2>
-                <ul class="item_list">
-                    <li>
+       
     
-                </ul>
-            </section>
             <section id="section_3">
                  <div th:replace="/fragments/section_3.html :: fragment-section_3"></div>         
             </section>

@@ -1,10 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
 <head>
+<div th:replace="/fragments/head.html :: fragment-head"></div>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
- 	chatting
+    <div id="wrap">
+        <header id="header">
+             <div th:replace="/fragments/header.html :: fragment-header"></div>
+        </header>
+        <div id="container">
+            <section id="section_0">
+         
+
+
+
+
+		
+
+ 		</section>
+ 
+  	  		</div>           
+  	  	</div>        
+  
+            <section id="section_1">
+                <div class="s1_cont">
+                    <div class="slogan">
+                        <a></a>
+                    </div>
+                    <ul class="thumb">
+                        <li><a href="#"><img th:src="@{/img/sc1_1.jpg}" alt="th1"></a></li>
+                        <li><a href="#"><img th:src="@{/img/sc1_2.jpg}" alt="th2"></a></li>
+                        <li><a href="#"><img th:src="@{/img/sc1_3.jpg}" alt="th3"></a></li>
+                    </ul>
+                </div>
+            </section>
+     
+            <section id="section_3">
+                 <div th:replace="/fragments/section_3.html :: fragment-section_3"></div>         
+            </section>
+            <section id="section_4">
+                 <div th:replace="/fragments/section_4.html :: fragment-section_4"></div>
+            </section>
+        <footer id="footer">
+             <div th:replace="/fragments/footer.html :: fragment-footer"></div>
+        </footer>
+        <aside id="aside">
+             <div th:replace="/fragments/aside.html :: fragment-aside"></div>
+        </aside>
 </body>
 </html>

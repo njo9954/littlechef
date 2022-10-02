@@ -13,7 +13,11 @@ public class EventController {
 	public String event() {
 		
 		return "eventView/event";
+	
 	}
-	
-	
+		@GetMapping("chatting")
+		public String chatting() {
+			return "eventView/chatting";
+
+	}
 }
