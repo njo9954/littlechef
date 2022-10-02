@@ -3,6 +3,10 @@ package com.project.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -13,11 +17,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.project.service.BoardService;
 import com.project.util.PageNavigator;
 import com.project.domain.Board;
+import com.project.domain.Member;
 import com.project.domain.Reply;
 import lombok.extern.slf4j.Slf4j;
 
@@ -206,10 +212,14 @@ public class BoardController { // 후기 컨트롤러
 		//후기 상세 읽기
 		@GetMapping("readboard")
 		public String read(Model model
-				, @RequestParam(name="b_num", defaultValue="0") int b_num) { // 안들어오면 기본값 0으로 처리하겠다는 @getParameter
+				, @RequestParam(name="b_num", defaultValue="0") int b_num,
+				@SessionAttribute(name = "user", required = false)UserDetails user,
+                HttpServletRequest request,
+                HttpServletResponse response
+               ) { // 안들어오면 기본값 0으로 처리하겠다는 @getParameter
+		
 			log.debug("전달된 번호 : {}", b_num);
 			
-			service.updateHits(b_num); 
 			
 			//전달된 번호로 글을 읽어서 Board객체를 리턴받음
 			Board board = service.selectOne(b_num); //DB에서 글을 읽어서
@@ -221,6 +231,29 @@ public class BoardController { // 후기 컨트롤러
 			//결과가 있으면 모델에 저장하고 html에서 출력
 			model.addAttribute("board", board);
 			model.addAttribute("replylist", replylist);
+			model.addAttribute("user", user);
+			
+			
+	        Cookie[] cookies = request.getCookies();
+
+	      if (cookies != null) {
+	            for (Cookie cookie : cookies) {
+	                log.info("cookie.getName " + cookie.getName());
+	                log.info("cookie.getValue " + cookie.getValue());
+
+	                if (!cookie.getValue().contains(request.getParameter("b_num"))) {
+	                    cookie.setValue(cookie.getValue() + "_" + request.getParameter("b_num"));
+	                    cookie.setMaxAge(60 * 60 * 2);  
+	                    response.addCookie(cookie);
+                    service.updateHits(b_num);
+	                }
+	            }
+	        } else {
+	            Cookie newCookie = new Cookie("visit_cookie", request.getParameter("b_num"));
+	            newCookie.setMaxAge(60 * 60 * 2);
+	            response.addCookie(newCookie);
+	            service.updateHits(b_num); 
+	        }
 			
 			return "/boardView/readboard";
 		}
@@ -271,5 +304,5 @@ public class BoardController { // 후기 컨트롤러
 			//글읽기로 이동
 			return "redirect:/boardView/readboard?b_num=" + reply.getB_num();
 		}
-		
+
 }
