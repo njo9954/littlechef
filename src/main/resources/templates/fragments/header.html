@@ -52,8 +52,8 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
             <li><a th:href="@{/recipeView/list}">레시피</a></li>
             <li><a href="#">신상품</a></li>
             <li><a href="#">랭킹</a></li>
-            <li><a href="#">이벤트</a></li>
-            <li><a href="#">특가/기획전</a></li>
+            <li><a th:href="@{/eventView/event}">이벤트</a></li>
+            <li><a href="#">레시피이야기</a></li>
             <li>
             <form name="search" th:action="@{/search}" method="post" id="search">
                 <fieldset>
