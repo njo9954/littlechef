@@ -15,7 +15,5 @@ public class Food {
 	String food_contents;
 	int food_cal;
 	int food_price;
-	String food_tag;
-	int bookmark_count; 
-
+	int food_readcount; 
 }
