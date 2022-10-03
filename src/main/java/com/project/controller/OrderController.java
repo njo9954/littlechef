@@ -6,7 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.Order;
+
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -18,7 +18,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.domain.Cart;
 import com.project.domain.Food;
+import com.project.domain.FoodDetail;
+import com.project.domain.Ingredient;
+import com.project.domain.Order;
+import com.project.domain.OrderDetail;
+import com.project.service.FoodDetailService;
 import com.project.service.FoodService;
+import com.project.service.IngredientService;
 import com.project.service.OrderService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +38,10 @@ public class OrderController {
 	OrderService orderservice;
 	
 	@Autowired
-	FoodService foodservice;
+	IngredientService ingservice;
+	
+	@Autowired
+	FoodDetailService fooddetailservice;
 	
 	//장바구니 담기
 	@PostMapping("/cart")
@@ -41,18 +50,34 @@ public class OrderController {
 		log.debug("cart() called");
 		log.debug("food_id {}", food_id);
 		
-		Food food=foodservice.getDetail(food_id);
-		Cart cart=new Cart();
-		log.debug("cart : {}", cart);
-		log.debug("food: {}", food);
-		cart.setM_id(user.getUsername());
-		cart.setFood_id(food_id);
-		cart.setC_amount(1);
-		cart.setC_price(food.getFood_price());
-		cart.setFood_name(food.getFood_name());
-		log.debug("cart : {}", cart);
-		int result=orderservice.insertCart(cart);
-		log.debug("result : {}", result);
+		List<FoodDetail> foodDetailList=fooddetailservice.selectIngredientListByFoodId(food_id);
+		log.debug("foodDetailList: {}", foodDetailList);
+		List<Ingredient> ingredientList=ingservice.selectAllIngredient();
+		log.debug("ingredientList: {}", ingredientList);
+		String username=user.getUsername();
+		
+		// 내 id로 o_state = 0인거 셀렉해오기 없다면 새 오더 생성
+		Order order = orderservice.selectOrderByUsrid(username);
+		if(order == null)
+			order = new Order();
+		
+		
+		order.setM_id(user.getUsername());
+		
+		for(FoodDetail foodDetail : foodDetailList) {
+			for(Ingredient ingredient : ingredientList) {
+				if(ingredient.getI_name().equals(foodDetail.getI_name())) {
+					order.setO_price(order.getO_price()+foodDetail.getQuantity()*ingredient.getI_price());
+					break;
+				}
+			}
+		}
+		log.debug("order : {}", order);
+		
+		orderservice.insertCart(order, foodDetailList);
+		
+		//int result=orderservice.insertCart(order);
+		//log.debug("result : {}", result);
 
 		return "redirect:/orderView/cart";
 	}
@@ -60,31 +85,41 @@ public class OrderController {
 	//장바구니 목록
 	@GetMapping("/cart")
 	public String cartlist(Model model, @AuthenticationPrincipal UserDetails user) throws Exception {
-		log.debug("cart() called");
 		
-		String username=user.getUsername();
-		ArrayList<Cart> cartlist=orderservice.selectCart(username);
-
-		log.debug("cartlist : {}", cartlist);
-
-		model.addAttribute("cartlist", cartlist);
-
-		return "/orderView/cart";
-	}
+			log.debug("cart() called");
+			
+			String username=user.getUsername();
+			Order order = orderservice.selectOrderByUsrid(username);
+			log.debug("order : {}", order);
+			
+			
+			// 장바구니가 만들어져있는 회원인지 체크
+			if(order != null) {
+				// 만들어져있다면 그 안의 내용물을 select해옴
+				List<OrderDetail> orderDetailList = orderservice.selectOrderDetailListByOid(order.getO_id());
+				log.debug("orderDetailList : {}", orderDetailList);
+				model.addAttribute("orderDetailList", orderDetailList);
+			} else {
+				//장바구니가 텅 빈 회원은 빈 오더를 생성해서 보여줌
+				order = new Order();
+			}
+			
+			model.addAttribute("order", order);
+			return "/orderView/cart";
+		}
 	
 	//장바구니 선택 삭제
 	@PostMapping("/delete")
-	public String delete(int c_id, @AuthenticationPrincipal UserDetails user) {
+	public String delete(int o_id, String i_name, @AuthenticationPrincipal UserDetails user) {
 		log.debug("delete() called");
-		
+		log.debug("o_id : {}, i_name : {}", o_id, i_name);
 		String username=user.getUsername();
 		
-		Cart cartIdAndMemberId = new Cart();
-		cartIdAndMemberId.setC_id(c_id);
-		cartIdAndMemberId.setM_id(user.getUsername());
-		int result = orderservice.deleteCart(cartIdAndMemberId);
-
-		log.debug("delete", result);
+		OrderDetail oIdAndIname = new OrderDetail();
+		oIdAndIname.setO_id(o_id);
+		oIdAndIname.setI_name(i_name);
+		
+		int result = orderservice.deleteOrderDetail(oIdAndIname);
 
 		return "redirect:/orderView/cart";
 
@@ -96,14 +131,12 @@ public class OrderController {
 		log.debug("deleteall() called");
 		
 		String username=user.getUsername();
-		int result = orderservice.deleteCartAll(username);
+		int result = orderservice.deleteOrder(username);
 
 		log.debug("delete", result);
 
 		return "redirect:/orderView/cart";
-
 	}
-
 	
 	@PostMapping("order")
 	public String order(Model model, @AuthenticationPrincipal UserDetails user) {

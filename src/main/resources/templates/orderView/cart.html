@@ -41,22 +41,20 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <table id="sc2_t1">
                     <tr>
                         <th>선택</th>
-                        <th>번호</th>
                         <th>레시피명</th>
                         <th>수량</th>
                         <th>할인/적립</th>
                         <th>구매하기</th>
                         <th>삭제하기</th>
                     </tr>
-                    <tr th:each="cart:${cartlist}">
+                    <tr th:each="orderDetail:${orderDetailList}">
                     	<form method="post">
 	                        <td>
 	                            <input type="checkbox">
 	                        </td>
-	                        <td th:text="${cart.c_id}">카트번호</td>
-	                        <td th:text="${cart.food_name}">음식이름</td>
+	                        <td th:text="${orderDetail.i_name}">음식이름</td>
 	                        <td>
-	                            <input type="number" placeholder="수량" th:value="${cart.c_amount}">
+	                            <input type="number" placeholder="수량" th:value="${orderDetail.od_quantity}">
 	                        </td>
 	                        <td>
 	                            <select>
@@ -68,7 +66,8 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	                            <input type="button" value="구매하기">
 	                        </td>
 	                        <td>
-	                        	<input type="hidden" name="c_id" th:value="${cart.c_id}">
+	                        	<input type="hidden" name="o_id" th:value="${order.o_id}">
+	                        	<input type="hidden" name="i_name" th:value="${orderDetail.i_name}">
 	                            <input id="delete" type="submit" value="삭제하기"
 	                            onclick="javascript: form.action='/littlechef/orderView/delete';">
 	                        </td>

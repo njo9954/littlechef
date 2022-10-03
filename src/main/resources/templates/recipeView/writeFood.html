@@ -14,6 +14,64 @@
 <!-- include summernote css/js -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+	<script type="text/javascript" th:inline="javascript">
+		let ingListOpt = '';
+		let ingMap = new Map();
+		
+	    $(document).ready(function() {
+	    	let ingList = [[${inglist}]];
+	    	
+			for(let ing of ingList){
+				ingListOpt += `<option>${ing.i_name}</option>`;
+				ingMap.set(ing.i_name, ing.i_price);
+			}
+			
+	        $('#summernote').summernote({
+	        	height: 300,                 // set editor height
+	        	minHeight: null,             // set minimum height of editor
+	        	maxHeight: null,             // set maximum height of editor
+	        	focus: true                  // set focus to editable area after initializing summernote
+	        });
+	        
+	        $('.ing-name').change(changeIng);
+            $('.ing-qty').change(changeIng);
+	    });
+	    
+	    const add_textbox = () => {
+            const box = document.getElementById("box");
+            const newP = document.createElement('p');
+            
+            newP.innerHTML = `<select class='ing-name' name='i_name'>
+            					${ingListOpt}
+            				</select>
+							<input type='text' class='ing-qty' name='od_quantity'>
+							<input type='button' value='삭제' onclick='remove(this)'>`;
+            
+            	
+            box.appendChild(newP);
+            $('.ing-name').change(changeIng);
+            $('.ing-qty').change(changeIng);
+        }
+        const remove = (obj) => {
+            document.getElementById('box').removeChild(obj.parentNode);
+        }
+        
+        function changeIng() {
+        	let ingNames = document.getElementsByClassName('ing-name');
+        	let ingQtys = document.getElementsByClassName('ing-qty');
+        	
+        	let totalPrice = 0;
+        	for(let i=0 ; i<ingNames.length ; i++){
+        		if(ingQtys[i].value == '')
+        			continue;
+        		
+        		totalPrice += ingMap.get(ingNames[i].value) * ingQtys[i].value;
+        	}
+        	$('#totalPrice').val(totalPrice);
+        }
+        
+        
+  	</script>
 </head>
 <body>
 	<div class="container">
@@ -50,29 +108,21 @@
 					<textarea id="summernote" name="food_contents"></textarea>
 					
 				</div>
-				
-				<script>
-			    $(document).ready(function() {
-			        $('#summernote').summernote({
-			        	height: 300,                 // set editor height
-			        	minHeight: null,             // set minimum height of editor
-			        	maxHeight: null,             // set maximum height of editor
-			        	focus: true                  // set focus to editable area after initializing summernote
-			        	
-			        });
-			    });
-			  	</script>
 				<div class="mb-3">
 					<label class="form-label">칼로리</label>
 					<input type="text" class="form-control" name="food_cal">
 				</div>
 				<div class="mb-3">
-					<label class="form-label">가격</label>
-					<input type="text" class="form-control" name="food_price">
-				</div>
-				<div class="mb-3">
-					<label class="form-label">태그</label>
-					<select class="form-select form-select-sm" name="food_tag" size="5" aria-label="태그">
+					<label class="form-label">재료</label>
+					<div id="box">
+						<select class='ing-name' name="i_name">
+							<th:block th:each="ing:${inglist}">
+								<option th:text="${ing.i_name}"></option>
+							</th:block>
+						</select>
+						<input class='ing-qty' type="text" name="od_quantity" placeholder="수량"> <input type="button" value="추가" onclick="add_textbox()">
+			        </div>
+			<!--  		<select class="form-select form-select-sm" name="food_tag" size="5" aria-label="태그">
 							 <option selected value="bok">볶음</option>
 	 						 <option value="boil">끓이기</option>		
 	 						 <option value="buchim">부침</option>
@@ -86,7 +136,11 @@
 	 						 <option value="dechi">데치기</option>
 	 						 <option value="sasami">회</option>
 	 						 <option value="etc">기타</option>				
-					</select>
+					</select> -->
+				</div>
+				<div class="mb-3">
+					<label class="form-label">가격</label>
+					<input type="text" id="totalPrice" class="form-control" name="food_price" readonly>
 				</div>
 				<button id="btn-upload" type="button" style="border: 1px solid #ddd; outline: none;">파일 추가</button>
 	  			<input id="input_file" multiple="multiple" type="file" style="display:none;">

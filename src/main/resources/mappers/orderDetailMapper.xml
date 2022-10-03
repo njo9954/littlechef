@@ -1,0 +1,43 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.dao.OrderDetailDAO">
+	<insert id="insertOrderDetail" parameterType="OrderDetail">
+		MERGE INTO
+		    site_orderdetail 
+		    USING DUAL ON(
+		        o_id = #{o_id}
+		        AND i_name = #{i_name}
+		        )
+		    WHEN MATCHED THEN
+		        UPDATE SET
+		            od_quantity = #{od_quantity}
+		    WHEN NOT MATCHED THEN
+		        INSERT (
+		        	o_id,
+		        	i_name,
+		        	od_quantity
+	        	) VALUES (
+		        	#{o_id},
+		        	#{i_name},
+		        	#{od_quantity}
+	        	)
+	</insert>
+	
+	<select id="selectOrderDetailListByOid" parameterType="Integer" resultType="OrderDetail">
+		SELECT
+		    *
+		FROM
+		    site_orderDetail
+		WHERE
+		    o_id = #{o_id}
+	</select>
+	
+	<delete id="deleteOrderDetail" parameterType="OrderDetail">
+		DELETE site_orderDetail
+		WHERE
+			o_id = #{o_id}
+			AND i_name = #{i_name}
+	</delete>
+</mapper>

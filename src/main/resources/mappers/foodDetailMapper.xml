@@ -1,0 +1,31 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.dao.FoodDetailDAO">
+	<select id="selectIngredientListByFoodId" parameterType="Integer" resultType="FoodDetail">
+		SELECT
+		   	*
+		FROM
+			site_food_detail
+		WHERE
+			food_id = #{food_id}
+	</select>
+	
+	<update id="insertFoodDetailList" parameterType="java.util.List">
+		<foreach collection="list" item="item" open="INSERT ALL" close="SELECT * FROM DUAL" separator=" ">
+			INTO site_food_detail (
+				food_id,
+				i_name,
+				quantity
+			) VALUES (
+				#{item.food_id},
+				#{item.i_name},
+				#{item.quantity}
+			)
+		</foreach>
+	</update>
+
+
+</mapper>
+

@@ -1,21 +1,21 @@
 package com.project.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.core.annotation.Order;
 
-import com.project.domain.Cart;
+import com.project.domain.Order;
+import com.project.domain.OrderDetail;
 
 @Mapper
 public interface OrderDAO {
 
-	public int insertCart(Cart cart);
+	public int insertCart(Order order);
 
-	public ArrayList<Cart> selectCart(String username);
-
-	public int deleteCart(Cart cartIdAndMemberId);
+	public Order selectOrderByUsrid(String usrid);
 
 	public int deleteCartAll(String username);
 
+	public int deleteOrder(String username);
 }

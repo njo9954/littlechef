@@ -4,52 +4,38 @@
 
 <mapper namespace="com.project.dao.OrderDAO">
 
-<!-- 게시글 저장 (파일명 나중에 추가) -->
-<insert id="insertCart" parameterType="Cart">
-	INSERT INTO site_cart
-		(
-			c_id 
-   			, food_id 
-    		, m_id  
-    		, c_cal 
-    		, c_price
-   			, c_amount 
-		)
-		VALUES
-		(
-			site_cart_seq.NEXTVAL
-			, #{food_id}
+	<!-- 게시글 저장 (파일명 나중에 추가) -->
+	<insert id="insertCart" parameterType="Order">
+		INSERT INTO site_order(
+			o_id 
+	   		, m_id  
+	 		, o_price
+		) VALUES (
+			site_order_seq.NEXTVAL
 			, #{m_id}
-			, #{c_cal}
-			, #{c_price}
-			, #{c_amount}
+			, #{o_price}
 		)
-</insert>
-
-<select id="selectCart" parameterType="String" resultType="Cart">
-SELECT
-    SF.food_id, SF.food_name, SC.c_amount, SC.c_id, sc.c_cal, sc.c_price, sc.m_id 
-FROM
-    site_cart SC, site_food SF
-WHERE
-    SC.food_id = SF.food_id
-    AND SC.m_id = #{m_id}
-ORDER BY
-	sc.c_id
-</select>
-
-<delete id="deleteCart" parameterType="Cart">
-	DELETE FROM 
-		site_cart
-	WHERE
-		c_id=#{c_id}
-		and m_id=#{m_id}
-</delete>
-
-<delete id="deleteCartAll" parameterType="String">
-	DELETE FROM 
-		site_cart
-	WHERE 
-		m_id=#{m_id}
-</delete>
+		<selectKey keyProperty="o_id" resultType="Integer" order="AFTER">
+			SELECT site_order_seq.currval FROM dual
+		</selectKey>
+	</insert>
+	
+	<select id="selectOrderByUsrid" parameterType="String" resultType="Order">
+		SELECT
+		    *
+		FROM
+		    site_order
+		WHERE
+		    m_id = #{m_id}
+		    AND o_state = 0
+	</select>
+	
+	<delete id="deleteOrder" parameterType="String">
+		DELETE FROM 
+			site_order
+		WHERE 
+			m_id=#{m_id}
+			AND o_state = 0
+	</delete>
 </mapper>
+
