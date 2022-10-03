@@ -118,7 +118,9 @@ drop table site_food;
 drop table site_reference;
 drop table site_event;
 
-
-     
-					
+insert into site_ingredient (i_name, i_price) values ('양파', 500);
+insert into site_ingredient (i_name, i_price) values ('당근', 1000);
+insert into site_ingredient (i_name, i_price) values ('소고기 200g', 2000);
+insert into site_ingredient (i_name, i_price) values ('감자', 800);
+     					
 commit;
