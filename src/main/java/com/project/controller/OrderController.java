@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.project.domain.Cart;
 import com.project.domain.Food;
 import com.project.domain.FoodDetail;
 import com.project.domain.Ingredient;
