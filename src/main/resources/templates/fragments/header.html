@@ -49,11 +49,11 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     </div>
     <nav class="gnb">
         <ul>
-            <li><a th:href="@{/eventView/schedule}">오늘의 추천</a></li>
             <li><a th:href="@{/recipeView/list}">레시피</a></li>
             <li><a th:href="@{/boardView/listboard}">전체 게시판</a></li>
             <li><a th:href="@{/eventView/event}">이벤트</a></li>
-            <li><a th:href="@{/chatView/chat}">레시피 이야기</a></li>
+            <li><a th:href="@{/eventView/schedule}">이벤트 캘린더</a></li>
+            <li><a th:href="@{/chat}">레시피 이야기</a></li>
             <li>
             <form name="search" th:action="@{/search}" method="post" id="search">
                 <fieldset>
