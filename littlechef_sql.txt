@@ -18,19 +18,28 @@ create table site_member(  -- 멤버 테이플
 	role_name VARCHAR2(20) DEFAULT 'ROLE_USER' CHECK(role_name IN('ROLE_USER', 'ROLE_ADMIN'))	--문자열20byte. 'ROLE_USER'(기본값), 'ROLE_ADMIN'중 하나.
 );
 
-create sequence site_food_seq;
-create table site_food( -- 식품테이블
+
+create table site_food( -- 레시피테이블
 	food_id number primary key not null , 
 	food_name varchar2(20) not null , 
 	food_category varchar2(30) not null,
 	food_contents long not null,
 	food_cal number not null,
 	food_price number not null, 
-	food_tag varchar2(200) not null,
-	bookmark_count  number default 0
+	food_readcount  number default 0
 );
 
-create sequence site_board_seq;
+create table site_food_detail( -- 레시피 상세 테이블
+    food_id references site_food(food_id) on delete cascade,
+    i_name references site_ingredient(i_name) on delete cascade,
+    quantity number default 0
+);
+
+create table site_ingredient(  -- 재료 테이블
+	i_name varchar(30) primary key not null, 
+	i_price number default 0
+); 
+
 create table site_board(   -- 후기 테이블 
     b_num number primary key not null,
     food_id number references site_food(food_id) on delete cascade,
@@ -42,8 +51,6 @@ create table site_board(   -- 후기 테이블
     b_likecount number default 0 not null
 );
 
-
-create sequence site_board_reply_seq;
 create table site_board_reply(   -- 후기게시판 댓글 테이블
     br_num number primary key not null,
     b_num number references site_board(b_num) on delete cascade,
@@ -52,44 +59,25 @@ create table site_board_reply(   -- 후기게시판 댓글 테이블
     br_replytext varchar2(500) not null
 );
 
-/* create table site_ingredient(  -- 재료 테이블
-	i_name varchar(20) primary key not null, 
-	i_type varchar(20) not null ,
-	i_stock number not null,
-	i_allergy varchar2(20)
-); */
-
 create table site_bookmark(  -- 찜기능 테이블 
 	m_id references site_member(m_id) on delete cascade,
 	food_id references site_food(food_id) on delete cascade,
 	constraint bookmark_group_pk primary key(m_id,food_id)
 );
 
-create sequence site_cart_seq;
-create table site_cart (  -- 장바구니 테이블
-    c_id number primary key not null,
-    food_id references site_food(food_id)on delete cascade,
+create table site_order (  -- 주문 테이블
+    o_id number primary key not null,
     m_id  references site_member(m_id)on delete cascade,
-    c_cal number default 0  not null,
-    c_price number default 0 not null,
-    c_amount number default 0  not null
+    o_date date default sysdate not null,
+    o_state number default 0 not null,
+    o_price number default 0  not null
 );
 
-create table site_order(  -- 주문 테이블
-    order_id number primary key not null,
-    m_id references site_member(m_id) on delete cascade,
-    order_name varchar2(100) not null,
-    order_datetime date default sysdate not null,
-    order_price number not null, 
-    order_amount number not null,
-    order_status varchar2(1) not null 
-);
-
-create table site_orderlist( -- 주문 리스트 테이블 
-	orderlist_id number primary key not null,
-	order_id references site_order(order_id) on delete cascade,
-	order_count number not null
-);
+create table site_orderdetail(  -- 주문 상세 테이블
+    o_id references site_order(o_id) on delete cascade,
+    i_name references site_ingredient(i_name) on delete cascade,
+    od_quantity number not null
+); 
 
 create table site_reference( -- 참조테이블
 	reference_id number primary key not null,
@@ -104,31 +92,33 @@ create table site_event( -- 이벤트 테이블
 	event_status varchar2(20) not null
 );
 
+create sequence site_food_seq;
+create sequence site_food_detail_seq;
+create sequence site_order_seq;
 create sequence site_board_seq;
 create sequence site_board_reply_seq;
-create sequence site_cart_seq;
-create sequence site_food_seq;
 
 
+drop sequence site_food_detail_seq;   
+drop sequence site_food_seq;
+drop sequence site_board_reply_seq;
+drop sequence site_board_seq;
+drop sequence site_order_seq;
+     
+   
+drop table site_bookmark;            
+drop table site_orderdetail;                     
+drop table site_order;
+drop table site_food_detail;
+drop table site_board_reply;
+drop table site_ingredient;
+drop table site_board;
+drop table site_member;
+drop table site_food;            
+drop table site_reference;
+drop table site_event;
 
 
-			drop table site_board_reply;
-			drop table site_reference;
-			drop table site_event;
-			drop table site_orderlist;
-			drop table site_order;
-			drop table site_cart;
-			drop table site_bookmark;
-			drop table site_ingredient;
-			drop table site_board;
-			drop table site_member;
-			drop table site_food;
-            
-            drop sequence site_food_seq;
-            drop sequence site_board_seq;
-            drop sequence site_board_reply_seq;
-            drop sequence site_cart_seq;
-            drop sequence site_food_seq;
-            
+     
 					
 commit;
