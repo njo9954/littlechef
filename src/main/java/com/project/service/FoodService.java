@@ -12,7 +12,7 @@ public interface FoodService {
 	//레시피 상세 내용 불러오기
 	Food getDetail(int food_id);
 	
-	int writeFood(Food food);
+	int writeFood(Food food, String[] arrIname, String[] arrQty) throws Exception ;
 	//레시피 찾기
 	String search(String searchWord);
 

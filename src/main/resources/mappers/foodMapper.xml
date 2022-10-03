@@ -10,6 +10,8 @@
 		*
 	from 
 		site_food
+	ORDER BY
+		food_id DESC
 	<!-- where
 		food_name like '%' || upper(#{searchWord}) || '%' -->
 </select>
@@ -27,25 +29,23 @@
 <insert id="writeFood" parameterType="Food">
 INSERT INTO SITE_FOOD
 	(
-	food_id
-	, food_name
-	, food_category
-	, food_contents
-	, food_cal
-	, food_price
-	, food_tag
-	)
-	values
-	(
+		food_id
+		, food_name
+		, food_category
+		, food_contents
+		, food_cal
+		, food_price
+	) values (
 		site_food_seq.nextval
 		, #{food_name}
 		, #{food_category}
 		, #{food_contents}
 		, #{food_cal}
 		, #{food_price}
-		, #{food_tag}
 	)
-
+	<selectKey keyProperty="food_id" resultType="Integer" order="AFTER">
+		SELECT site_food_seq.currval FROM dual
+	</selectKey>
 </insert>
 <select id="search" parameterType="String" resultType="String">
 	select *
