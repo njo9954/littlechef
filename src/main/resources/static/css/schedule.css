@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+#container #section_0 {
+    max-width: 144rem;
+    margin: 1rem auto;
+}
+
+#section_0 h1 {
+    font-size: 4rem;
+    padding: 5rem;
+    text-align: center;
+    border-bottom: 1px solid #014A3A;
+    color:#b37b0e;
+}
+
+#section_0 h1:hover {
+    color: white;
+    background-color: #014A3A;
+}
+
+#container #section_1 {
+	width: 108rem;
+	margin: 4rem auto;
+}
+
+#section_1 table {
+   clear: both;
+   width: 80rem;
+   margin: 4rem auto;
+   box-sizing: border-box;
+}
+#section_1 table th {
+    height: 9.6rem;
+    width: 9.6rem;
+    font-size: 3.6rem;
+    background-color: white;
+}
+#section_1 table td {
+    text-align: center;
+    vertical-align: middle;
+    height: 4.8rem;
+    width: 7rem;
+    font-size: 2.8rem;
+    background-color: white;  
+}
+#section_1 table .year_mon {
+    font-size: 4.2rem;
+    color: #014A3A;
+}
+
+#section_1 table .colToday {
+    color : white;
+    background-color: #b37b0e;
+    font-size: 2.8rem;
+    font-weight: bold;
+     
+}
+
+#section_1 table .colToday:hover {
+	cursor: pointer;
+	background-color: #4F453A;
+}
+
+#section_1 table #calendar {
+	padding: 10rem;
+	margin: auto;
+	color : #999999;
+}
+
+#section_1 table .sunday {
+	color: red;
+}
+
+#section_1 table .saturday {
+	color: blue;
+}
+
+#section_1 table .weekday {
+	color: #999;
+}
+
+#section_1 table input[type=button] {
+	height: 10rem; 
+	width: 10rem; 
+	border: none; 
+	background-color: white; 
+	color:black; 
+	font-size: 3rem;
+}
+
+#section_1 table input[type=button]:hover {
+	text-decoration: underline;
+	cursor: pointer;
+	color: #014A3A;
+	transition: 0.5s;
+}

@@ -2,11 +2,8 @@
 <html lang="ko" xmlns:th="http://thymeleaf.org">
 <head>
  	<div th:replace="/fragments/head.html :: fragment-head"></div>
+ 	<link rel="stylesheet" th:href="@{/css/event.css}">
  </head>
-<meta charset="UTF-8">
-<title>event</title>
-
-
 <style>
 .rouletter {
   position: relative;
@@ -63,10 +60,7 @@
 .hidden-input {
   display: none;
 }
-
 </style>
-
-
 <script>
 var rolLength = 6; // 해당 룰렛 콘텐츠 갯수
 var setNum; // 랜덤숫자 담을 변수
@@ -146,8 +140,6 @@ document.addEventListener("click", function (e) {
 });
 
 </script>
-
-
 </head>
 <body>
     <div id="wrap">
@@ -156,44 +148,30 @@ document.addEventListener("click", function (e) {
         </header>
         <div id="container">
             <section id="section_0">
-         
- 	<div class="rouletter">
- 
-   <div class="rouletter-bg"><div class="rouletter-wacu"></div></div>
-    <div class="rouletter-arrow"></div>
-    <button class="rouletter-btn">start</button>
-	</div>
- 			
- 		</section>
- 
-  	  		</div>           
-  	  	</div>        
-  
+ 				<h1>※ 룰렛 이벤트 ※</h1>
+ 			</section>       
             <section id="section_1">
-                <div class="s1_cont">
-                    <div class="slogan">
-                        <a></a>
-                    </div>
-                    <ul class="thumb">
-                        <li><a href="#"><img th:src="@{/img/sc1_1.jpg}" alt="th1"></a></li>
-                        <li><a href="#"><img th:src="@{/img/sc1_2.jpg}" alt="th2"></a></li>
-                        <li><a href="#"><img th:src="@{/img/sc1_3.jpg}" alt="th3"></a></li>
-                    </ul>
-                </div>
+                <div class="rouletter">
+   					<div class="rouletter-bg">
+   						<div class="rouletter-wacu"></div>
+   					</div>
+    				<div class="rouletter-arrow"></div>
+    				<button class="rouletter-btn">start</button>
+				</div>
             </section>
-       
-    
             <section id="section_3">
                  <div th:replace="/fragments/section_3.html :: fragment-section_3"></div>         
             </section>
             <section id="section_4">
                  <div th:replace="/fragments/section_4.html :: fragment-section_4"></div>
             </section>
+        </div>    
         <footer id="footer">
              <div th:replace="/fragments/footer.html :: fragment-footer"></div>
         </footer>
         <aside id="aside">
              <div th:replace="/fragments/aside.html :: fragment-aside"></div>
         </aside>
+    </div>
 </body>
 </html>
