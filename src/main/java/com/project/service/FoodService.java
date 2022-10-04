@@ -18,5 +18,8 @@ public interface FoodService {
 
 	ArrayList<Board> selectboard(int food_id);
 	
+	//레시피 글 클릭시 조회수 증가
+	int updateReadCount(int food_id);
+	
 
 }

@@ -21,4 +21,6 @@ public interface FoodDAO {
 
 	ArrayList<Board> selectboard(int food_id);
 
+	int updateReadCount(int food_id);
+
 }

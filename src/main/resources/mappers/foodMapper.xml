@@ -66,6 +66,10 @@ INSERT INTO SITE_FOOD
 
 </select>
 
-
+<update id="updateReadCount" parameterType="Integer">
+	 UPDATE site_food
+	 SET food_readcount = food_readcount + 1 
+	 WHERE food_id = #{food_id}
+</update>
 
 </mapper>

@@ -137,12 +137,16 @@ public class OrderController {
 		return "redirect:/orderView/cart";
 	}
 	
-	@PostMapping("order")
+	@PostMapping("/order")
 	public String order(Model model, @AuthenticationPrincipal UserDetails user) {
+		log.debug("order() called");
+		
+		List<>
+		
 		return "/orderView/order";
 	}
 	
-	@GetMapping("orderList")
+	@GetMapping("/orderList")
 	public String orderList() {
 		return "/orderView/orderList";
 	}

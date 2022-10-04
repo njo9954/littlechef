@@ -78,5 +78,11 @@ public class FoodServiceImpl implements FoodService {
 		ArrayList<Board> list = fooddao.selectboard(food_id);
 		return list;
 	}
-	
+
+	@Override
+	public int updateReadCount(int food_id) {
+		
+			int result = fooddao.updateReadCount(food_id);
+			return result;		
+	}
 }

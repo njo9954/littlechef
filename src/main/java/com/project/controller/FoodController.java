@@ -86,6 +86,8 @@ public class FoodController {
 		model.addAttribute("food", food);
 		log.debug("food: {}", food);
 		
+		foodservice.updateReadCount(food_id);
+		
 		List<FoodDetail> ingredientList =foodDetailService.selectIngredientListByFoodId(food_id);
 		model.addAttribute("ingredientList", ingredientList);
 		log.debug("ingredientList : {}", ingredientList);
