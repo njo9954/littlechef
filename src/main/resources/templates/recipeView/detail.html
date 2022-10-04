@@ -5,10 +5,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <div th:replace="/fragments/head.html :: fragment-head"></div>
     <link rel="stylesheet" th:href="@{/css/detail.css}">
 </head>
-<style>
 
-
-</style>
 <body>
     <div id="wrap">
         <header id="header">
@@ -19,13 +16,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <h1>※ -레시피 상세 정보- ※</h1>
             </section>
             <section id="section_1">
-                <div id="sc1_left">
-                    <ul>
-                        <li><a href="#"><img th:src="@{/img/sc2_5.jpg}" alt="food_img" id="detail_img"
-                            width="500px"></a></li>
-                    </ul>
-                </div>
-                <div id="sc1_right">
+                <div id="sc1">
                     <table>
                    		<tr th:each="food : ${food}">
 							<th>레시피 번호</th>
@@ -47,18 +38,29 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 							<th>가격</th>
 							<td th:text="${food.food_price}"></td>
 						</tr>
+						<tr>
+							<th>재료</th>
+							<td>
+								<ul>
+			           				<li>재료</li>
+			           				<li th:each="ingredient:${ingredientList}" th:text="|${ingredient.i_name} ${ingredient.quantity}개|"></li>
+			           			</ul>
+							</td>
+						</tr>
                     </table>                    
                 </div>
             </section>
-           	<section id="section_1s">
-           		<div>
-           			<ul>
-           				<li th:each="ingredient:${ingredientList}" th:text="|${ingredient.i_name} ${ingredient.quantity}개|"></li>
-           			</ul>
-           		</div>
-           		<div th:utext="${food.food_contents}">
-           		</div>
-           	</section>
+            <section id="section_1s">
+            	<table>
+            		<tr>
+						<th></th>
+						<td>
+							<div th:utext="${food.food_contents}">
+          						</div>
+						</td>
+					</tr>
+            	</table>
+            </section>
             <section id="section_2">
             	<div id="sc2_button">
                     <form th:action="@{/orderView/cart}" method="post">

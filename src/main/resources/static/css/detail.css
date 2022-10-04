@@ -22,33 +22,22 @@
 
 #container #section_1 {
     max-width: 144rem; 
-    padding: 0 2rem; 
-    min-width: calc(1000px - 4rem); 
+    padding: 0 2rem;
     margin: 0 auto; 
     display: flex; 
     justify-content: center; 
     align-items: center;
 }
 
-#section_1 #sc1_left {
-    width: 58rem;
-    height: 58rem;
-    padding: 4rem;
-    margin: 5rem;
+#section_1 #sc1 {
+    width: 128rem;
+    padding: 2rem;
+    margin: 4rem;
     border: 1px solid #b37b0e;
     box-sizing: border-box;
 }
 
-#section_1 #sc1_right {
-    width: 58rem;
-    height: 58rem;
-    padding: 4rem;
-    margin: 5rem;
-    border: 1px solid #b37b0e;
-    box-sizing: border-box;
-}
-
-#sc1_right h1 {
+#sc1 h1 {
     text-align: center;
     color: #014A3A;
     font-size: 3rem;
@@ -56,18 +45,12 @@
     margin-bottom: 5rem;
 }
 
-#sc1_right legend {
-    font-weight: bold;
-    font-size: 2.4rem;
-    margin-bottom: 1.2rem;
+#sc1 table {
+	width: 120rem;
+	margin: 4rem auto;
 }
 
-#sc1_right table {
-	width: 48rem;
-	margin: 5rem auto;
-}
-
-#sc1_right tr th {
+#sc1 tr th {
 	width: 14rem;
 	text-align: left;
     font-size: 2.4rem;
@@ -75,11 +58,11 @@
     padding: 1.2rem;
 }
 
-#sc1_right tr th:hover {
+#sc1 tr th:hover {
     color: white;
     background-color: #027d62;
 }
-#sc1_right tr td {
+#sc1 tr td {
     font-size: 2.2rem;
     color: #b37b0e;
     padding-top: 1rem;
@@ -87,11 +70,21 @@
 }
 
 #container #section_1s {
-	width: 126rem; 
+	width: 126rem;
     padding: 0 2rem;  
     margin: 4rem auto;
-    font-size: 2rem; 
+    font-size: 2rem;
+    border: 1px solid #b37b0e;
+    box-sizing: border-box;
 }
+
+#section_1s table {
+	width: 118rem;
+    padding: 2rem;
+    margin: 4rem auto;
+    box-sizing: border-box;
+}
+
 /* Section 2 */
 
 #section_2 {
