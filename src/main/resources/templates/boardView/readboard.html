@@ -67,10 +67,12 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 						<td th:text="${board.b_title}"></td>
 					</tr>
 					<tr>
-						<th style="vertical-align: top;">내용</th>
-						
-						<td><textarea rows="30" cols="120" colsth:value="${board.b_contents}" th:text="${board.b_contents}"></textarea></td>
-							
+						<th style="vertical-align: middle;">내용</th>
+						<td>
+							<textarea rows="30" cols="120" th:value="${board.b_contents}" th:text="${board.b_contents}" id="tbl_cont"
+							readonly="readonly">
+							</textarea>
+						</td>	
 					</tr>
 					<tr>
 						<th>파일첨부</th>

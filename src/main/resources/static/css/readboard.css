@@ -117,7 +117,6 @@
 	font-size: 1.8rem;
     padding: 1rem;
     text-align: left;
-    border: none;
 }
 #section_2 #writereply td input[type=text] {
 	width: 90rem;
@@ -134,6 +133,20 @@
 	border: none;
 	
 }
+
+#section_2 #sc2_t1 #tbl_cont {
+	width: 100rem;
+	padding: 1rem;
+	font-size: 1.6rem;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+#section_2 #sc2_t1 #tbl_cont:focus {
+	color: white;
+	background-color: #b37b0e;
+}
+
 
 #section_2 #sc2_t2 {
 	width: 116rem;
