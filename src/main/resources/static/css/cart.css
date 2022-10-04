@@ -80,20 +80,7 @@
     width: 6rem;
 }
 #section_2 #sc2_t1 th:nth-child(2) {
-    width: 6rem;
-}
-#section_2 #sc2_t1 th:nth-child(4) {
-    width: 12rem;
-}
-
-#section_2 #sc2_t1 th:nth-child(5) {
-    width: 12rem;
-}
-#section_2 #sc2_t1 th:nth-child(6) {
-    width: 12rem;
-}
-#section_2 #sc2_t1 th:last-child {
-    width: 14rem;
+	width: 60rem;
 }
 #section_2 #sc2_t1 td {
     font-size: 1.8rem;
@@ -102,9 +89,8 @@
     text-align: center;
     border: 1px dotted #b37b0e;
 }
-
 #section_2 #sc2_t1 td:nth-child(3) {
-    text-align: left;
+	text-align: left;
 }
 
 #section_2 #sc2_t1 td input[type=number] {
