@@ -19,19 +19,20 @@
 }
 
 #container #section_1 {
-	width: 108rem;
+	width: 130rem;
 	margin: 4rem auto;
+	border-bottom: 1px solid #014a3a;
 }
 
 #section_1 table {
    clear: both;
-   width: 80rem;
+   width: 84rem;
    margin: 4rem auto;
    box-sizing: border-box;
 }
 #section_1 table th {
-    height: 9.6rem;
-    width: 9.6rem;
+    height: 9.2rem;
+    width: 9.2rem;
     font-size: 3.6rem;
     background-color: white;
 }
@@ -39,12 +40,12 @@
     text-align: center;
     vertical-align: middle;
     height: 4.8rem;
-    width: 7rem;
+    width: 7.2rem;
     font-size: 2.8rem;
     background-color: white;  
 }
 #section_1 table .year_mon {
-    font-size: 4.2rem;
+    font-size: 4rem;
     color: #014A3A;
 }
 
@@ -93,4 +94,26 @@
 	cursor: pointer;
 	color: #014A3A;
 	transition: 0.5s;
+}
+
+#container #section_2 {
+	width: 108rem;
+	margin: 4rem auto;
+}
+
+#section_2 #sc2_date {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+#section_2 #sc2_date #today {
+	color: #b37b0e;
+}
+
+#section_2 #sc2_menu {
+	font-size: 2.4rem;
+	padding-left: 10rem;
+}
+#section_2 #sc2_menu span {
+	color: #b37b0e;
 }

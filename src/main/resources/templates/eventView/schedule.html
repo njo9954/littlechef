@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://thymeleaf.org">
 <head>
-<div th:replace="/fragments/head.html :: fragment-head"></div>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<link rel="stylesheet" th:href="@{/css/schedule.css}">
+	<div th:replace="/fragments/head.html :: fragment-head"></div>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<link rel="stylesheet" th:href="@{/css/schedule.css}">
 </head>
 <script>
        $(function(){
@@ -74,37 +74,36 @@
         </header>
         <div id="container">
             <section id="section_0">
-				<h1>이벤트 캘린더</h1>
-		<h1> <span id="today"></span> 오늘의 추천메뉴	</h1>	  <!--  오늘 날짜를 가져옴  -->    
+				<h1>이벤트 캘린더</h1>    
  			</section>       
             <section id="section_1">
                 <table id="calendar">
-		        <thead>
-		            <tr>
-		                <th><input name="preMon" type="button" value="<"></th>
-		                <th colspan="5" class="year_mon"></th>
-		                <th><input name="nextMon" type="button" value=">"></th>
-		            </tr>
-		            <tr>
-		                <th class="sunday">일</th>
-		                <th class="weekday">월</th>
-		                <th class="weekday">화</th>
-		                <th class="weekday">수</th>
-		                <th class="weekday">목</th>
-		                <th class="weekday">금</th>
-		                <th class="saturday">토</th>
-		            </tr>
-		        </thead>
-		        <tbody>
-        	
-		        </tbody>
-		    </table>
-		      <section id="section_0">
-		    <div>
-					<h1> 오늘의 추천메뉴는 매생이 미역국 입니다 </h1>
-		    </div>
-       		</section>
-       		
+			        <thead>
+			            <tr>
+			                <th><input name="preMon" type="button" value="<"></th>
+			                <th colspan="5" class="year_mon"></th>
+			                <th><input name="nextMon" type="button" value=">"></th>
+			            </tr>
+			            <tr>
+			                <th class="sunday">일</th>
+			                <th class="weekday">월</th>
+			                <th class="weekday">화</th>
+			                <th class="weekday">수</th>
+			                <th class="weekday">목</th>
+			                <th class="weekday">금</th>
+			                <th class="saturday">토</th>
+			            </tr>
+			        </thead>
+			        <tbody></tbody>
+		    	</table>
+		    </section>
+		    <section id="section_2">
+		    	<div id="sc2_date">
+		    		<a id="sc2_date"><span id="today"></span>&nbsp; - 오늘의 추천메뉴 -</a>	  <!--  오늘 날짜를 가져옴  -->
+		    	</div>
+				<div id="sc2_menu">
+					<a>>> 오늘의 추천메뉴는 <span>&nbsp; 매생이 미역국 &nbsp;</span> 입니다.</a>
+				</div>
        		</section>
             <section id="section_3">
                  <div th:replace="/fragments/section_3.html :: fragment-section_3"></div>         
