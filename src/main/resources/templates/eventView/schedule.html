@@ -9,7 +9,8 @@
        $(function(){
            var today = new Date();
            var date = new Date();           
-
+           
+           
            $("input[name=preMon]").click(function() { // 이전달
                $("#calendar > tbody > td").remove();
                $("#calendar > tbody > tr").remove();
@@ -56,9 +57,14 @@
                	if(nowYear==date.getFullYear() && nowMonth==date.getMonth() && $(".date").eq(index).text()==date.getDate()) {
                        $(".date").eq(index).addClass('colToday');
                    }
-               }) 
+               })
+               
+               $('.colToday').append('');
            }
            buildCalendar();
+           
+           let todayText = (date.getMonth() + 1)  + '월 ' + date.getDate() + '일';
+           $('#today').html(todayText);
        })
 </script>
 <body>
@@ -68,7 +74,8 @@
         </header>
         <div id="container">
             <section id="section_0">
-				<h1>이벤트 스케쥴</h1>
+				<h1>이벤트 캘린더</h1>
+		<h1> <span id="today"></span> 오늘의 추천메뉴	</h1>	  <!--  오늘 날짜를 가져옴  -->    
  			</section>       
             <section id="section_1">
                 <table id="calendar">
@@ -88,9 +95,16 @@
 		                <th class="saturday">토</th>
 		            </tr>
 		        </thead>
-		        <tbody>        	
+		        <tbody>
+        	
 		        </tbody>
 		    </table>
+		      <section id="section_0">
+		    <div>
+					<h1> 오늘의 추천메뉴는 매생이 미역국 입니다 </h1>
+		    </div>
+       		</section>
+       		
        		</section>
             <section id="section_3">
                  <div th:replace="/fragments/section_3.html :: fragment-section_3"></div>         

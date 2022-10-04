@@ -140,9 +140,6 @@ public class OrderController {
 	@PostMapping("/order")
 	public String order(Model model, @AuthenticationPrincipal UserDetails user) {
 		log.debug("order() called");
-		
-		List<>
-		
 		return "/orderView/order";
 	}
 	

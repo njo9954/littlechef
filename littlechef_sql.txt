@@ -110,7 +110,7 @@ drop table site_bookmark;
 drop table site_orderdetail;                     
 drop table site_order;
 drop table site_food_detail;
-drop table site_board_reply;
+drop table site_board_reply; 
 drop table site_ingredient;
 drop table site_board;
 drop table site_member;
