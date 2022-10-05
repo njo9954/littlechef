@@ -1,10 +1,7 @@
 package com.project.service;
 
-import java.util.ArrayList;
 
-import com.project.domain.Csreply;
 import com.project.domain.Cscenter;
-import com.project.util.PageNavigator;
 
 public interface CscenterService {
 
@@ -16,9 +13,6 @@ public interface CscenterService {
 		
 		public int selectTotal();
 
-
-		
-		
 
 
 }

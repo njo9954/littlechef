@@ -48,12 +48,7 @@ public class CssenterController {
 			String id = user.getUsername(); // id 읽어서
 			cscenter.setM_id(id); // board에 추가
 			
-		
-			
 			log.debug("저장할 글정보 : {}", cscenter);
-			log.debug("저장할 글정보 : {}", cscenter);
-			log.debug("저장할 글정보 : {}", cscenter);
-		
 			
 			service.cswrite(cscenter);
 			
