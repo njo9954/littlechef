@@ -146,10 +146,6 @@ insert into site_ingredient (i_name, i_price) values ('설탕 50g', 300);
 
 commit;
      					
-commit;
-
-
-
 create sequence site_cscenter_seq;
 create sequence site_cscenter_reply_seq;
 
