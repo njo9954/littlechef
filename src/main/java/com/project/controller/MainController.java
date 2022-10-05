@@ -22,11 +22,6 @@ public class MainController {
 		return "main";
 	}
 	
-	//cs center page
-	@GetMapping("/cscenter")
-	public String cscenter() {
-		return "cscenter";
-	}
 	
 	/**
 	 * 카테고리와 검색어를 전달받아 검색결과를 리턴

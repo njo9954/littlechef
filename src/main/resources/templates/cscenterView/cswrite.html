@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>write cscenter</title>
+<link rel="stylesheet" th:href="@{/css/writeboard.css}">
+</head>
+	<style>
+	textarea{
+			resize:none;
+	}
+	  
+   .kakaoChat {
+                position: fixed;
+                right: 15px;
+                bottom: 15px;
+                width: 80px;
+                height: 80px;
+                z-index: 99;
+            }
+            
+            
+	</style>
+<script>
+function cssubmit() {
+	alert("문의가 접수되었습니다.");
+	
+}
+
+</script>
+
+<body>
+        <div id="container">
+            <section id="section_0">
+                <h1>불편 문의 접수</h1>
+            </section>
+            <section id="section_1">
+                <form id="cs" th:action="@{/}"  onsubmit="cssubmit();">
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="hidden" name="m_id" id="m_id" th:value="@{m_id}">
+                            </td> 
+                        </tr>
+                        <tr>
+                            <th>문의분류</th>
+                            <td>
+                                <select name="op">
+  								 <option th:value="op1" selected="selected">기타/불편사항</option>
+ 								 <option th:value="op2">레시피문의</option>
+ 								 <option th:value="op3">쿠폰/이벤트 문의</option>
+ 								 <option th:value="op4">회원관련문의</option>
+ 								 <option th:value="op5">결제오류</option>
+ 								 <option th:value="op6">악성후기신고</option>
+ 								 <option th:value="op6">악성댓글신고</option>
+								</select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>문의제목</th>
+                            <td>
+                                <input type="text" name="c_title" id="c_title"  placeholder="문의 제목을 입력해주세요.">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>문의내용</th>
+                            <td>
+                                <textarea  name="c_contents" id="c_contents"  placeholder="문의 내용을 입력해주세요."></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+						<td colspan="2" >
+							<input type="submit" value="등록" style="  float: right; position: relative; left: -40%;">
+						</td>
+					</tr> 
+                    </table>
+                    <a href="https://pf.kakao.com/_testKOR/chat"><img class="kakaoChat" src="../img/kakao.png" alt="카카오톡투명로고"/></a>
+                </form>                           
+            </section>
+            
+    </div>
+</body>
+</html>

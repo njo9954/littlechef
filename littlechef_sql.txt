@@ -124,3 +124,27 @@ insert into site_ingredient (i_name, i_price) values ('소고기 200g', 2000);
 insert into site_ingredient (i_name, i_price) values ('감자', 800);
      					
 commit;
+
+
+
+create sequence site_cscenter_seq;
+create sequence site_cscenter_reply_seq;
+
+drop table site_cscenter;
+create table site_cscenter(   -- 문의사항 테이블 
+    c_num number primary key ,
+    m_id varchar2(20) references site_member(m_id) on delete cascade,
+    c_title varchar2(50) not null,
+    c_datetime date default sysdate not null,
+    c_contents varchar2(2000) not null
+);
+
+drop table site_cscenter_reply;
+create table site_cscenter_reply(   -- 문의사항 답변 (댓글) 테이블 
+    cr_num number primary key ,
+    c_num number references site_cscenter(c_num) on delete cascade,
+    m_id varchar2(20) references site_member(m_id) on delete cascade,
+    cr_datetime date default sysdate not null,
+    cr_replytext varchar2(500) not null
+);
+commit;
