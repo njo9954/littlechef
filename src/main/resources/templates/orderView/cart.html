@@ -15,34 +15,14 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
             <section id="section_0">
                 <h1>※ -장바구니- ※</h1>
             </section>
-            <section id="section_1">
-                <table>
-                    <tr>
-                        <th>내 등급</th>
-                        <th>
-                            마일리지 및 쿠폰
-                        </th>
-                        <th>현재 주문 상태</th>
-                    </tr>
-                    <tr>
-                        <td>당신의 등급은 <span>0</span>등급입니다.</td>
-                        <td>
-                            <h1>마일리지</h1>
-                            <h1>보유쿠폰</h1>
-                        </td>
-                        <td>
-                            <h1>주문이력보기</h1>
-                            <h1>배송중 목록보기</h1>
-                        </td>
-                    </tr>
-                </table>
-            </section>
+           
             <section id="section_2">
                 <table id="sc2_t1">
                     <tr>
-                        <th>번호</th>
+                        <th>체크</th>
+                        <th>재료이름</th>
                         <th>수량</th>
-                        <th>할인/적립</th>
+                        <th>쿠폰</th>
                         <th>구매하기</th>
                         <th>삭제하기</th>
                     </tr>
@@ -58,8 +38,8 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	                        </td>
 	                        <td>
 	                            <select>
-	                                <option>할인</option>
-	                                <option>적립</option>
+	                                <option>쿠폰</option>
+	                                <option>선택 안함</option>
 	                            </select>
 	                        </td>
 	                        <td>

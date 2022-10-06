@@ -57,7 +57,12 @@
 }
 
 #section_1 table td:first-child {
-	background-color: #027d62;
+	background-color: #b37b0e;
+	border: none;
+}
+
+#section_1 table td:first-child:hover {
+	background-color: #4F453A;
 }
 #section_1 table td a:hover {
     color: #b37b0e;
