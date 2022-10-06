@@ -28,8 +28,8 @@
 }
 
 #section_1 table {
-    width: 120rem;
-    margin: 2rem auto;
+    width: 110rem;
+    margin: 4rem auto;
     border: 1px solid #b37b0e;
     box-sizing: border-box;
 } 
@@ -52,5 +52,23 @@
 }
 
 #section_1 table td:first-child {
-	width: 15rem;
+	width: 12rem;
+}
+
+#section_1 table td:nth-child(2) {
+	text-align: left;
+	padding-left: 3rem;
+}
+
+#section_1 table td:last-child {
+	width: 12rem;
+}
+#section_1 table td a {
+	color: #027d62;
+}
+
+#section_1 table td a:hover {
+	color: #014A3A;
+	text-decoration: underline;
+	transition: 0.5s;
 }

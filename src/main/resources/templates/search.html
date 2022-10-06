@@ -19,11 +19,15 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 				<tr>
 					<th>레시피 번호</th>
 					<th>레시피명</th>
+					<th>조회수</th>
 				</tr>
 				<tr th:each="food:${foodlist}">
 					<td th:text="${food.food_id}">
 					</td>
-					<td th:text="${food.food_name}">
+					<td >
+						<a th:text="${food.food_name}" th:href="@{/recipeView/detail(food_id=${food.food_id})}"></a>
+					</td>
+					<td th:text="${food.food_readcount}">
 					</td>
 				</tr>
 			</table>
