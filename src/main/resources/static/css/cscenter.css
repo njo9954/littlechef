@@ -99,6 +99,28 @@
 	cursor: pointer;
 	transition: 0.5s;
 }
+
+#section_1 #sc1_tbl2 {
+	width: 120rem;
+	margin: 4rem auto;
+	border: 1px solid #014a3a;
+	box-sizing: border-box;
+}
+
+#section_1 #sc1_tbl2 #jaju {
+	font-size: 3rem;
+	color: white;
+	background-color: #014a3a;
+}
+
+#section_1 #sc1_tbl2 td {
+	font-size: 2rem;
+}
+
+#section_1 #sc1_tbl2 td:last-child {
+	text-align: left;
+	padding-left: 2rem;
+}
 #container #section_2 {
 	width: 144rem;
 	margin: 4rem auto;
