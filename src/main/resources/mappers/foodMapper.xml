@@ -55,7 +55,8 @@ INSERT INTO SITE_FOOD
 		<if test="searchWord != null">
 			food_name like '%' || #{food_name} || '%'
 		</if>
-	</where> 
+	</where>
+		ORDER BY food_id 
 </select>
 
 
