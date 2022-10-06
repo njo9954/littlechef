@@ -115,7 +115,13 @@ public class MemberController {
 	}
 	
 	@GetMapping("coupon")
-	public String coupon() {
+	public String coupon(Model model, @AuthenticationPrincipal UserDetails user) {
+		String id = user.getUsername();
+		Member member = service.getMemberInfo(id);
+		
+		int coupon = member.getM_coupon();
+		model.addAttribute("coupon",coupon);
+			
 		return "/memberView/coupon";
 	}
 }

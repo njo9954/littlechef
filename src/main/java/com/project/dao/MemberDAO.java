@@ -19,5 +19,7 @@ public interface MemberDAO {
 	//회원정보 삭제
 	int deleteMember(Member member);
 	
+
+	int insertcoupon(Member member);
 	
 }

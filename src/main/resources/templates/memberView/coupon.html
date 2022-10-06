@@ -18,14 +18,12 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <h2>*주의! 쿠폰의 중복사용은 불가합니다.</h2>
                 <table>
                     <tr>
-                        <th>번호</th>
+                        
                         <th>쿠폰이름</th>
-                        <th>보유수량</th>
+                        
                     </tr>
                     <tr>
-                    	<td>0001</td>
-                    	<td><a>10%할인쿠폰</a></td>
-                    	<td>1</td>
+                    	<td><label th:text="${coupon}"></label>000원 쿠폰</td>
                     </tr>
                 </table>
             </section>

@@ -19,19 +19,17 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                     <tr>
                         <th>내 등급</th>
                         <th>
-                            마일리지 및 쿠폰
+                            쿠폰
                         </th>
                         <th>현재 주문 상태</th>
                     </tr>
                     <tr>
                         <td>당신의 등급은 <span>A</span>등급입니다.</td>
                         <td>
-                            <h1>마일리지</h1>
-                            <h1>보유쿠폰</h1>
+                            <h1><a th:href="@{/memberView/coupon}">보유쿠폰</a></h1>
                         </td>
                         <td>
-                            <h1>주문이력보기</h1>
-                            <h1>배송중 목록보기</h1>
+                            <h1>주문이력보기</h1>                            
                         </td>
                     </tr>
                 </table>

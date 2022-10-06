@@ -18,6 +18,7 @@
  	,	 m_coupon 	
 	,	 m_mileage 
 		)
+		
 		VALUES
 		(
 	#{m_id}
@@ -52,6 +53,16 @@
 <update id="deleteMember" parameterType="Member">
 	DELETE site_member
 	WHERE m_id=#{m_id}
+
+</update>
+
+<update id="insertcoupon" parameterType="Member">
+
+update site_member 
+set m_coupon = #{m_coupon} 
+where m_id = #{m_id} 
+
+
 
 </update>
 

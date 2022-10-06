@@ -105,19 +105,39 @@ const rRotate = () => {
 
 // 정해진 alert띄우기, custom modal등
 const rLayerPopup = (num) => {
+	//alert(num);
   switch (num) {
     case 1:
       alert("*당첨* 1000원 쿠폰 ");
+      num = 1;
       break;
     case 3:
       alert("*당첨* 2000원 쿠폰");
+      num = 2;
       break;
     case 5:
       alert("*당첨* 3000원 쿠폰");
+      num = 3;
       break;
     default:
-      alert("꽝~! 아쉽게도 다음기회에..");
+      alert("꽝~!");
+      num = 0;
   }
+  
+  $.ajax({
+	  url: 'insertEvent',
+	  type: 'post',
+	  data: {num: num},
+	  success: function (res) {
+		  if (res != 0) {
+			 // alert('쿠폰이 이미 발급되었습니다.');
+			  location.href = '../';
+		  }
+		  else {
+			  location.href = '../';
+		  }
+	  }
+  });
 };
 
 // reset

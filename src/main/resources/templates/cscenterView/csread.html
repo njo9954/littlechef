@@ -49,7 +49,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
         		</table>
         	</section>
         	<section id="section_2">
-        		<table id="sc2_t1">
+        		<table id="sc2_t1" th:if="${#authentication.name} == ${Cscenter.m_id}">
 					<tr>
 						<th>작성일</th>
 						<td th:text="${Cscenter.c_datetime}"></td>
@@ -81,7 +81,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 					<a th:href="|javascript:deleteBoard(${Cscenter.c_num})|">문의 삭제</a>
 				</div>
 				<!-- 로그인한 경우 댓글 작성 폼 -->
-				<div sec:authorize="isAuthenticated()">
+				<div sec:authorize="hasRole('ADMIN')">
 					<form th:action="@{/cscenterView/csreplyWrite}" method="post" onsubmit="return vaildation();">
 					<table id="writereply">
 						<tr>
