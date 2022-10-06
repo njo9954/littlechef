@@ -4,6 +4,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <div th:replace="/fragments/head.html :: fragment-head"></div>
     <link rel="stylesheet" th:href="@{/css/orderList.css}">
+
 </head>
 <body>
     <div id="wrap">
@@ -15,46 +16,27 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
         		<h1>주문내역</h1>
         	</section>
         	<section id="section_1">
+                <form method="post" th:action="@{/orderView/orderDetailList}">
                 <table>
                     <tr>
                         <th>번호</th>
-                        <th>레시피 명</th>
-                        <th>주문일</th>
                         <th>결제금액</th>
-                        <th>결제수단</th>
                         <th>상세보기</th>
                     </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><a>버터갈릭 닭가슴살</a></td>
-                        <td>2022/02/22</td>
-                        <td><span>10,000</span> 원</td>
-                        <td>신용카드</td>
-                        <td>
-                            <input type="button" value="상세보기">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a>허브솔트 닭가슴살</a></td>
-                        <td>2022/02/21</td>
-                        <td><span>11,000</span> 원</td>
-                        <td>계좌이체</td>
-                        <td>
-                            <input type="button" value="상세보기">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td><a>페퍼솔트 닭가슴살</a></td>
-                        <td>2022/02/20</td>
-                        <td><span>12,000</span> 원</td>
-                        <td>신용카드</td>
-                        <td>
-                            <input type="button" value="상세보기">
+
+                    <tr th:each="orderList:${orderList}">
+                    	<td>
+                    	<input type="hidden" id="o_id" name="o_id" th:value="${orderList.o_id}">
+                    	</td>
+                        <td th:text="${orderList.o_id}"></td>
+                        <td th:text="${orderList.o_date}"></td>
+                        <td th:text="${orderList.o_price}"></td>
+                     	<td>
+                            <input type="submit" value="상세보기">
                         </td>
                     </tr>
                 </table>
+                </form>
             </section>
             <section id="section_3">
                  <div th:replace="/fragments/section_3.html :: fragment-section_3"></div>         

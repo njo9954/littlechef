@@ -14,5 +14,8 @@ public interface OrderDetailDAO {
 	public List<OrderDetail> selectOrderDetailListByOid(int o_id);
 
 	public int deleteOrderDetail(OrderDetail cartIdAndMemberId);
+	
+	
+
 }
 

@@ -40,4 +40,12 @@
 			o_id = #{o_id}
 			AND i_name = #{i_name}
 	</delete>
+	
+	<update id="updateOrderDetailList" parameterType="OrderDetail">
+	 UPDATE site_orderDetail
+	 SET od_quantity = #{od_quantity}
+	 WHERE o_id = #{o_id}
+	</update>
+	
+
 </mapper>

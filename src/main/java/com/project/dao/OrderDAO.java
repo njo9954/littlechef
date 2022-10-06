@@ -18,4 +18,9 @@ public interface OrderDAO {
 	public int deleteCartAll(String username);
 
 	public int deleteOrder(String username);
+
+	public int buyOrder(Order order);
+
+	public List<Order> selectOrderFinishedByUsrid(String username);
+
 }

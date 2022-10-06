@@ -102,5 +102,21 @@ public class OrderServiceImpl implements OrderService {
 		int list=orderdao.deleteOrder(username);
 		return list;
 	}
+
+	@Override
+	public int buyOrder(Order order) {
+		
+		int list=orderdao.buyOrder(order);
+		return list;
+	}
+
+	@Override
+	public List<Order> selectOrderFinishedByUsrid(String username) {
+		List<Order> orderlist=orderdao.selectOrderFinishedByUsrid(username);
+		log.debug("ordersevice orderlist {}", orderlist);
+		
+		return orderlist;
+	}
+
 }
 

@@ -21,4 +21,8 @@ public interface OrderService {
 
 	public List<OrderDetail> selectOrderDetailListByOid(int o_id);
 
+	public int buyOrder(Order order);
+
+	public List<Order> selectOrderFinishedByUsrid(String username);
+
 }

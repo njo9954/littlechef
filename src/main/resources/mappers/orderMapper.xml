@@ -37,5 +37,22 @@
 			m_id=#{m_id}
 			AND o_state = 0
 	</delete>
+	
+	<update id="buyOrder" parameterType="Order">
+		UPDATE site_order
+		SET o_state=1	
+		WHERE o_id=#{o_id}
+			AND m_id=#{m_id} 
+	</update>
+	
+	<select id="selectOrderFinishedByUsrid" parameterType="String" resultType="Order">
+		SELECT
+		    *
+		FROM
+		    site_order
+		WHERE
+		    m_id = #{m_id}
+		    AND o_state = 1
+	</select>
 </mapper>
 

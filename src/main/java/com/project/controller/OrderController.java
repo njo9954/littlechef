@@ -1,7 +1,9 @@
 package com.project.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.project.dao.OrderDetailDAO;
 import com.project.domain.Food;
 import com.project.domain.FoodDetail;
 import com.project.domain.Ingredient;
@@ -41,6 +44,7 @@ public class OrderController {
 	
 	@Autowired
 	FoodDetailService fooddetailservice;
+
 	
 	//장바구니 담기
 	@PostMapping("/cart")
@@ -138,13 +142,53 @@ public class OrderController {
 	}
 	
 	@PostMapping("/order")
-	public String order(Model model, @AuthenticationPrincipal UserDetails user) {
+	public String order(int o_id, @AuthenticationPrincipal UserDetails user) {
 		log.debug("order() called");
+		log.debug(" OrderController [order] param o_id : {}", o_id);
+		
+		String username=user.getUsername();
+		Order order=orderservice.selectOrderByUsrid(username);
+		order.setO_state(1);
+		log.debug("order", order);
+		
+		orderservice.buyOrder(order);
+		
 		return "/orderView/order";
 	}
 	
+	@PostMapping("/orderupdate")
+	public String orderupdate(int o_id, @AuthenticationPrincipal UserDetails user) {
+		log.debug("OrderController [orderupdate] Start");
+		
+		
+		
+		return "/orderView/cart";
+	}
+	
 	@GetMapping("/orderList")
-	public String orderList() {
+	public String orderList(@RequestParam(name="o_id", defaultValue="0")int o_id, Model model, @AuthenticationPrincipal UserDetails user) {
+		log.debug("OrderController [orderList] start");
+		log.debug("OrderController [orderList] param o_id {}", o_id);
+		List<OrderDetail> orderDetailList=orderservice.selectOrderDetailListByOid(o_id);
+		
+		String username=user.getUsername();
+		List<Order> orderList=orderservice.selectOrderFinishedByUsrid(username);
+		
+		model.addAttribute("orderDetailList", orderDetailList);
+		model.addAttribute("orderList", orderList);
+		
 		return "/orderView/orderList";
+	}
+	
+	//주문 상세내역
+	@PostMapping("/orderDetailList")
+	public String orderDetailList(@RequestParam(name="o_id", defaultValue="0")int o_id, Model model, @AuthenticationPrincipal UserDetails user) {
+		log.debug("OrderController [orderDetailList] start");
+		log.debug("OrderController [orderList] param o_id {}", o_id);
+		List<OrderDetail> orderDetailList=orderservice.selectOrderDetailListByOid(o_id);
+		
+		model.addAttribute("orderDetailList", orderDetailList);
+		
+		return "/orderView/cartList";
 	}
 }

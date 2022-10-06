@@ -40,8 +40,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
             <section id="section_2">
                 <table id="sc2_t1">
                     <tr>
-                        <th>선택</th>
-                        <th>재료명</th>
+                        <th>번호</th>
                         <th>수량</th>
                         <th>할인/적립</th>
                         <th>구매하기</th>
@@ -54,7 +53,8 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	                        </td>
 	                        <td th:text="${orderDetail.i_name}">재료 이름</td>
 	                        <td>
-	                            <input type="number" placeholder="수량" th:value="${orderDetail.od_quantity}">
+	                        	<input type="hidden" name="i_name" th:value="${orderDetail.i_name}">
+	                            <input type="number" placeholder="수량" name="od_quantity" th:value="${orderDetail.od_quantity}">
 	                        </td>
 	                        <td>
 	                            <select>
@@ -67,7 +67,6 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	                        </td>
 	                        <td>
 	                        	<input type="hidden" name="o_id" th:value="${order.o_id}">
-	                        	<input type="hidden" name="i_name" th:value="${orderDetail.i_name}">
 	                            <input id="delete" type="submit" value="삭제하기"
 	                            onclick="javascript: form.action='/littlechef/orderView/delete';">
 	                        </td>
@@ -75,10 +74,11 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                     </tr>
                     <tr>
                     	<form method="post">
+                    		<input type="hidden" name="o_id" th:value="${order.o_id}">
                         	<td colspan="6" id="last_td">
                            		<input id="deleteall" type="submit" value="전체취소" onclick="javascript: form.action='/littlechef/orderView/deleteall';">
-                            	<input type="button" value="선택구매">
-                            	<input type="button" value="전체구매">
+                            	<input id="buy" type="submit" value="구매하기"
+	                            onclick="javascript: form.action='/littlechef/orderView/order';">
                         	</td>
                         </form>
                     </tr>

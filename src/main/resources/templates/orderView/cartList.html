@@ -12,49 +12,23 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
         </header>
         <div id="container">
             <section id="section_0">
-                <h1>장바구니 목록</h1>
+                <h1>주문 상세 목록</h1>
             </section>
             <section id="section_1">
                 <table>
                     <tr>
-                        <th>번호</th>
-                        <th>레시피명</th>
-                        <th>담은 일자</th>
-                        <th>장바구니 상세보기</th>
-                        <th>주문하기</th>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><a>매콤달콤 닭갈비</a></td>
-                        <td>2022/02/22</td>
-                        <td>
-                            <input type="button" value="상세보기">
-                        </td>
-                        <td>
-                            <input type="button" value="주문하기">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a>시저 샐러드</a></td>
-                        <td>2022/02/21</td>
-                        <td>
-                            <input type="button" value="상세보기">
-                        </td>
-                        <td>
-                            <input type="button" value="주문하기">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td><a>닭가슴살 스테이크</a></td>
-                        <td>2022/02/20</td>
-                        <td>
-                            <input type="button" value="상세보기">
-                        </td>
-                        <td>
-                            <input type="button" value="주문하기">
-                        </td>
+                        <th>재료명</th>
+                        <th>수량</th>
+                   	</tr>
+                   
+                    <tr th:each="orderDetail:${orderDetailList}">
+                    	
+                    	<td>
+                    	<input type="hidden" name="o_id" th:value="${orderDetail.o_id}">
+                    	</td>
+                        <td th:text="${orderDetail.i_name}"></td>
+                        <td th:text="${orderDetail.od_quantity}"></td>
+                        
                     </tr>
                 </table>
             </section>
