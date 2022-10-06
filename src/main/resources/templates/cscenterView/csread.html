@@ -3,7 +3,7 @@
 xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <div th:replace="/fragments/head.html :: fragment-head"></div>
-    <link rel="stylesheet" th:href="@{/css/readboard.css}">
+    <link rel="stylesheet" th:href="@{/css/csread.css}">
     <script>
 		//글 삭제
 		function deleteBoard(c_num) {
@@ -20,14 +20,6 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 			}
 		}
 	</script>
-	<style>
-	textarea{
-		 resize:none;
-	}
-	
-	
-	
-	</style>
 </head>
 <body>
     <div id="wrap">
@@ -36,7 +28,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
         </header>
         <div id="container">
         	<section id="section_0">
-        		<h1>[ 문의 ]</h1>
+        		<h1>- 고객 문의 사항 -</h1>
         	</section>
         	<section id="section_1">
         		<table>
@@ -66,16 +58,9 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 							</textarea>
 						</td>	
 					</tr>
-					<tr>
-					
 				</table>
 			<!-- 본인글인 경우 수정/삭제 -->
 				<div th:if="${#authentication.name} == ${Cscenter.m_id}" id="myboard">
-
-
-
-
-
 
  <!-- @{/board/update} -->
 					<a th:href="|javascript:deleteBoard(${Cscenter.c_num})|">문의 삭제</a>
@@ -99,12 +84,11 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 				<!-- 댓글 목록 -->
 				<table id="sc2_t2">
 					<tr th:each="Csreply : ${replylist}">
-						<td th:text="${Csreply.cr_replytext}" style="width: 400px;"></td>
-						<td th:text="${Csreply.cr_datetime}" style="width: 200px;">
-						<td style="width: 50px;">
-							
-							<span><h2>매니저</h2>
-								<a th:if="${#authentication.name} == ${Csreply.m_id}" th:href="|javascript:deleteReply(${Csreply.cr_num})|">[문의 답변 삭제]</a> <!-- 삭제하고 페이지를 돌아오는 기능 --> <!-- ${reply.boardnum} : 삭제하러 이 페이지를 떠남. 읽던 글로 돌아와야. 어떤 글을 읽고 있었는지 모르기 때문에 같이 보냄 -->
+						<td th:text="${Csreply.cr_replytext}"></td>
+						<td th:text="${Csreply.cr_datetime}">
+						<td>
+							<span>매니저
+								<a th:if="${#authentication.name} == ${Csreply.m_id}" th:href="|javascript:deleteReply(${Csreply.cr_num})|">[삭제]</a> <!-- 삭제하고 페이지를 돌아오는 기능 --> <!-- ${reply.boardnum} : 삭제하러 이 페이지를 떠남. 읽던 글로 돌아와야. 어떤 글을 읽고 있었는지 모르기 때문에 같이 보냄 -->
 							</span>
 						</td>
 					</tr>

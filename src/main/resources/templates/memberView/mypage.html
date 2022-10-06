@@ -26,37 +26,15 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                     <tr>
                         <td>당신의 등급은 <span>A</span>등급입니다.</td>
                         <td>
-                            <h1><a th:href="@{/memberView/coupon}">보유쿠폰</a></h1>
+                            <h1><a th:href="@{/memberView/coupon}">쿠폰 확인하기</a></h1>
                         </td>
                         <td>
-                            <h1>주문이력보기</h1>                            
+                            <h1><a th:href="@{/orderView/orderList}">주문이력보기</a></h1>                            
                         </td>
                     </tr>
                 </table>
             </section>
-            <section id="section_2">
-                <h1>최근 주문목록</h1>
-                <table>
-                    <tr>
-                        <th>레시피 명</th>
-                        <td>0001</td>
-                        <td><a href="#">갈릭 닭가슴살</a></td>
-                        <td>주문일자: 2022/02/22</td>
-                    </tr>
-                    <tr>
-                        <th>레시피 명</th>
-                        <td>0002</td>
-                        <td><a href="#">페퍼 솔트 닭가슴살</a></td>
-                        <td>주문일자: 2022/02/21</td>
-                    </tr>
-                    <tr>
-                        <th>레시피 명</th>
-                        <td>0003</td>
-                        <td><a href="#">민트 초코 닭가슴살</a></td>
-                        <td>주문일자: 2022/02/20</td>
-                    </tr>
-                </table>
-            </section>
+            
             <section id="section_3">
                  <div th:replace="/fragments/section_3.html :: fragment-section_3"></div>         
             </section>

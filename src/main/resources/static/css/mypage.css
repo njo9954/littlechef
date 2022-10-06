@@ -53,6 +53,17 @@
     font-weight: bold;
     color: #b37b0e;
 }
+
+#section_1 table td h1 a {
+	color: #027d62;
+}
+
+#section_1 table td h1 a:hover {
+	color: #014A3A;
+	text-decoration: underline;
+	cursor: pointer;
+	transition: 0.5s;
+}
 /* Section 2 */
 
 #container #section_2 {

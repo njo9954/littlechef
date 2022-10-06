@@ -19,21 +19,23 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <form method="post" th:action="@{/orderView/orderDetailList}">
                 <table>
                     <tr>
+                    	<th></th>
                         <th>번호</th>
+                        <th>주문일시</th>
                         <th>결제금액</th>
-                        <th>상세보기</th>
+                        <!-- <th>상세보기</th> -->
                     </tr>
 
                     <tr th:each="orderList:${orderList}">
                     	<td>
-                    	<input type="hidden" id="o_id" name="o_id" th:value="${orderList.o_id}">
+                    		<a><input type="hidden" id="o_id" name="o_id" th:value="${orderList.o_id}"></a>
                     	</td>
                         <td th:text="${orderList.o_id}"></td>
                         <td th:text="${orderList.o_date}"></td>
                         <td th:text="${orderList.o_price}"></td>
-                     	<td>
+                     	<!-- <td>
                             <input type="submit" value="상세보기">
-                        </td>
+                        </td> -->
                     </tr>
                 </table>
                 </form>

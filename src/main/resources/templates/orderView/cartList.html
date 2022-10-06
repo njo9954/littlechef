@@ -17,14 +17,14 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
             <section id="section_1">
                 <table>
                     <tr>
+                    	<th></th>
                         <th>재료명</th>
                         <th>수량</th>
                    	</tr>
                    
                     <tr th:each="orderDetail:${orderDetailList}">
-                    	
                     	<td>
-                    	<input type="hidden" name="o_id" th:value="${orderDetail.o_id}">
+                    		<input type="hidden" name="o_id" th:value="${orderDetail.o_id}">
                     	</td>
                         <td th:text="${orderDetail.i_name}"></td>
                         <td th:text="${orderDetail.od_quantity}"></td>
