@@ -12,14 +12,13 @@ import com.project.domain.Csreply;
 
 @Mapper
 public interface CsDAO {
-	//글 저장
-			public int writeBoard(Cscenter cscenter);
-			//글 읽기
-			public Cscenter selectOne(int c_num); // boardnum
+			
+	public int cswrite(Cscenter cscenter);   // 문의 저장
+			
+			public Cscenter selectOne(int c_num); // boardnum  문의 읽기 
 			
 
-			// 후기 게시판
-			public int count(HashMap<String, String> map);
+			public int count(HashMap<String, String> map); // 문의 게시판 
 			
 			public ArrayList<Cscenter> selectAll(HashMap<String, String> map, RowBounds rb);
 			
@@ -37,4 +36,6 @@ public interface CsDAO {
 			public Csreply selectOneReply(int cr_num); // int replynum
 			 
 			public int deleteReply(Csreply csreply);
+
+			public int findcenter(Cscenter cscenter);
 	}

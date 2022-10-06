@@ -35,25 +35,25 @@ function cssubmit() {
                 <h1>불편 문의 접수</h1>
             </section>
             <section id="section_1">
-                <form id="cs" th:action="@{/}"  onsubmit="cssubmit();">
+                <form id="cs" th:action="@{/cscenterView/cslist}" method="post" onsubmit="cssubmit();">
                     <table>
-                        <tr>
+                        <!-- <tr>
                             <td>
-                                <input type="hidden" name="m_id" id="m_id" th:value="@{m_id}">
                                 <input type="hidden" name="c_num" id="c_num" th:value="@{c_num}">
+                                <input type="hidden" name="m_id" id="m_id" th:value="@{m_id}">
                             </td> 
-                        </tr>
+                        </tr> -->
                         <tr>
                             <th>문의분류</th>
                             <td>
-                                <select name="op">
+                                <select name="op" id="op">
   								 <option th:value="op1" selected="selected">기타/불편사항</option>
  								 <option th:value="op2">레시피문의</option>
  								 <option th:value="op3">쿠폰/이벤트 문의</option>
  								 <option th:value="op4">회원관련문의</option>
  								 <option th:value="op5">결제오류</option>
  								 <option th:value="op6">악성후기신고</option>
- 								 <option th:value="op6">악성댓글신고</option>
+ 								 <option th:value="op7">악성댓글신고</option>
 								</select>
                             </td>
                         </tr>

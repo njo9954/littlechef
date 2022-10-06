@@ -5,7 +5,11 @@
 <mapper namespace="com.project.dao.CsDAO">
 
 <!-- 게시글 저장 (파일명 나중에 추가) -->
-<insert id="writeBoard" parameterType="Cscenter">
+<insert id="cswrite" parameterType="Cscenter">
+	<selectKey keyProperty="c_num" resultType="Integer" order="BEFORE">
+			SELECT site_cscenter_seq.currval FROM dual
+		</selectKey>
+	
 	INSERT INTO site_cscenter
 		(
 			c_num
@@ -20,7 +24,148 @@
 			, #{c_title}
 			, #{c_contents}
 		)
+		
+</insert>
+<!-- 글개수 -->
+<select id="count" parameterType="map" resultType="int">
+	SELECT 
+		count(*)
+	FROM
+		site_board
+	<if test="type != null and searchWord != null">
+	<where>
+		<if test="type == 'c_title'">
+			UPPER(c_title) like '%' || UPPER(#{searchWord}) || '%'
+		</if>
+		<if test="type == 'b_contents'">
+			UPPER(c_contents) like '%' || UPPER(#{searchWord}) || '%'
+		</if>
+		<if test="type == 'm_id'">
+			UPPER(m_id) like UPPER(#{searchWord})
+		</if>
+		<if test="type == 'all'">
+			UPPER(c_title) like '%' || UPPER(#{searchWord}) || '%'
+			OR UPPER(c_contents) like '%' || UPPER(#{searchWord}) || '%'
+			OR UPPER(m_id) like UPPER(#{searchWord})
+		</if>
+	</where>
+	</if>
+</select>
+
+<!-- 글목록 -->
+<select id="selectAll" parameterType="map" resultType="Cscenter">
+	SELECT 
+		c_num
+		, c_title
+		, m_id
+		, TO_CHAR(c_datetime, 'YY-MM-DD-HH:MI') AS c_datetime
+	FROM
+		site_cscenter
+		<!-- 전달된 값에 따라서 sql 변경 -> 동적 sql --> <!-- 검색어가 넘어왔는지부터 확인 -->
+	<if test="type != null and searchWord != null"> <!-- true, false가 나오는 조건식 --> <!-- vo : 변수명 map : key -->
+	<where> <!-- 조건이 하나도 안남으면 where도 지움 -->
+		<if test="type == 'c_title'"> <!-- 넘어왔다는 게 확인이 되면 타입에 들어있는 문자열 내용을 보면 알 수 있음 -> if문으로 확인 -->
+			UPPER(c_title) like '%' || UPPER(#{searchWord}) || '%'
+		</if>
+		<if test="type == 'b_contents'">
+			UPPER(c_contents) like '%' || UPPER(#{searchWord}) || '%'
+		</if>
+		<if test="type == 'm_id'">
+			UPPER(m_id) like UPPER(#{searchWord})
+		</if>
+		<if test="type == 'all'">
+			UPPER(c_title) like '%' || UPPER(#{searchWord}) || '%'
+			OR UPPER(c_contents) like '%' || UPPER(#{searchWord}) || '%'
+			OR UPPER(m_id) like UPPER(#{searchWord})
+		</if>
+	</where>
+	</if>
+	ORDER BY
+		c_num DESC
+</select>
+
+
+<select id="selectOne" parameterType="int" resultType="Cscenter">
+	SELECT * FROM site_cscenter WHERE c_num = #{c_num}
+</select>
+
+
+<select id="selectTotal" resultType="int">
+	SELECT COUNT(c_num)
+	FROM site_cscenter
+</select>
+
+<delete id="delete" parameterType="Cscenter">
+	DELETE FROM site_cscenter
+	WHERE
+		c_num = #{c_num}
+		AND
+		m_id = #{m_id}
+</delete>
+
+
+<update id="csupdate" parameterType="Cscenter">
+	UPDATE site_cscenter
+	SET
+		c_title = #{c_title}
+		, c_contents = #{c_contents}
+	WHERE
+		c_num = #{c_num}
+		AND
+		m_id = #{m_id}
+</update>
+
+<insert id="insertReply" parameterType="Csreply">
+	INSERT INTO site_cscenter_reply
+	(
+	cr_num
+	, c_num
+	, m_id
+	, cr_replytext
+	)
+	VALUES
+	(
+	site_cscenter_reply_seq.NEXTVAL
+	, #{c_num}
+	, #{c_id}
+	, #{cr_replytext}
+	)
 </insert>
 
 
+<select id="selectReply" parameterType="int" resultType="Csreply">
+	SELECT * FROM site_cscenter_reply WHERE c_num = #{c_num} ORDER BY cr_datetime DESC
+</select>
+
+<select id="selectOneReply" parameterType="int" resultType="Csreply">
+	SELECT * FROM site_cscenter_reply WHERE cr_num = #{cr_num}
+</select>
+
+<delete id="deleteReply" parameterType="Csreply">
+	DELETE FROM site_cscenter_reply
+
+	WHERE
+	cr_num = #{cr_num}
+	AND
+	m_id = #{m_id}
+</delete>
+<insert id="findcenter" parameterType="Cscenter">
+INSERT INTO site_cscenter 
+(
+			c_num
+			, m_id
+			, c_title
+			, c_contents
+			, c_
+)
+		VALUES
+(
+			site_cscenter_seq.NEXTVAL
+			, #{m_id}
+			, #{c_title}
+			, #{c_contents}
+)
+
+
+</insert>
 </mapper>

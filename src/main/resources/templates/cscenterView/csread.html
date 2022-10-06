@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <div th:replace="/fragments/head.html :: fragment-head"></div>
+    <link rel="stylesheet" th:href="@{/css/readboard.css}">
+    <script>
+		//글 삭제
+		function deleteBoard(c_num) {
+			if (confirm('삭제하시겠습니까?')) {
+				location.href = 'delete?c_num=' + c_num; // get방식
+			}
+		} 
+		function vaildation() {
+			
+		}
+		function deleteReply(cr_num) { 
+			if(confirm('댓글을 삭제하시겠습니까?')) {
+				location.href = 'deleteReply?br_num=' + cr_num;
+			}
+		}
+	</script>
+	<style>
+	textarea{
+		 resize:none;
+	}
+	
+	
+	
+	</style>
+</head>
+<body>
+    <div id="wrap">
+        <header id="header">
+             <div th:replace="/fragments/header.html :: fragment-header"></div>
+        </header>
+        <div id="container">
+        	<section id="section_0">
+        		<h1>[ 문의 내용 ]</h1>
+        	</section>
+        	<section id="section_1">
+        		<table>
+        			<tr>
+        				<td>
+        					<a th:href="@{/}"><input type="button" value="메인 홈페이지"></a>
+        					<a th:href="@{/cscenterView/cslist}"><input type="button" value="목록으로 이동"></a>
+        				</td>
+        			</tr>
+        		</table>
+        	</section>
+        	<section id="section_2">
+        		<table id="sc2_t1">
+					<tr>
+						<th>작성일</th>
+						<td th:text="${Cscenter.c_datetime}"></td>
+					</tr>
+					<tr>
+						<th>문의 제목</th>
+						<td th:text="${Cscenter.c_title}"></td>
+					</tr>
+					<tr>
+						<th style="vertical-align: middle;">내용</th>
+						<td>
+							<textarea rows="30" cols="120" th:value="${Cscenter.c_contents}" th:text="${Cscenter.c_contents}" id="tbl_cont"
+							readonly="readonly">
+							</textarea>
+						</td>	
+					</tr>
+					<tr>
+					
+				</table>
+			<!-- 본인글인 경우 수정/삭제 -->
+				<div th:if="${#authentication.name} == ${Cscenter.m_id}" id="myboard">
+					<a th:href="@{/cscenterView/csupdate(c_num=${Cscenter.c_num})}">수정</a> <!-- @{/update(boardnum=${board.
+
+
+
+
+
+
+num})} --> <!-- @{/board/update} -->
+					<a th:href="|javascript:deleteBoard(${Cscenter.c_num})|">삭제</a>
+				</div>
+				<!-- 로그인한 경우 댓글 작성 폼 -->
+				<div sec:authorize="isAuthenticated()">
+					<form th:action="@{/cscenterView/csreplyWrite}" method="post" onsubmit="return vaildation();">
+					<table id="writereply">
+						<tr>
+							<th>
+							댓글 달기 <input type="hidden" name="c_num" th:value="${Cscenter.c_num}"> <!-- 글번호 자동으로 넣어서 감 -->
+							</th>
+							<td>
+								<input type="text" name="cr_replytext" id="cr_replytext">
+								<input type="submit" value="확인">
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+				<!-- 댓글 목록 -->
+				<table id="sc2_t2">
+					<tr th:each="Csreply : ${csreplylist}">
+						<th th:text="${Csreply.m_id}"></th>
+						<td th:text="${Csreply.cr_replytext}" style="width: 400px;"></td>
+						<td th:text="${Csreply.cr_datetime}" style="width: 200px;">
+						<td style="width: 50px;">
+							
+							<span th:if="${#authentication.name} == ${reply.m_id}">
+								<a th:href="|javascript:deleteReply(${reply.cr_num})|">[삭제]</a> <!-- 삭제하고 페이지를 돌아오는 기능 --> <!-- ${reply.boardnum} : 삭제하러 이 페이지를 떠남. 읽던 글로 돌아와야. 어떤 글을 읽고 있었는지 모르기 때문에 같이 보냄 -->
+							</span>
+						</td>
+					</tr>
+				</table>
+        	</section>
+            <section id="section_3">
+                 <div th:replace="/fragments/section_3.html :: fragment-section_3"></div>         
+            </section>
+            <section id="section_4">
+                 <div th:replace="/fragments/section_4.html :: fragment-section_4"></div>
+            </section>
+        </div>
+        <footer id="footer">
+             <div th:replace="/fragments/footer.html :: fragment-footer"></div>
+        </footer>
+        <aside id="aside">
+             <div th:replace="/fragments/aside.html :: fragment-aside"></div>
+        </aside>
+    </div>
+</body>
+</html>
