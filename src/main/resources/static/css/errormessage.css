@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+/* Container Contents */
+
+#container #section_0 {
+    max-width: 144rem;
+    margin: 1rem auto;
+}
+
+#section_0 h1 {
+    font-size: 4rem;
+    padding: 5rem;
+    text-align: center;
+    border-bottom: 1px solid #014A3A;
+    color:#b37b0e;
+}
+
+#section_0 h1:hover {
+    color: white;
+    background-color: #014A3A;
+}
