@@ -1,10 +1,14 @@
 package com.project.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.project.domain.Food;
 import com.project.service.FoodService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +33,7 @@ public class MainController {
 	 * @param searchWord 검색어
 	 */
 	
-	@PostMapping("search")
+	@PostMapping("/search")
 	public String postSearch(Model model, String searchWord) {
 		log.debug("postSearch() called");
 		log.debug("searchWord : {}", searchWord);

@@ -17,12 +17,15 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 		<section id ="section_1">
 			<table>
 				<tr>
-					<th>번호</th>
+					<th>레시피 번호</th>
 					<th>레시피명</th>
 				</tr>
 				<tr th:each="food:${foodlist}">
-					<td></td>
-					<td></td>
+					<td th:text="${food}">
+					</td>
+					<td>
+					카레
+					</td>
 				</tr>
 			</table>
 		</section>	

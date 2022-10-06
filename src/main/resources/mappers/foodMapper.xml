@@ -53,7 +53,7 @@ INSERT INTO SITE_FOOD
 		site_food
 	<where>
 		<if test="searchWord != null">
-			food_name like '%' || #{searchWord} || '%'
+			food_name like '%' || #{food_name} || '%'
 		</if>
 	</where> 
 </select>

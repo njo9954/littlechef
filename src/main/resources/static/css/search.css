@@ -50,3 +50,7 @@
     text-align: center;
     border: 1px dotted #b37b0e;
 }
+
+#section_1 table td:first-child {
+	width: 15rem;
+}
