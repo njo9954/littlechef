@@ -10,8 +10,6 @@
 		*
 	from 
 		site_food
-	ORDER BY
-		food_id DESC
 	<!-- where
 		food_name like '%' || upper(#{searchWord}) || '%' -->
 </select>
