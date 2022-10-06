@@ -15,25 +15,35 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <h1>무엇을 도와드릴까요?</h1>
             </section>
             <section id="section_1">
+              <div id="cs_input">
+              	<a th:href="@{/cscenterView/cswrite}" id="write_button">
+                	<input type="button" value="문의 작성하기">
+                </a>
+              </div>
               <form id="writeform" th:action="@{/cscenterView/cslist}" method="post"
 						onsubmit="return validation();">
             	<table>
             		<thead>
             			<tr>
-            				<th id="thead" colspan="2">Q & A</th>
-            		<th><a th:href="@{/cscenterView/cswrite}" id="write_button">
-                    			<input type="button" value="문의 작성하기"></a></th>
+            				<th id="thead" colspan="3">Q & A</th>
             			</tr>
             		</thead>
             		<tbody>
             			<tr>
-
+            				<th>문의 번호</th>
 	                		<th>문의 제목</th>
 	                		<th>작성 시간</th>
             			</tr>
             			<tr th:each=" cslist:${cslist}">
-                        <td><a th:text="${cslist.c_title}" th:href="@{/cscenterView/csread(c_num=${cslist.c_num})}"></a></td>
-                      	<td th:text="${cslist.c_datetime}" class="center"></td>
+            			<td>
+            				<a th:text="${cslist.c_num}"></a>
+            			</td>
+                        <td>
+                        	<a th:text="${cslist.c_title}" th:href="@{/cscenterView/csread(c_num=${cslist.c_num})}"></a>
+                        </td>
+                      	<td  class="center">
+                      		<a th:text="${cslist.c_datetime}"></a>
+                      	</td>
                     </tr>
             		</tbody>
             	</table>
