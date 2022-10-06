@@ -31,7 +31,7 @@
 	SELECT 
 		count(*)
 	FROM
-		site_board
+		site_cscenter
 	<if test="type != null and searchWord != null">
 	<where>
 		<if test="type == 'c_title'">
@@ -67,7 +67,7 @@
 		<if test="type == 'c_title'"> <!-- 넘어왔다는 게 확인이 되면 타입에 들어있는 문자열 내용을 보면 알 수 있음 -> if문으로 확인 -->
 			UPPER(c_title) like '%' || UPPER(#{searchWord}) || '%'
 		</if>
-		<if test="type == 'b_contents'">
+		<if test="type == 'c_contents'">
 			UPPER(c_contents) like '%' || UPPER(#{searchWord}) || '%'
 		</if>
 		<if test="type == 'm_id'">
@@ -127,7 +127,7 @@
 	(
 	site_cscenter_reply_seq.NEXTVAL
 	, #{c_num}
-	, #{c_id}
+	, #{m_id}
 	, #{cr_replytext}
 	)
 </insert>
@@ -156,7 +156,6 @@ INSERT INTO site_cscenter
 			, m_id
 			, c_title
 			, c_contents
-			, c_
 )
 		VALUES
 (
