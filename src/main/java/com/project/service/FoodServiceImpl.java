@@ -68,8 +68,8 @@ public class FoodServiceImpl implements FoodService {
 	}
 
 	@Override
-	public String search(String searchWord) {
-		String result = fooddao.search(searchWord);
+	public ArrayList<Food> search(String searchWord) {
+		ArrayList<Food> result = fooddao.search(searchWord);
 		return result;
 	}
 

@@ -37,7 +37,7 @@ public class MainController {
 	public String postSearch(Model model, String searchWord) {
 		log.debug("postSearch() called");
 		log.debug("searchWord : {}", searchWord);
-		String foodlist =  service.search(searchWord);
+		ArrayList<Food> foodlist =  service.search(searchWord);
 		model.addAttribute("foodlist", foodlist);
 		return "search";
 	}

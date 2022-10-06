@@ -21,10 +21,9 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 					<th>레시피명</th>
 				</tr>
 				<tr th:each="food:${foodlist}">
-					<td th:text="${food}">
+					<td th:text="${food.food_id}">
 					</td>
-					<td>
-					카레
+					<td th:text="${food.food_name}">
 					</td>
 				</tr>
 			</table>

@@ -17,7 +17,7 @@ public interface FoodDAO {
 
 	int writeFood(Food food);
 
-	String search(String searchWord);
+	ArrayList<Food> search(String searchWord);
 
 	ArrayList<Board> selectboard(int food_id);
 

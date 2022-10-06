@@ -47,7 +47,7 @@ INSERT INTO SITE_FOOD
 		SELECT site_food_seq.currval FROM dual
 	</selectKey>
 </insert>
-<select id="search" parameterType="String" resultType="String">
+<select id="search" parameterType="String" resultType="Food">
 	select *
 	from 
 		site_food

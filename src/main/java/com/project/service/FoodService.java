@@ -14,7 +14,7 @@ public interface FoodService {
 	
 	int writeFood(Food food, String[] arrIname, String[] arrQty) throws Exception ;
 	//레시피 찾기
-	String search(String searchWord);
+	ArrayList<Food> search(String searchWord);
 
 	ArrayList<Board> selectboard(int food_id);
 	
