@@ -80,7 +80,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 						</tr>
 					</table>
 				</form>
-			</div>
+			
 				<!-- 댓글 목록 -->
 				<table id="sc2_t2">
 					<tr th:each="Csreply : ${replylist}">
@@ -93,6 +93,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 						</td>
 					</tr>
 				</table>
+				</div>
         	</section>
             <section id="section_3">
                  <div th:replace="/fragments/section_3.html :: fragment-section_3"></div>         
