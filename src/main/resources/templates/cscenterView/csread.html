@@ -48,8 +48,8 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
         			</tr>
         		</table>
         	</section>
-        	<section id="section_2">
-        		<table id="sc2_t1" th:if="${#authentication.name} == ${Cscenter.m_id}">
+        	<section id="section_2">_
+        		<table id="sc2_t1" th:if="${#authentication.name} == ${Cscenter.m_id} or ${#authorization.expression('hasRole(''ROLE_ADMIN'')') ? true : false}">
 					<tr>
 						<th>작성일</th>
 						<td th:text="${Cscenter.c_datetime}"></td>
@@ -103,8 +103,8 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 						<td th:text="${Csreply.cr_datetime}" style="width: 200px;">
 						<td style="width: 50px;">
 							
-							<span th:if="${#authentication.name} == ${Csreply.m_id}"><h2>매니저</h2>
-								<a th:href="|javascript:deleteReply(${Csreply.cr_num})|">[문의 답변 삭제]</a> <!-- 삭제하고 페이지를 돌아오는 기능 --> <!-- ${reply.boardnum} : 삭제하러 이 페이지를 떠남. 읽던 글로 돌아와야. 어떤 글을 읽고 있었는지 모르기 때문에 같이 보냄 -->
+							<span><h2>매니저</h2>
+								<a th:if="${#authentication.name} == ${Csreply.m_id}" th:href="|javascript:deleteReply(${Csreply.cr_num})|">[문의 답변 삭제]</a> <!-- 삭제하고 페이지를 돌아오는 기능 --> <!-- ${reply.boardnum} : 삭제하러 이 페이지를 떠남. 읽던 글로 돌아와야. 어떤 글을 읽고 있었는지 모르기 때문에 같이 보냄 -->
 							</span>
 						</td>
 					</tr>
